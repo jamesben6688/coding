@@ -1,4 +1,9 @@
 def unpack(arr):
+    """
+    Given an array representing run-length encoded values, write an iterator to unpack it.
+    :param arr:
+    :return:
+    """
     ans = []
     i = 0
     while i < len(arr):

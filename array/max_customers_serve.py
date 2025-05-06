@@ -1,5 +1,11 @@
 class Solution:
     def max_customers(self, arr, init):
+        """
+
+        :param arr:
+        :param init:
+        :return:
+        """
         left = 0
         mx = 0
 

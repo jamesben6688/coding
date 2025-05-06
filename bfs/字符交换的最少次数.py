@@ -1,4 +1,6 @@
 """
+https://www.1point3acres.com/bbs/thread-921396-1-1.html
+
 第一轮是minimumstepsofswappingstring：inputstring:dcbaexpectstring:abcdoutput：howmanyswapneeded
 要求一次只能挑一个char只能和左右相邻的char换位置我给的解法用BFS类似wordladder
 当时面试官引导的解法是:从头遍历inputstring然后计算步数
