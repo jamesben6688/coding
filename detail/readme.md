@@ -71,6 +71,16 @@ given a couple routers (list of coordinates), and sender , receiver.
 determine if a message from sender can be received by receiver. A message can be sent to the neighbors 
 within 10 feets
 
+一堆路由器问你一个路由器发出的message能不能被第二个路由器收到
+如果转发完一个message，
+这个路由器就会被shut down怎么搞
+follow up是如果路由器太多了，内存装不下怎么搞
+https://github.com/jamesben6688/coding/blob/main/bfs/%E8%B7%AF%E7%94%B1%E5%99%A8.py
+
+在一个grid里面有好多路由器，（每个路由器在一个坐标的位置）， 然后两个路由器相距10以内被视为相连，
+然后路由器可以通过相连的路由器到达新的路由器，给两个路由器看是否能够相连， 蛮简单的graph， 
+follow up 问如果只有最近的路由器被视为相连要怎么改，还有如果grid太大怎么改，
+
 9. 一个一维数组[3,10,2,12] 判断从起始点0到最后终点的最大分数，每次跳跃格数任意（1格或者直接跳到最后），
 score = 目的地的 score * distance，比如直接跳到最后分数是 12*3 = 36， 如果一格格跳是10+2+12 = 24。
 用dp做的，发现greedy也可以
@@ -1192,12 +1202,6 @@ https://github.com/jamesben6688/coding/blob/main/topo_sort/%E5%87%BD%E6%95%B0%E8
     1    1
       1   1
 答案也是3
-
-187. 一堆路由器问你一个路由器发出的message能不能被第二个路由器收到
-如果转发完一个message，
-这个路由器就会被shut down怎么搞
-follow up是如果路由器太多了，内存装不下怎么搞
-https://github.com/jamesben6688/coding/blob/main/bfs/%E8%B7%AF%E7%94%B1%E5%99%A8.py
 
 188. 给你一棵树的root，问你这棵树的同一层有没有相同value的节点
 
@@ -3073,10 +3077,6 @@ bfs/dfs+mem，但小哥一直问哪里可以优化
 
 572. 1048
 Follow up是问如果去掉某一个string以后chain的长度会有什么变化
-
-573. 在一个grid里面有好多路由器，（每个路由器在一个坐标的位置）， 然后两个路由器相距10以内被视为相连，
-然后路由器可以通过相连的路由器到达新的路由器，给两个路由器看是否能够相连， 蛮简单的graph， 
-follow up 问如果只有最近的路由器被视为相连要怎么改，还有如果grid太大怎么改，
 
 574. 是给两个数组，比如说[B, C, A, D]和[A, D, C, B]，后面的数组是这些字母的新order， 
 问使用bubble sort的话需要最少多少步能够从第一个array变成第二个，同样建了给图。。。然后之前忘了bubble sort是啥。。。
