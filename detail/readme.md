@@ -61,8 +61,15 @@ https://github.com/jamesben6688/coding/blob/main/str/str_map.py
 8. router 的range问题，比如router是 Router A [0,0] , Router B[0,8], Router C[10,8], Router D [0,28] R = 10, 
 输入start router和end router，返回是否能从start传递到end，每次传递只能在range内，这里这个distance大叔说manhattan distance就可以。 
 follow up是 比如router会优先传递给最近的
+
+有个startRouter, 有个endRouter，有个RouterLocation Array，有每个Router可以connect的range。
+看是否可以从start connect to end
 https://github.com/jamesben6688/coding/blob/main/bfs/my_router.py
 https://github.com/jamesben6688/coding/blob/main/bfs/router.py
+
+given a couple routers (list of coordinates), and sender , receiver. 
+determine if a message from sender can be received by receiver. A message can be sent to the neighbors 
+within 10 feets
 
 9. 一个一维数组[3,10,2,12] 判断从起始点0到最后终点的最大分数，每次跳跃格数任意（1格或者直接跳到最后），
 score = 目的地的 score * distance，比如直接跳到最后分数是 12*3 = 36， 如果一格格跳是10+2+12 = 24。
@@ -2152,11 +2159,7 @@ Example 2:
 
 Input: ["o", "or", "ord", "word", "world", "p", "ap", "ape", "appe", "apple", "apples"]
 Output: ["p", "ap", "ape", "appe", "apple", "apples"]
-follow up: without start, 
-
-368. given a couple routers (list of coordinates), and sender , receiver. 
-determine if a message from sender can be received by receiver. A message can be sent to the neighbors 
-within 10 feets
+follow up: without start,
 
 369. file system, 要求实现一个function getEntitySizeByEntityId(id). 给了一个json格式的Entity例子，可以是folder，
 可以是文件，如果是folder，会有child的filed，如果是文件，会有文件大小，先问如果parse这个json，有什么exception是需要考虑的，
@@ -3226,9 +3229,6 @@ Iter class还要写出hasNext和next method。这里可以把之前建好的stri
 follow up：因为给的Node的children 是个node array，如果换成hashmap会怎么样
 follow up：如果换成换hashMap的down side是什么
 follow up：在memory层面还能如何优化？
-
-611.有个startRouter, 有个endRouter，有个RouterLocation Array，有每个Router可以connect的range。
-看是否可以从start connect to end
 
 612. A function which takes text and a width (int) and returns the number of lines that the text would take on the page.
 Example:
