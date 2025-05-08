@@ -121,7 +121,9 @@ e.g.,[(“1”, “Main”, “San Jose”, “CA”), ("1", "Main", "Austin", "
 	query = (“1”, “Main”, “San Jose”, None) --> found match
 	query = (“1”, “Main”, None, None) --> found match
 	query = (“22”, “Main”, “San Jose”, “CA”) --> no match
-	
+   给一个address book [(street number, street name, city name, state name), ...], 
+然后再给一个query来找是否在adress book中出现，query中可能有NULL。如果能吧非NULL的query里的内容全都match到则返回true。用字典树做。
+
 https://github.com/jamesben6688/coding/blob/main/tire/street_match.py
 	
 13. Given an array representing run-length encoded values, write an iterator to unpack it.
@@ -3931,9 +3933,6 @@ range [i, j] （闭区间），返回 list 在这个 index range 里面最小的
 777. 1110
 
 778. LFU 变体
-
-779. 给一个address book [(street number, street name, city name, state name), ...], 
-然后再给一个query来找是否在adress book中出现，query中可能有NULL。如果能吧非NULL的query里的内容全都match到则返回true。用字典树做。
 
 780. 从数组中找出k个数，使得k个数组成的数最大，这k个数要保持原来的顺序
 
