@@ -2268,6 +2268,9 @@ Step 2: 随机选择一个有效的X
 Step 3: 对step 2 选择的X 随机选择一个有效的方向 （4 directions）
 Step 4: 对随机选择的X 随机选择的方向 延伸标记O 和 X
 Step 5: 如果还有可以选择的X， 那么重复Step 2
+https://github.com/jamesben6688/coding/blob/main/maze/dfs_generate_maze.py
+https://github.com/jamesben6688/coding/blob/main/maze/prim_maze_generation.py
+https://github.com/jamesben6688/coding/blob/main/maze/prim_maze_gene_2.py
 
 385. string substitution,
 input是一个string 比如%HOME%/usr/1， 然后一个map HOME -> /home/%USER% USER -> abc
