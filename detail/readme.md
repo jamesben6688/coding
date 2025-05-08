@@ -147,6 +147,7 @@ https://github.com/jamesben6688/coding/blob/main/dfs/add_operators.py
 https://github.com/jamesben6688/coding/blob/main/dfs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B7%BB%E5%8A%A0%E7%AC%A6%E5%8F%B7%E7%94%9F%E6%88%90%E7%AD%89%E5%BC%8F.py
 
 16. tree，找到所有满足条件的node
+树的节点遍历BDS/DFS 过程中加“符合条件”的判断
 
 17. 01矩阵求最大长方形面积
 https://github.com/jamesben6688/coding/blob/main/mono_stack/max_rect_area.py
