@@ -60,7 +60,7 @@ https://github.com/jamesben6688/coding/blob/main/str/str_map.py
 
 8. router 的range问题，比如router是 Router A [0,0] , Router B[0,8], Router C[10,8], Router D [0,28] R = 10, 
 输入start router和end router，返回是否能从start传递到end，每次传递只能在range内，这里这个distance大叔说manhattan distance就可以。 
-follow up是 比如router会优先传递给最近的
+follow up是 比如router会优先传递给最近的。 （10，8）是坐标 它和范围10以内的其他router是connected 问从start能不能走到end
 
 有个startRouter, 有个endRouter，有个RouterLocation Array，有每个Router可以connect的range。
 看是否可以从start connect to end
@@ -84,9 +84,6 @@ follow up 问如果只有最近的路由器被视为相连要怎么改，还有�
 9. 一个一维数组[3,10,2,12] 判断从起始点0到最后终点的最大分数，每次跳跃格数任意（1格或者直接跳到最后），
 score = 目的地的 score * distance，比如直接跳到最后分数是 12*3 = 36， 如果一格格跳是10+2+12 = 24。
 用dp做的，发现greedy也可以
-（10，8）是坐标
-它和范围10以内的其他router是connected
-问从start能不能走到end
 https://github.com/jamesben6688/coding/blob/main/dp/jump_score.py
 
 10. 跟meeting room 类似，不记得具体了。
