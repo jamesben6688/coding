@@ -21,6 +21,24 @@ https://github.com/jamesben6688/coding/blob/main/binary_search/truncate_message.
 	2. 任何时候把正在排队的顾客移出list （如果客人突然不想等了）
 	3. 有桌子空出来的时候把下一桌客人安排进去
 整个题非常灵活，第三个部分可以自己定义怎样安排客人，可以严格按照桌子的容客量也可以只要小于桌子size就安排。
+   
+餐厅waitlist系统，客户会随时到来并且填写party人数，也可能随时会走。任意时刻如果有空桌，需要确定serve哪一队客人。
+其实写代码的部分很简单，讨论了下不同结构的复杂度。主要是在讨论这个系统到底要怎么实现：
+优先serve先来的客人？优先serve刚好能坐下的big party？
+展开比较多，针对每个展开的问题讨论了下使用什么样的数据结构和细节的处理。
+
+Restaurant waiting list
+Build a data structure to perform three operations (Restaurant is full initially):
+1) waitList (string customer_name, int table_size):
+Add customer with given name and table size they want to book into the waitlist
+2) leave (string customer_name):
+Customer wants to leave the waitlist so remove them.
+3) serve (int table_size):
+This means restaurant now has a free table of size equal to table_size. Find the best customer to serve from waitlist
+Best Customer: Customer whose required size is less than or equal to the table_size. If multiple customers are matching use first come first serve.
+For e.g. if waitlist has customers with these table requirements => [2, 3, 4, 5, 5, 7] and restaurant is serving table_size = 6 then best customer is index 3 (0-based indexing).
+
+https://github.com/jamesben6688/coding/blob/main/linklist/restaurant_wait_list.py
 
 6. 给你一个bookshelf 里面有 不同的书 每本书有 name，author 等， name不是唯一的 可能会重复
 	还有个需求是 整个bookshelf 包含一个bookmark，这个bookmark只指向一本书 在 removeFromShelf 和 moveFromShelf的同时 
@@ -116,12 +134,6 @@ https://github.com/jamesben6688/coding/blob/main/dfs/%E8%AE%A1%E7%AE%97%E6%9C%BA
 
 17. 01矩阵求最大长方形面积
 https://github.com/jamesben6688/coding/blob/main/mono_stack/max_rect_area.py
-
-18. 餐厅waitlist系统，客户会随时到来并且填写party人数，也可能随时会走。任意时刻如果有空桌，需要确定serve哪一队客人。
-其实写代码的部分很简单，讨论了下不同结构的复杂度。主要是在讨论这个系统到底要怎么实现：
-优先serve先来的客人？优先serve刚好能坐下的big party？
-展开比较多，针对每个展开的问题讨论了下使用什么样的数据结构和细节的处理。
-https://github.com/jamesben6688/coding/blob/main/linklist/restaurant_wait_list.py
 
 19. Consider a bank with some intial amount of money. Consider an array which represents list of transactions 
 which are going to come through customers. + means deposit - means withdrawl. Bank can choose from which customer 
@@ -606,8 +618,6 @@ follow up:
 how to move a to A and b to B
 # # . #
 a B b B
-
-80. design a waistlist for restaurants.
 
 81. 构建霍夫曼树
 
@@ -2268,6 +2278,9 @@ Step 2: 随机选择一个有效的X
 Step 3: 对step 2 选择的X 随机选择一个有效的方向 （4 directions）
 Step 4: 对随机选择的X 随机选择的方向 延伸标记O 和 X
 Step 5: 如果还有可以选择的X， 那么重复Step 2
+https://github.com/jamesben6688/coding/blob/main/maze/dfs_generate_maze.py
+https://github.com/jamesben6688/coding/blob/main/maze/prim_maze_generation.py
+https://github.com/jamesben6688/coding/blob/main/maze/prim_maze_gene_2.py
 
 385. string substitution,
 input是一个string 比如%HOME%/usr/1， 然后一个map HOME -> /home/%USER% USER -> abc
@@ -2323,17 +2336,6 @@ N, S, E, W表示东南西北, 1N2表示1在2的北边 1NW2 表示1 在2的西南
 给一个二维数组代表图里面连接的边：( (1,2) , (1,5) , (2,4) ), 返回距离最近的咖啡厅。
 以每个咖啡店为起点bfs，记录下距离，最后选取距离最短的咖啡店
 https://github.com/jamesben6688/coding/blob/main/bfs/%E6%9C%8B%E5%8F%8B%E5%88%B0%E5%92%96%E5%95%A1%E5%8E%85%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB.py
-
-402. Restaurant waiting list
-Build a data structure to perform three operations (Restaurant is full initially):
-1) waitList (string customer_name, int table_size):
-Add customer with given name and table size they want to book into the waitlist
-2) leave (string customer_name):
-Customer wants to leave the waitlist so remove them.
-3) serve (int table_size):
-This means restaurant now has a free table of size equal to table_size. Find the best customer to serve from waitlist
-Best Customer: Customer whose required size is less than or equal to the table_size. If multiple customers are matching use first come first serve.
-For e.g. if waitlist has customers with these table requirements => [2, 3, 4, 5, 5, 7] and restaurant is serving table_size = 6 then best customer is index 3 (0-based indexing).
 
 403. Given a Temperature Manager class, with functions recordTemp(int temp); and getMaxTemp(); 
 You need to record the temperature when a new temp comes in, and get the max within the last 24 hours.
