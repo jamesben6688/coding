@@ -64,7 +64,7 @@ follow up是 比如router会优先传递给最近的。 （10，8）是坐标 �
 
 有个startRouter, 有个endRouter，有个RouterLocation Array，有每个Router可以connect的range。
 看是否可以从start connect to end
-https://github.com/jamesben6688/coding/blob/main/bfs/my_router.py
+https://github.com/jamesben6688/coding/blob/main/bfs/my_router.py  
 https://github.com/jamesben6688/coding/blob/main/bfs/router.py
 
 given a couple routers (list of coordinates), and sender , receiver. 
@@ -88,28 +88,28 @@ https://github.com/jamesben6688/coding/blob/main/dp/jump_score.py
 
 10. 跟meeting room 类似，不记得具体了。
 	input:
-	1. a list of lists with three elements representing person_number，start_day, and end_day inclusively.
-	2. 最大天数
-	3.人数
-	参数 1 代表有哪些人在哪段时间不在
-	Output：
-	输出能够凑齐所有人的天数
-	四个follow-up，follow up没写code。
+	1. a list of lists with three elements representing person_number，start_day, and end_day inclusively.  
+	2. 最大天数  
+	3.人数  
+	参数 1 代表有哪些人在哪段时间不在  
+	Output：  
+	输出能够凑齐所有人的天数  
+	四个follow-up，follow up没写code。  
 	
-11. Given an array of meeting blocks for each person, each person has a range of days they are unavailable,
-	The following is a block structure:
-	It was given :
-	class block:
-	int personId;
-	int startDay;
-	int endDay;
-Find all the days where everyone is available.
-Follow up : How would you find all the days where at least P people are available.
-Second follow up : find all the periods where P people are available for atleast X consective days.
+Given an array of meeting blocks for each person, each person has a range of days they are unavailable,  
+	The following is a block structure:  
+	It was given :  
+	class block:  
+	int personId;  
+	int startDay;  
+	int endDay;  
+Find all the days where everyone is available.  
+Follow up : How would you find all the days where at least P people are available.  
+Second follow up : find all the periods where P people are available for atleast X consective days.  
 
-有空, 空闲时间
-https://github.com/jamesben6688/coding/blob/main/interval/people_available_days.py
-https://github.com/jamesben6688/coding/blob/main/swipe_line/people_available_days.py
+有空, 空闲时间  
+https://github.com/jamesben6688/coding/blob/main/interval/people_available_days.py  
+https://github.com/jamesben6688/coding/blob/main/swipe_line/people_available_days.py  
 
 
 12. 给你一个地址簿存着一系列地址，大致是 (街道号码，街道名称，城市名称，所在州) 这样的格式， 
