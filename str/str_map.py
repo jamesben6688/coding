@@ -7,8 +7,47 @@ follow up是如果给一个list，可以映射的merge起来
 
 最终，求所有连通分量（connected components），每个分量中的字符串可以互相映射，合并为一个 group。
 
-
 """
+
+from collections import defaultdict
+
+
+def normalize(s):
+    """
+
+        将字符串做成011, 001, 等的形式。
+        结尾必须是tuple
+    :param s:
+    :return:
+    """
+    char_map = {}
+    res = []
+    next_code = 0
+    for c in s:
+        if c not in char_map:
+            char_map[c] = str(next_code)
+            next_code += 1
+        res.append(char_map[c])
+    return tuple(res)
+
+
+def merge_mappable_strings(strs):
+    """
+        更优的时间O(N)
+
+    :param strs:
+    :return:
+    """
+    groups = defaultdict(list)
+    for s in strs:
+        key = normalize(s)
+        groups[key].append(s)
+    return list(groups.values())
+
+
+
+
+
 def can_map(src, tgt):
     if len(src) != len(tgt): return False
 
@@ -44,6 +83,12 @@ class UnionFind:
 
 
 def merge_strs(strs):
+    """
+        时间复杂度O(N^2*L)
+
+    :param strs:
+    :return:
+    """
     n = len(strs)
     uf = UnionFind(n)
     for i in range(n):
