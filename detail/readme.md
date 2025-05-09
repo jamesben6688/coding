@@ -186,7 +186,9 @@ GetChannel |
 给定字符串列表和每行的最大字符数，使用最大字符数格式化表格,并且不能违宽度的限制。  
 https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/format_str.py
 
-21. find all files in a tree-shape directory. how to optimize. how to find top 10 largest subdirectories.
+21. find all files in a tree-shape directory. how to optimize. how to find top 10 largest subdirectories.  
+使用Heap获取top 10
+https://github.com/jamesben6688/coding/blob/main/dfs/file_size.py
 
 22. given n tasks. 1-n. there is a pair of tasks that will result in unit test failure. 
 find the pair in fastest way. (3 methods in total, need to make assumption about how to run test)
