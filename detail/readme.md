@@ -289,11 +289,13 @@ https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lm
 36. BFS,要求记录路径
 
 37. number of island二叉树版本
+https://github.com/jamesben6688/coding/blob/main/tree/tree_islands.py
 
 38. list1 list2（长度不定）给定值K，返回一个list为删除最少元素的list2，使得list1与list2中前K个elements没有交集。
 e.g.: list1=[3,2,4,5,2], list2=[2,1,3,4], K=2----return [1, 4]
 [3, 2]与[2, 1] 删掉2 => [3, 2]与[1, 3] 删掉3=> [3, 2]与[1, 4]
-follow up: 优化复杂度
+follow up: 优化复杂度  
+原地移动, 时间O(N), 如果是多个lists, 窗口d, 也是这样
 
 39. 有个停车场，门禁记录每辆车的进出时间，时间为整数。给定时间t，返回从0到t每一时刻停车场有多少车。
 e.g.: 三辆车进出时间[[1,3], [2,5], [4,5]], t=4----return [0, 1, 2, 1, 2]
