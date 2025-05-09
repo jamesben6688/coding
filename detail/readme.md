@@ -257,14 +257,15 @@ struct Node {
 	Node* left, right, parent;  
 	int search_value, subtree_size; // Current node is counted in subtree_size so for leaf = 1.  
 }  
-
+二叉树第i小的节点
 https://github.com/jamesben6688/coding/blob/main/tree/%E7%AC%ACi%E5%A4%A7%E7%9A%84%E8%8A%82%E7%82%B9.py
-
+https://github.com/jamesben6688/coding/blob/main/tree/value%E5%92%8Csubtree%E7%9A%84%E8%8A%82%E7%82%B9%E6%80%BB%E6%95%B0%E7%9A%84%E7%AC%ACi%E5%B0%8F%E7%9A%84%E6%95%B0.py
 28. 你从A出发要去B城市，途中可能经过CDE城市  
 你有所有的火车时刻表 ex: 10:00->20:00 A C  
 
 29. 给一段string文字和行宽，要求多少lines，考虑要下一个词放不下的时候换行。
 然后一个follow up是有两个如上的string和一个公用的行宽。问怎么求并排放置时候的最小行数。
+https://github.com/jamesben6688/coding/blob/main/str/%E5%86%99%E6%BB%A1%E6%96%87%E6%9C%AC%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E8%A1%8C.py
 
 30. 给一大堆jigsaw puzzle pieces, 假设它们都是正方形的, 每一个有四个面, 每个面有一个数字 (从 -50...0...50), 
 然后如果要拼好, 每两个面的数字和都需要为0.
