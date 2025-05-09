@@ -300,12 +300,17 @@ follow up: 优化复杂度
 39. 有个停车场，门禁记录每辆车的进出时间，时间为整数。给定时间t，返回从0到t每一时刻停车场有多少车。
 e.g.: 三辆车进出时间[[1,3], [2,5], [4,5]], t=4----return [0, 1, 2, 1, 2]
 follow up如果进出时间不是整数怎么改code
+https://github.com/jamesben6688/coding/blob/main/swipe_line/%E8%BD%A6%E8%BE%86%E8%BF%9B%E5%87%BA.py  
+followup: 记录关键点, 然后用双指针比较大小 O(Nlg(N)+t)
 
 40. 17电话号码组合以及lc139单词拆分的合体，给input 一串数字，判断是否存在一个对应的字符串可以被拆成已知单词组合。
 
 41. 合并K个升序排序的item数组，item有id和 数值大小，一个数组里没有重复id，但是不同数组里可能有重复，需要自己主动考虑去重的问题。
+仍然使用堆或者归并排序, 并定义1个visited_ids的set  
 
 42. 1825可以TreeMap和Heap两个方法解决，都是要维护两组数据。更新的时候顺便算出sum。
+use a deque and sortedlist, do two bisect, add num, pop num
+https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lmt-5hhm/
 
 43. dfs 二分图， 给了两个pos 和 一个grid， grid 的给的数字代表是 elevation, 找到能流淌去两个position 的 最大值的 position
 follow up：如果pos 有多个的话 全部找出来
