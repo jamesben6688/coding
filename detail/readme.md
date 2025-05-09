@@ -236,28 +236,30 @@ int minimumValue(); // Returns smallest value in the Stack but does not pop it.
 }
 CONDITION: All three methods should be O(1) time worst case.
 
-27. Given a binary search tree with the size of the subtree for each node stored in that node, 
-and given a number i, find the ith smallest element in the tree.
-EXAMPLE:
-search value subtree size
-			44, 9
-			/	\
-		20,3 	61,5
-		/  \    / 	\
-	12,1  31,1 55,1 70,3
-					/   \ 
-				  65,1  71,1
+最小栈 https://github.com/jamesben6688/coding/blob/main/stack/min_stack.py
 
-For i=1, the answer is 12
-For i=3, the answer is 31
-For i=5, the answer is 55
-struct Node {
-	Node* left, right, parent;
-	int search_value, subtree_size; // Current node is counted in subtree_size so for leaf = 1.
-}
+27. Given a binary search tree with the size of the subtree for each node stored in that node,  
+and given a number i, find the ith smallest element in the tree.  
+EXAMPLE:  
+search value subtree size  
+			44, 9  
+			/	\  
+		20,3 	61,5  
+		/  \    / 	\  
+	12,1  31,1 55,1 70,3  
+					/   \   
+				  65,1  71,1  
+  
+For i=1, the answer is 12  
+For i=3, the answer is 31  
+For i=5, the answer is 55  
+struct Node {  
+	Node* left, right, parent;  
+	int search_value, subtree_size; // Current node is counted in subtree_size so for leaf = 1.  
+}  
 
-28. 你从A出发要去B城市，途中可能经过CDE城市
-你有所有的火车时刻表 ex: 10:00->20:00 A C
+28. 你从A出发要去B城市，途中可能经过CDE城市  
+你有所有的火车时刻表 ex: 10:00->20:00 A C  
 
 29. 给一段string文字和行宽，要求多少lines，考虑要下一个词放不下的时候换行。
 然后一个follow up是有两个如上的string和一个公用的行宽。问怎么求并排放置时候的最小行数。
@@ -4215,8 +4217,6 @@ https://github.com/jamesben6688/coding/blob/main/sortedlist/%E6%97%A5%E5%8E%86%E
 836. 中位数x到2x的数
 https://github.com/jamesben6688/coding/blob/main/sortedlist/%E8%BF%94%E5%9B%9E%E4%B8%AD%E4%BD%8D%E6%95%B0x%E5%88%B02x%E7%9A%84%E6%95%B0.py
 
-837. 最小栈
-https://github.com/jamesben6688/coding/blob/main/stack/min_stack.py
 
 838. 函数独占时间
 https://github.com/jamesben6688/coding/blob/main/stack/%E5%87%BD%E6%95%B0%E7%8B%AC%E5%8D%A0%E6%97%B6%E9%97%B4.py
