@@ -180,10 +180,11 @@ W = 70 (characters)
 S = [IsAudioBuffer, GetTimestamp, SetTimestamp, GetSampleRate, GetSampleSize, GetNumberOfChannels,
 GetNumberOfSamples, GetDataBuffer, GetChannel]
 我们可以将其格式化如下：
-IsAudioBuffer GetTimestamp SetTimestamp GetSampleRate |
-GetSampleSize GetNumberOfChannels GetNumberOfSamples GetDataBuffer |
-GetChannel |
-给定字符串列表和每行的最大字符数，使用最大字符数格式化表格,并且不能违宽度的限制。
+IsAudioBuffer GetTimestamp SetTimestamp GetSampleRate |  
+GetSampleSize GetNumberOfChannels GetNumberOfSamples GetDataBuffer |  
+GetChannel |  
+给定字符串列表和每行的最大字符数，使用最大字符数格式化表格,并且不能违宽度的限制。  
+https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/format_str.py
 
 21. find all files in a tree-shape directory. how to optimize. how to find top 10 largest subdirectories.
 

@@ -34,4 +34,4 @@ class Solution:
         return mx
 
 
-print(Solution().max_customers([1, -3, 5, -2, 1], 1))
+print(Solution().max_customers([1, -2, 5, -2, 1], 1))
