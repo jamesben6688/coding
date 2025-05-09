@@ -270,14 +270,17 @@ https://github.com/jamesben6688/coding/blob/main/str/%E5%86%99%E6%BB%A1%E6%96%87
 30. 给一大堆jigsaw puzzle pieces, 假设它们都是正方形的, 每一个有四个面, 每个面有一个数字 (从 -50...0...50), 
 然后如果要拼好, 每两个面的数字和都需要为0.
 如果一共有很多个pieces, 但不需要那么多, 怎样优化筛选出尽量少的pieces来去让电脑去组装拼图.
+他是要求给定拼图的size, 然后咱们来拼出这个特定的拼图
 
 31. 找interval intersection 比较简单， 就是找left 最大和right最小
 follow up是给定 和 Sn的interval 集合，找到 一个Q(数字集合）， 让Q满足 Q中的元素可以落在S的每一个interval中， 求Q size的最小值是多少
 
 32. 给一个chat group， 统计每一个message中用户和单词的数量， 返回发的message中用词最多的n个用户
 
-33. 输入一堆数，返回给定window size的平均数
-follow up，返回平均数的时候，忽略最大的k个数
+33. 输入一堆数，返回给定window size的平均数  
+follow up，返回平均数的时候，忽略最大的k个数  
+MK average  
+https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lmt-5hhm/
 
 34. 给两个list，一组人的出生年份，和他们的死亡年份，然后找出一定范围内的年份中间哪个年份的人口最多。当然了，出生年份和死亡年份有重叠。
 
