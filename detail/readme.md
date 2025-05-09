@@ -314,6 +314,11 @@ https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lm
 
 43. dfs 二分图， 给了两个pos 和 一个grid， grid 的给的数字代表是 elevation, 找到能流淌去两个position 的 最大值的 position
 follow up：如果pos 有多个的话 全部找出来
+给了一个matrix int[][], value代表村庄的海拔，水只能从高处流到低处，给定村庄a和b，
+请问在哪里修建水井，水井的海拔最高 对a和b分别作bfs/dfs 看看能到哪些点，都能到的点里面取最高的。
+follow up path min cost 用dijkstra
+https://github.com/jamesben6688/coding/blob/main/dijstra/%E6%9D%91%E5%BA%84%E6%8C%96%E4%BA%95.py
+
 
 44. 给一个数字 和 一个number，找出这个数字的number 有效数字
 例子: "124.23" , 2 --> 输出'120"
@@ -3676,10 +3681,6 @@ void storeTemperature(int temperature) record the temperature
 
 707. 849，follow up是要安排n个人
 
-708. 给了一个matrix int[][], value代表村庄的海拔，水只能从高处流到低处，给定村庄a和b，
-请问在哪里修建水井，水井的海拔最高 对a和b分别作bfs/dfs 看看能到哪些点，都能到的点里面取最高的。
-follow up path min cost 用dijkstra
-https://github.com/jamesben6688/coding/blob/main/dijstra/%E6%9D%91%E5%BA%84%E6%8C%96%E4%BA%95.py
 
 709. 366 794
 
