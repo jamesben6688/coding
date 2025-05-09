@@ -5,6 +5,19 @@ def wrap_dp(s1, s2, max_width):
         状态定义：
             设 dp[i][j] 表示从 s1[i:] 和 s2[j:] 开始排版，所需的最小行数。
 
+            dp[i][j]表示s1[:i] 和s2[:j] 所需的最小行数, 切s1[i], s2[j]必须放在当前行的最后一个单词
+
+            dp[i][j] = dp[i1][j1] + 1 s.t. s1[i1:i] + s2[j1:j] 能够放下。
+
+            for i in range(m):
+                for j in range(n):
+                    for i1 in range(i-1, -1, -1):
+                        early break
+                        for j1 in range(j-1, -1, -1):
+                            early break
+                            if s1[i1:i] + s2[j1:j] 能放下:
+                                dp[i][j] = min(dp[i][j], dp[i1][j1] + 1)
+
             i 是当前还没处理的 s1 中的单词位置
 
             j 是当前还没处理的 s2 中的单词位置
@@ -29,7 +42,13 @@ def wrap_dp(s1, s2, max_width):
     from functools import lru_cache
 
     @lru_cache(maxsize=None)
-    def dp(i, j):
+    def dfs(i, j):
+        """
+            O(n^2m^2(M+N))
+        :param i:
+        :param j:
+        :return:
+        """
         if i == m and j == n:
             return 0, []
 
@@ -38,16 +57,16 @@ def wrap_dp(s1, s2, max_width):
 
         for i1 in range(1, m - i + 1):
             left_chunk = s1_words[i:i+i1]
-            left_len = sum(len(w) for w in left_chunk) + (i1 - 1)
+            left_len = sum(len(w) for w in left_chunk) + (i1 - 1)  # 空格
             if left_len >= max_width:
                 break
 
             for j1 in range(1, n - j + 1):
                 right_chunk = s2_words[j:j+j1]
-                right_len = sum(len(w) for w in right_chunk) + (j1 - 1)
+                right_len = sum(len(w) for w in right_chunk) + (j1 - 1)  # 空格
                 total_len = left_len + 1 + right_len
                 if total_len <= max_width:
-                    next_lines, next_path = dp(i + i1, j + j1)
+                    next_lines, next_path = dfs(i + i1, j + j1)  # 不管是否还能放多余的单词, s1[i+i1], s2[j+j1]开始重新放1行
                     if 1 + next_lines < min_lines:
                         min_lines = 1 + next_lines
                         best_choice = [(left_chunk, right_chunk)] + next_path
@@ -56,7 +75,7 @@ def wrap_dp(s1, s2, max_width):
 
         return min_lines, best_choice if best_choice is not None else []
 
-    total_lines, path = dp(0, 0)
+    total_lines, path = dfs(0, 0)
 
     # format the output
     output_lines = []
