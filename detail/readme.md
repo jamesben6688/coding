@@ -212,6 +212,7 @@ int fibonacci(int n) {
 }
 NOTE: DO NOT USE RECURSION
 USE CONSTANT O(1) STORAGE
+矩阵快速幂: https://github.com/jamesben6688/coding/blob/main/dfs/fib.py
 
 25. Given the following implementation of a stack:
 class Stack {
