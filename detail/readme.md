@@ -258,6 +258,8 @@ struct Node {
 	int search_value, subtree_size; // Current node is counted in subtree_size so for leaf = 1.  
 }  
 
+https://github.com/jamesben6688/coding/blob/main/tree/%E7%AC%ACi%E5%A4%A7%E7%9A%84%E8%8A%82%E7%82%B9.py
+
 28. 你从A出发要去B城市，途中可能经过CDE城市  
 你有所有的火车时刻表 ex: 10:00->20:00 A C  
 
