@@ -264,7 +264,19 @@ https://github.com/jamesben6688/coding/blob/main/tree/value%E5%92%8Csubtree%E7%9
 你有所有的火车时刻表 ex: 10:00->20:00 A C  
 
 29. 给一段string文字和行宽，要求多少lines，考虑要下一个词放不下的时候换行。
-然后一个follow up是有两个如上的string和一个公用的行宽。问怎么求并排放置时候的最小行数。
+然后一个follow up是有两个如上的string和一个公用的行宽。问怎么求并排放置时候的最小行数。  
+Given a text separated by spaces and a certain margin
+How many minimal lines do you need to print everything
+Follow-up: If you have 2 texts that should be fitted into the same file and given maxwidth, return
+Example Follow-up:
+Text1 = “I have eaten”
+Text2 = “I am”
+max_width = 10
+[
+I have | I
+eaten | am
+]
+return 2
 https://github.com/jamesben6688/coding/blob/main/str/%E5%86%99%E6%BB%A1%E6%96%87%E6%9C%AC%E9%9C%80%E8%A6%81%E5%A4%9A%E5%B0%91%E8%A1%8C.py
 
 30. 给一大堆jigsaw puzzle pieces, 假设它们都是正方形的, 每一个有四个面, 每个面有一个数字 (从 -50...0...50), 
@@ -279,8 +291,13 @@ follow up是给定 和 Sn的interval 集合，找到 一个Q(数字集合）， 
 
 33. 输入一堆数，返回给定window size的平均数  
 follow up，返回平均数的时候，忽略最大的k个数  
+系统api会一直接收到返回的pin值， 给个int k， 返回过去k个pin值的average， 先确认了可以assume 返回average的call会在有k个值后发生， 收到的pin值是现实中的pin值大小一般0-1000， 所以不会overflow
+就2个function 一个add pin 一个 average ， average过了一遍queue算。。能不能更快 才反应过来 直接存一个total 每次add pin的时候更新， 这样average就变成O（1）
+第二问 有时候pin值会不稳定 所以现在计算average需要去掉一个最低值和一个最高值
+2个priorityQueue 最高最低值 加上一个hashmap保存现在在最近k个pin值及个数， 计算average的时候保证最高最低值还在现有的k pin值，不在了就弹出直到map里存在这个数字
+
 MK average  
-https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lmt-5hhm/
+https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lmt-5hhm/  
 
 34. 给两个list，一组人的出生年份，和他们的死亡年份，然后找出一定范围内的年份中间哪个年份的人口最多。当然了，出生年份和死亡年份有重叠。
 
@@ -302,6 +319,12 @@ e.g.: 三辆车进出时间[[1,3], [2,5], [4,5]], t=4----return [0, 1, 2, 1, 2]
 follow up如果进出时间不是整数怎么改code
 https://github.com/jamesben6688/coding/blob/main/swipe_line/%E8%BD%A6%E8%BE%86%E8%BF%9B%E5%87%BA.py  
 followup: 记录关键点, 然后用双指针比较大小 O(Nlg(N)+t)
+
+给你一个租车公司最近一个月的租车记录，每个记录包含字段RentalRecord (id, picktime, returntime)。问题：至少需要多少车，并且返回每个record的assignment关系（指：哪个RentalRecord分配了哪辆车）
+https://github.com/jamesben6688/coding/blob/main/heap/rent_car.py
+第一题: 可以扫描线  
+第二题: 最小堆模拟 Nlg(N)  
+Sol:sweep line+queue  
 
 40. 17电话号码组合以及lc139单词拆分的合体，给input 一串数字，判断是否存在一个对应的字符串可以被拆成已知单词组合。
 
@@ -336,57 +359,50 @@ sub_arry的所有子数组和: arr[i]的贡献为, 左边界0~i, 右边界i~n-1 
 48. maximum weight matching for biparite graph。转化成maximum flow然后用ford fulkerson求解。
 
 49. 一个公司有mangers，每个manager可能会direct管理一些人；然后这些人又可能管理其他一些员工，形成一个树状管理结构。问题：1）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的平均工资（underpaid managers)？2）计算最小需要的budget给underpaid managers提高工资，使得没有公司任何underpaid员工？3）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的median salary？
-Sol: bfs+merge sort
-
-50. 给你一个租车公司最近一个月的租车记录，每个记录包含字段RentalRecord (id, picktime, returntime)。问题：至少需要多少车，并且返回每个record的assignment关系（指：哪个RentalRecord分配了哪辆车）
-Sol:sweep line+queue
-
-51. 系统api会一直接收到返回的pin值， 给个int k， 返回过去k个pin值的average， 先确认了可以assume 返回average的call会在有k个值后发生， 收到的pin值是现实中的pin值大小一般0-1000， 所以不会overflow
-就2个function 一个add pin 一个 average ， average过了一遍queue算。。能不能更快 才反应过来 直接存一个total 每次add pin的时候更新， 这样average就变成O（1）
-第二问 有时候pin值会不稳定 所以现在计算average需要去掉一个最低值和一个最高值
-2个priorityQueue 最高最低值 加上一个hashmap保存现在在最近k个pin值及个数， 计算average的时候保证最高最低值还在现有的k pin值，不在了就弹出直到map里存在这个数字
-
-52. Given a text separated by spaces and a certain margin
-How many minimal lines do you need to print everything
-Follow-up: If you have 2 texts that should be fitted into the same file and given maxwidth, return
-Example Follow-up:
-Text1 = “I have eaten”
-Text2 = “I am”
-max_width = 10
-[
-I have | I
-eaten | am
-]
-return 2
+https://github.com/jamesben6688/coding/blob/main/trees/manager_salary.py  
+Sol: bfs+merge sort  
 
 53. Check whether 2 integers have common digits=> num_a = 9919, num_b = 2212=> Return True due to 1 in both numbers
-Follow-up: given an array of n integers, check whenether there is a path from integer a to integer b
+Follow-up: given an array of n integers, check whether there is a path from integer a to integer b
 Example:
 Start = 1 end = 20 list =[1, 20, 40, 41]
 Path = [1, 41, 40, 20]
+基本方法O(N^2)建图
+优化方法, O(N*d)建图, 每次遍历把同digit的num放到一组, 共有10组, [0-9], 然后再用dfs遍历O(V+E)
+继续优化, 在上述基础上用并查集O(N)
+https://github.com/jamesben6688/coding/blob/main/union_find/group_number.py
 
 54. summation timeseries:
 Example:
-T1 [[0, 0], [1,2], [8, 10], [15, 0] ] # at time 0, serie value becomes 0; at time 1 serie value become 2; at time 8 serie value 10 etc…
-T2 [[0, 0], [3,5], [10,4], [12, 0]]
-Output: [[0,0] [1,2] [3, 5] [8, 10] [10, 14], [12, 10], [15, 0]]
+T1 [[0, 0], [1,2], [8, 10], [15, 0] ]     
+T2 [[0, 0], [3,5], [10,4], [12, 0]]    
+# at time 0, series value becomes 0; at time 1 series value become 2; at time 8 serie value 10 etc…  
+Output: [[0,0] [1, 2] [3, 7] [8, 15] [10, 14], [12, 10], [15, 0]]    
+扫描线+map  
+https://github.com/jamesben6688/coding/blob/main/swipe_line/time_summation.py
 
-55. Logic
-Example:
-a > b
-b > c
-d < e
-Return True
+55. Logic 不等式 ineq  
+Example:  
+a > b  
+b > c  
+d < e  
+Return True  
 
-a > b
-b > c
-c > a
-Return False because third inequality cannot be done.
+a > b  
+b > c  
+c > a  
+Return False because third inequality cannot be done.  
+用dfs做  每次O(V+E). 拖布排序也是一样  
+https://github.com/jamesben6688/coding/blob/main/dfs/%E5%88%A4%E6%96%AD%E7%AD%89%E5%BC%8Fa%E5%A4%A7%E4%BA%8Eb%E6%98%AF%E5%90%A6%E6%88%90%E7%AB%8B.py
 
 56. sort an array但这个array满足一个条件, the absolute difference between the index of an element in the sorted array and the original array is less than k, k << len(arr)
 然后要求你leverage this information to speed up the sorting to outperform a general algo like quicksort
+使用大小为K的堆  
+https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/%E5%A5%87%E6%80%AA%E6%8E%92%E5%BA%8F.py  
+
 
 57. 给了一个two-dim array，有三种点，wall，empty和customer table，要求find an empty cell to place a service table so that the sum of the distance from this table to all other customer tables is shortest
+https://github.com/jamesben6688/coding/blob/main/dfs/closest_dis_customer.py      
 
 58. Assuming that each task has {id, priority}, you will receive three types of requests as a stream:
 1. New task, meaning that task {id, priority} is newly generated.
@@ -406,6 +422,7 @@ New task {6, 5}
 Pick → you should return task {1, 0}
 Pick → you should return task {6, 5}
 Pick → you should return task {4, 6}
+https://github.com/jamesben6688/coding/blob/main/heap/task_heap_hashmap.py    
 
 59. //! The electronics shop near me is creating an ecommerce site. They have a
 //! bunch of different `Item`s for sale; each item has a `Category`. These
@@ -474,6 +491,8 @@ Part2:
 Design a data structure to represent an arbitrary filter.
 
 60. Given a vector of sorted string, and a prefix, find the number of strings has the prefix
+二分法。排序字符串 前缀   
+https://github.com/jamesben6688/coding/blob/main/binary_search/sorted_str_prefix.py 
 
 61. An image is stored in a 2D byte array byte[][] image. Your task is to mirror (or reverse) this image.
 
@@ -496,8 +515,9 @@ Output:
  [11000100, 01011101, 00000011],
  [01011100, 11100111, 10001001]]
  
-follow-up 1.如果把array flatten一个1d array时怎么办；
-	2. time complexity怎么优化。
+follow-up 1.如果把array flatten一个1d array时怎么办；坐标转换(i, j) => i*n+j
+	2. time complexity怎么优化。  并行化  
+
 	
 62. 给一个键盘，一个最大距离（相邻字母在键盘上的距离），一个词，问是否可以用键盘在不超过最大距离的情况下输入这个词。
 具体：
@@ -508,27 +528,43 @@ keyboard：
 ['W', 'A', 'C', 'I', 'N'],
 ]
 word: PENCIL
-P ->(2) -> E ->(1) -> N ->(2) -> C ->(2) -> I  ->(1) -> L 可以输入return true
+P ->(2) -> E ->(1) -> N ->(2) -> C ->(2) -> I->(1) -> L 可以输入return true
 word: PACE
 P ->(2) -> A ->(1) -> C ->(3) -> E 不可以输入return false
 
-Follow up问如果按键有重复的怎么做，BFS DFS
+Follow up问如果按键有重复的怎么做，BFS DFS  
+Given a keyboard (2d-grid, each cell is a key), from a position, you can jump at most k distance (Manhatten distance) 
+to another position. Given a word, determine whether you can type the word on the keyboard.
+You can always start at the index where the first letter is.
+大概题目就是，从一个key开始往外走，你最多能走k的距离（abs(x1 - x2) + abs(y1 - y2) <= k），看看能不能顺利把词打出来。
+比如“late”，"l" -> "a" -> "t" -> "e"，如果距离太远就return False。刚开始很简单，说key都是unique的，
+Follow up：现在键盘上的key不是unique的怎么办
+用dfs, 需要用(index, i, j)记录visited因为键盘的按键可以重复用
+https://github.com/jamesben6688/coding/blob/main/dfs/keyboard_string.py  
 
 63. 写一个21点的小游戏，两1个玩家，一个庄家轮流抽牌。rule就是典型的21点的rule。超过21点立刻输，没超过就谁接近21点谁赢，玩家们可以在任何时间停止继续抽牌。
 一个玩家，一个庄家轮流抽牌。rule就是典型的21点的rule。超过21点立刻输，没超过就谁接近21点谁赢，玩家们可以在任何时间停止继续抽牌。
+面向对象
 
 64. 湖泊数量。起點一定是在land上，把海水也看成湖，用了2個BFS，每次找到水再count，最後返回count-1；
 followup: 如果海水面積很大就很浪費算力, 如何优化
+https://github.com/jamesben6688/coding/blob/main/bfs/count_lakes.py  
 
 65. To determine if the paths of two robots in a 2-dimensional space intersect based on the given instructions (F for forward, L for turn left, R for turn right), and then check whether their paths overlap at any point.
-每次L和R需要check当前机器人的朝向
+每次L和R需要check当前机器人的朝向  
+判断两个机器人轨迹路径是否相交  
+https://github.com/jamesben6688/coding/blob/main/two_pointer/%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BD%A8%E8%BF%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4.py
+
 
 66. 给数字PI ， 找到 digit与index相同的index number 并返回这个list of indices
 例如 3 1 4 1 5 对应index 1 2 3 4 5， 5 和5 相同 所以list里要包含5
 给的exmaple只有前9个数字 并没有多位数的index的exmaple 所以我先问了那多位数如何compare 总不能就比较前9个数字就完事了吧
 例如index 123， 对比个位数与pi的第123个digit 然后对比123中的2 和pi的第122个digit 以此类推 必须所有的digit相同才算在return list
 followup: time complexity和memory complexity 还问了如果数字太长 一个server 存不下 如何处理
-
+for i in range(10000):
+    if int(pi[i-len(str(i)):i]) == i:
+ 		return i
+https://github.com/jamesben6688/coding/blob/main/pi_str.py
 67. 有一堆stack和，每个stack上都有blocks。 给出一个状态和结束状态，每一次只能移动一个block，可以移到其它stack上，或桌面上。
 问用最少steps将initial state 移到final state. 输出每一个steps的状态。
 [goal-stack-planning-for-blocks-world-problem](https://apoorvdixit619.medium.com/goal-stack-planning-for-blocks-world-problem-41779d090f29)
@@ -2616,12 +2652,7 @@ follow up是实现一个类，
 
 446. 判断一棵树是不是有多余的edge
 
-447. Given a keyboard (2d-grid, each cell is a key), from a position, you can jump at most k distance (Manhatten distance) 
-to another position. Given a word, determine whether you can type the word on the keyboard.
-You can always start at the index where the first letter is.
-大概题目就是，从一个key开始往外走，你最多能走k的距离（abs(x1 - x2) + abs(y1 - y2) <= k），看看能不能顺利把词打出来。
-比如“late”，"l" -> "a" -> "t" -> "e"，如果距离太远就return False。刚开始很简单，说key都是unique的，
-Follow up：现在键盘上的key不是unique的怎么办
+
 
 448. 银行有n个agent给客户做service，客户需要一个一个来做service，每个service的时长是由客户决定的，
 目前前面有m个客户(m个客户的service时长作为输入)，你是第m+_1个到的，求需要等多长时间轮到你去service.
@@ -4369,9 +4400,6 @@ def backtrack(tree, path):
 		
 854. 删除排序数组重复元素
 https://github.com/jamesben6688/coding/blob/main/two_pointer/%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0.py
-
-855. 判断两个机器人轨迹是否相交
-https://github.com/jamesben6688/coding/blob/main/two_pointer/%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BD%A8%E8%BF%B9%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4.py
 
 856. abc 2输出 abcabc
 abc2 de3 输出 abcabcdeabcabcdeabcabcde
