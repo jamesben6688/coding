@@ -327,6 +327,8 @@ https://github.com/jamesben6688/coding/blob/main/dijstra/%E6%9D%91%E5%BA%84%E6%8
 然后找出所有subarray 的 所有数字的和
 例子[1,2,3] --> [1], [2], [3], [1, 2] , [2,3], [1, 2, 3] 最后return 1+ 2 + 3 + （ 1 + 2） + （2 + 3） + （1 + 2 + 3）
 
+sub_arry的所有子数组和: arr[i]的贡献为, 左边界0~i, 右边界i~n-1 arr[i] * (i+1)(n-i)
+
 46. variation of top K
 
 47. course schedule ii； parse csv file into a certain data structure
