@@ -627,12 +627,12 @@ final state
 2 1
 -----
  1 2
-------
+\------
 2 1
------
+\-----
 2
 1
-------
+\------
 
 68. 一维空间下，有颜色分别是红蓝两种点的集合，然后有个query的点，只需要在这两个集合里找离这个点最近的点，然后赋予他相应的颜色
 Follow up： 二维, 高维怎么写
@@ -1475,7 +1475,7 @@ void insert(int[] range)  --> 每次insert了要处理一下merge，我这里脑
 然后写之前还说treeset跟list都行
 boolean getValue(int i) ---> 看这个数字是不是在range里 比如已有range [1,5] [7,9]getValue(4) return true
 follow up:
-1. 如果数据超级大是个数据流之类的你怎么办？答可以分成几个bucket 分别按bucket的range处理 这样sort的时候不会太痛苦，
+如果数据超级大是个数据流之类的你怎么办？答可以分成几个bucket 分别按bucket的range处理 这样sort的时候不会太痛苦，
 最后合并一下比如mapreduce一下。。
 如果只在乎1-1000的数字怎么办？能不能更快的处理getValue 答直接用int[1000] 然后在每个index++
 
@@ -1497,8 +1497,8 @@ https://github.com/jamesben6688/coding/blob/main/tree/tree_chain.py
 
 212. A Beautiful value means that the maximum streak of the specific item in the array.
 Input:
-1. an array with items.
-2. target item
+an array with items.
+target item
 Output:
 return the maximum streak
 Follow up:
