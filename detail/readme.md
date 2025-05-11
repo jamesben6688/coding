@@ -123,7 +123,9 @@ e.g.,[(“1”, “Main”, “San Jose”, “CA”), ("1", "Main", "Austin", "
 	query = (“22”, “Main”, “San Jose”, “CA”) --> no match
    给一个address book [(street number, street name, city name, state name), ...], 
 然后再给一个query来找是否在adress book中出现，query中可能有NULL。如果能吧非NULL的query里的内容全都match到则返回true。用字典树做。
-
+两个input，一个list的地址作为字典（比如 “31, abc, Los Angeles, CA”，“32, abc, Los Angeles, CA”），
+一个list的地址作为原文件（比如 “31, abc, Los Angeles, CA”）。返回list是原文件存在字典中的地址（map解决）。
+followup就是如果null算个百搭
 https://github.com/jamesben6688/coding/blob/main/tire/street_match.py
 	
 13. Given an array representing run-length encoded values, write an iterator to unpack it.
@@ -143,6 +145,11 @@ Follow up:
 输入2 3 4 = 20 输出 （2+3)*4=20
 Follow up:
 如果等式左侧的数字有多个（任意个）怎么解。
+添加运算符
+输入： [2,3,5]target = 25
+你可以往数字里添加 + - × ÷（ ）
+输出：运算式
+比如上面 要求输出一个String (2+3) × 5
 https://github.com/jamesben6688/coding/blob/main/dfs/add_operators.py
 https://github.com/jamesben6688/coding/blob/main/dfs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B7%BB%E5%8A%A0%E7%AC%A6%E5%8F%B7%E7%94%9F%E6%88%90%E7%AD%89%E5%BC%8F.py
 
@@ -313,6 +320,13 @@ e.g.: list1=[3,2,4,5,2], list2=[2,1,3,4], K=2----return [1, 4]
 [3, 2]与[2, 1] 删掉2 => [3, 2]与[1, 3] 删掉3=> [3, 2]与[1, 4]
 follow up: 优化复杂度  
 原地移动, 时间O(N), 如果是多个lists, 窗口d, 也是这样
+定义一个一个list的K-window 表示为前K个元素的distinct element set。给两个list, l1, l2和k, 
+从l2中移除最少的元素使得l2的k-window中不包括l1的k-window中的元素，返回移除元素后的l2是什么？
+Example:
+l1 = [1,2,3,4,5,6], l2 = [3,1,1,2,4,1], k = 2
+Output [3,4,1]
+Followup是如果给一堆list，l1, l2, ..., ln, k 和 m, m是指当前list，li的k-window不能包含它之前的m个list的k-window中的元素，
+https://github.com/jamesben6688/coding/blob/main/hash/%E5%A4%9A%E4%B8%AA%E6%95%B0%E7%BB%84%E5%89%8DK%E4%B8%AA%E6%95%B0%E4%B8%8D%E9%87%8D%E5%A4%8D.py  
 
 39. 有个停车场，门禁记录每辆车的进出时间，时间为整数。给定时间t，返回从0到t每一时刻停车场有多少车。
 e.g.: 三辆车进出时间[[1,3], [2,5], [4,5]], t=4----return [0, 1, 2, 1, 2]
@@ -363,9 +377,29 @@ sub_arry的所有子数组和: arr[i]的贡献为, 左边界0~i, 右边界i~n-1 
 48. maximum weight matching for biparite graph。转化成maximum flow然后用ford fulkerson求解。
 
 49. 一个公司有mangers，每个manager可能会direct管理一些人；然后这些人又可能管理其他一些员工，形成一个树状管理结构。问题：1）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的平均工资（underpaid managers)？2）计算最小需要的budget给underpaid managers提高工资，使得没有公司任何underpaid员工？3）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的median salary？
-107. 一个n-array tree，node如果有children就视为manager。
+一个n-array tree，node如果有children就视为manager。
 问整个tree中收入低于下属收入平均值的manager个数。Follow up是问的是低于下属中位数应该怎么做。  
-50. https://github.com/jamesben6688/coding/blob/main/trees/manager_salary.py  
+员工salary tree，find all underpaid managers。 Underpaid manager的定义：薪资低于子树中所有节点的平均值。
+经理员工工资
+A[100]
+-B[200]
+-C[100]
+-D[60]
+-E[400]
+Follow up: Compensation to underpaid; median instead of mean.  
+you have a organization tree, if a manager's salary is lower than the avarage of it's reports 
+( direct reports and indirect reports), then it's underpaid
+find out the count of underpaid manager
+
+follow up: if pay extra money to make all underpaid manager not underpaied, what's the minum money will spend.
+for example:
+A(100)
+- B(200)
+	- C(100)
+	- D(60)
+then A is underpaid : B + C + D / 3 = (200 + 100 + 60)/3 = 120 > 100
+B is not underpaied since no reports
+https://github.com/jamesben6688/coding/blob/main/trees/manager_salary.py  
 Sol: bfs+merge sort  
 
 
@@ -401,6 +435,12 @@ c > a
 Return False because third inequality cannot be done.  
 用dfs做  每次O(V+E). 拖布排序也是一样  
 https://github.com/jamesben6688/coding/blob/main/dfs/%E5%88%A4%E6%96%AD%E7%AD%89%E5%BC%8Fa%E5%A4%A7%E4%BA%8Eb%E6%98%AF%E5%90%A6%E6%88%90%E7%AB%8B.py
+判断不等式是否合法 a>b
+给你一堆大小比较表达式，判断是否合法。
+类似于 图里找环， DFS
+输入是类似 “a > b”“b > c” "c > a"， 输出false
+follow up是表达式里会加入数字，比如“a > b”“b > 2” "a < 2"
+https://github.com/jamesben6688/coding/blob/main/union_find/%E7%AD%89%E5%BC%8F%E5%88%A4%E6%96%AD%E5%A4%A7%E5%B0%8F%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95.py
 
 56. sort an array但这个array满足一个条件, the absolute difference between the index of an element in the sorted array and the original array is less than k, k << len(arr)
 然后要求你leverage this information to speed up the sorting to outperform a general algo like quicksort
@@ -659,6 +699,9 @@ eric: yes
 }
 一个人能占一个room
 问最佳的分配方案，最后返回 {name: apt_number}
+有两种人 一种是想合住 一种是不想合住
+有不同房间数量的房子
+怎么安排住宿？
 https://github.com/jamesben6688/coding/blob/main/dfs/%E5%AE%89%E6%8E%92%E5%85%AC%E5%AF%93%E9%97%AE%E9%A2%98.py
 
 75. Suit: C as Clubs, H as Hearts, S as Spades, D as Diamonds
@@ -673,11 +716,39 @@ def isValidSet(cards: list):
 check if the given 20 cards can be divided into 4 hands (Texas Holdem)  德州扑克
 which are either royal flush or 4 of a kind. Follow up to check if it will work by 
 followup: replacing only one card
+
+给你个String Array，比如【“AC” “2B”, “3D”, “4F”...“10B”“11A”】，概念是扑克牌的感觉，判断他是否是个valid的卡组。
+条件首先至少要3张，然后要么是同数字的卡牌可以不用管后面字母，比如【“2C”,"2E","2G“】符合。或者是数字是consecutive的并且字母要一样
+比如【"10A","9A""11A"】（乱序也算consecutive）符合。
+follow up question是还是给你String Array，
+比如【"1A",“2C”,"2E","2G“,“3G","4G","5B"】返回所有可能组成valid卡牌的List，比如{【“2C”,"2E","2G“】，【"2G","3G""4G"】}。
+
 非常慢: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%90%8C%E8%8A%B1%E9%A1%BA%E6%88%96%E8%80%85%E7%82%B8_%E9%9D%9E%E5%B8%B8%E6%85%A2.py
 
 快速版: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%BF%AB%E9%80%9F%E7%89%88.py
 正常版本: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%AD%A3%E5%B8%B8%E7%89%88%E6%9C%AC.py
 替换一张: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%9B%BF%E6%8D%A2%E4%B8%80%E5%BC%A0.py
+
+115. Given a set of cards to play, input as a collection of cards with rank and suit to play
+The play of the card is valid when meeting the following 2 options
+1. 3 or more consectuive rank regardless of the suit, to be noted rotated rank doesn't count 
+e.g."QC", "KD", "AC" is not consectuive
+2.3 or more same ranks with the same suit
+Any play less than 2 cars is invalid
+Example
+"2D","4H", "6S", "3C" --> valid
+"3D", "3C","3H", "6S" --> invalid
+"3D", "4D", "7S", "6C", "10D", "9S" --> invalid
+"3D", "3D", "4S", "9D","9D" --> Invalid
+"3D", "3D", "9D", "4S", "9D","9D" --> valid
+每张卡片有rank和suit两种attribute。相同的rank，并且suit值连续递增的卡片才算是一个valid set。
+输入一个卡片数组，求问suit值最大的valid set。
+需要5张卡片才能算一个set
+给N 张扑克牌，不同的suit 和rank组成一个输入数组， 返回最大的一组同一suit中5张连续的牌， 
+follow up，如果suit更多怎么办。
+比较简单，给一付牌，不是传统的牌，但是类似的是有suit和rank，输入是一个list的string，类似S1R3，意思是suit 1， rank 3，
+实现一个输出最大flush的func。
+给一个list of cards with rank & suit, 找出最大的5张牌顺子（straight flush）
 
 76. A server is processing the request, write a solution to get the current high water mark request id.
 for example: initial high water mark is 0, the request is processed in the following order [1,2, 5, 3, 4], highWatermark = [1, 2, 2, 3, 5]
@@ -772,7 +843,14 @@ return res
 
 85. 假设有string "AABBCCDDEE"， 注意所有的char如果出现的话一定是连续出现的，假设有一个数k是他们的partition num，如果k = 3, 刚刚string的partition效果是 AAB BCC DDE E, 我们称一个char为valid char如果他仅存在于他的partition里面，并且在partition里面是连续存在的。
 那么刚刚这个例子，返回的valid char应该是A, C, D。现在告诉你input不是整个string直接给你，而是以stream的形式一个char一个char的让你读，请你设计你的数据结构能够有 void getNextChar(char c) 和 int getNumberOfValidChars() 这两个函数。
-基础的 O(n) 的space 复杂度，有比O(n)更好的不需要set的方法
+基础的 O(n) 的space 复杂度，有比O(n)更好的不需要set的方法  
+任意相同character都是group在一起的， 例如： “AAAABCCCCDEEEFFG” 非法的就是“ABBA”；
+同时定义一种对于character的label叫“contained”，问：given partition number let us say N. 
+那么分割一个grouped string into N parts. (没整除没关系， 最后分割的string可以是余数 “AABC” N：
+3， 那么就是 “A” “A” “BC” )求分割后的每个partition里的character是不是“contained”？ 
+（contained 定义 当前char有且只在本partition出现）拿“AABC” partition number=3 
+举例， 答案return false， 因为 char：A 出现在两个partition group
+
 https://github.com/jamesben6688/coding/blob/main/str/partition_char.py
 86. string replacement
 比如说
@@ -793,6 +871,12 @@ output = "I am admin My home is /admin/home"
 https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2.py
 
 87. 给一个forest，node只有parent idx，怎么delete 一个tree node
+用一个Array表示一个树，已知子节点肯定比父节点的index大，每个节点的值是父节点的index，比如
+  0
+1 2
+表示方式是【-1， 0， 0】
+写一个function，给定target node，删除target node
+Follow up，写一个function删除给定节点的sub tree
 https://github.com/jamesben6688/coding/blob/main/tree/delete_tree_parent.py  
 
 88. 一个word list，怎么build efficient prefix trie search。large scale 怎么distributed index和query
@@ -834,18 +918,6 @@ Explanation:
 这题必须回溯
 https://github.com/jamesben6688/coding/blob/main/dfs/group_card.py
 
-115. Given a set of cards to play, input as a collection of cards with rank and suit to play
-The play of the card is valid when meeting the following 2 options
-1. 3 or more consectuive rank regardless of the suit, to be noted rotated rank doesn't count 
-e.g."QC", "KD", "AC" is not consectuive
-2.3 or more same ranks with the same suit
-Any play less than 2 cars is invalid
-Example
-"2D","4H", "6S", "3C" --> valid
-"3D", "3C","3H", "6S" --> invalid
-"3D", "4D", "7S", "6C", "10D", "9S" --> invalid
-"3D", "3D", "4S", "9D","9D" --> Invalid
-"3D", "3D", "9D", "4S", "9D","9D" --> valid
 
 93. 一共有N个房间，给每个会议的起始和终止时间，求所有会议都安排完后被预定次数最多的房间号。
 用heap
@@ -962,6 +1034,7 @@ https://github.com/jamesben6688/coding/blob/main/recursive/good_draw.py
 loose median的定义应该是 2^a <= number <= 2^(a+1)
 返回区间中的一个即可 如果median是5那返回[4, 8]之间任意一个都行
 https://github.com/jamesben6688/coding/blob/main/heap/loose_median.py
+可以用桶排序, 64位整数就是64个桶。N -> log(N)这个桶中。然后记录数据的数目。
 
 119. 最大的10个files in a filesystem. 标准的heap题目，用了两种解法遍历 filesystem，讨论了各种复杂度，performance。
 https://github.com/jamesben6688/coding/blob/main/heap/%E6%9C%80%E5%A4%A7%E7%9A%8410%E4%B8%AA%E6%96%87%E4%BB%B6.py
@@ -999,6 +1072,7 @@ https://github.com/jamesben6688/coding/blob/main/bfs/%E6%9C%80%E7%9F%AD%E7%9A%84
 122. 给两个list, l1, l2。 返回两个list，第一个list是l1里的有但l2里没有的元素，第二个list是l2有但是l1没有的元素。
 （元素可以是数字，也可以是string）
 Followup是如果l1和l2只有一个元素不一样，该怎么找
+使用set差集。followup: 用Counter
 
 123. 假设有一个function可以返回给定start,end time内的所有vote信息, getVotes(start, end) (这个不需要实现)，
 每一条vote信息是一个（image_id, vote_time, user_id)的tuple, 实现一个function来return 
@@ -1008,13 +1082,8 @@ QueryResult: [(A, 00:00, u1), (A, 00:01, u2), (B, 00:03. u3)]
 Output: (A, 00:00)
 QueryResult: [(A, 00:00, u1), (A, 00:01, u2), (B, 00:03, u3), (C, 01:02, u1), (C, 02:04, u3), (C, 05:20, u4), (C, 10:01, u10)]
 Output: (C, 05:20)
+https://github.com/jamesben6688/coding/blob/main/bfs/sort/top_vote.py
 
-124. 定义一个一个list的K-window 表示为前K个元素的distinct element set。给两个list, l1, l2和k, 
-从l2中移除最少的元素使得l2的k-window中不包括l1的k-window中的元素，返回移除元素后的l2是什么？
-Example:
-l1 = [1,2,3,4,5,6], l2 = [3,1,1,2,4,1], k = 2
-Output [3,4,1]
-Followup是如果给一堆list，l1, l2, ..., ln, k 和 m, m是指当前list，li的k-window不能包含它之前的m个list的k-window中的元素，
 
 125. 解optimization推导, linear regression的问题及如何改进，normalization，神经网络某一层gradients数学推导，
 以及推导optimal weights。如何做optimization。
@@ -1022,16 +1091,13 @@ Followup是如果给一堆list，l1, l2, ..., ln, k 和 m, m是指当前list，l
 126. overfit, dropout；贝叶斯：给定一些samples，
 求概率。然后问design question：同时给一些病人图片和相关metadata，怎么做分类
 
-127. 有两种人 一种是想合住 一种是不想合住
-有不同房间数量的房子
-怎么安排住宿？
 
 128. 给一个数组。 需要提供3个功能
 1. set 数组中一个index 的value
 2. take snapshot。
 3. 提取那个snapshot 时候的某一index 的value
 要求节省空间。
-https://github.com/jamesben6688/coding/blob/main/hash/%E5%BF%AB%E7%85%A7%E6%95%B0%E7%BB%84.py
+https://leetcode.cn/problems/snapshot-array/
 
 129. prefix sum有关的 记不清楚了。 就是给一个0-1 array 然后一个range, return 里面1的个数 很简单
 
@@ -1053,23 +1119,48 @@ https://github.com/jamesben6688/coding/blob/main/dfs/%E7%9F%A9%E9%98%B5%E4%BB%8E
 
 131. Given a list of strings and a character budget N, use at most N characters to make substrings from the list of strings 
 such that as many characters are used as possible AND the absolute difference between the length of any two substrings 
-is minimized.
-Eg strings = ["Embarcadero", "Ember", "SFO", "Montgomery"], N = 7
-return ["Em", "Em", "SF", "M"]
-A wrong answer is ["Emb", "E", "S", "Mo"] because abs(len("Emb") - len("E")) is 2, which is more than 1 as above.
+is minimized.  
+Eg strings = ["Embarcadero", "Ember", "SFO", "Montgomery"], N = 7  
+return ["Em", "Em", "SF", "M"]  
+
+A wrong answer is ["Emb", "E", "S", "Mo"] because abs(len("Emb") - len("E")) is 2, which is more than 1 as above.  
+给定一个字符串列表和一个字符预算N 从这些字符串中截取若干子串，要求：    
+所有子串的总长度不超过 𝑁  
+使用的字符数尽可能多，  
+且任意两个子串长度之间的绝对差值尽可能小。  
+换句话说，要在不超过字符预算的前提下，尽量使用多的字符，并使所选子串的长度尽量平均。  
 https://github.com/jamesben6688/coding/blob/main/str/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6%E5%9D%87%E8%A1%A1.py
 
 132. A circle is define by x-axis position, y-axis position, and a radius. 
 A circle group is a collection of circles that overlap. Given a list of circles, figure out if they belong to 
 a single circle group. Formula for calculating distance between two points: sqrt((x2-x1)^2 + (y2-y1)^2)
 
-133. 给一串数组 找到任意一个重复出现的数字 数字的范围是[1 - N], array的size是 N + 1,
-eg: [1, 2, 3, 3, 2] , N = 4 return 2 或者3都可以 写了hashmap, two pointer, binary search 3种做法
-
-134. 给一个period和oncall schedule 返回在period oncall的engineer name list
+133. 给一串数组 找到任意一个重复出现的数字 数字的范围是[1 - N], array的size是 N + 1,  
+eg: [1, 2, 3, 3, 2] , N = 4 return 2 或者3都可以 写了hashmap, two pointer, binary search 3种做法  
+https://github.com/jamesben6688/coding/blob/main/binary_search/%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97.py  
+134. 给一个period和oncall schedule 返回在period oncall的engineer name list  
 [Alex, 1, 9] [Ben, 2, 5], [Jeff, 15, 17]
 period = [1, 10]
 return [Alex, Ben]
+给了一个list的人，
+每个人
+都有一个相对应的开始和结束工作时间。要求写一个function，output结果是列出所
+有可能的时间interval，
+并且在每个interval里面写出这个时间段在工作的人。
+ 工作时间summary 
+排序以下table:
+name start end
+abc 3 8
+bcd 7 10
+cde 3 6
+output:
+3 - 6 abc, cde
+6 - 7 bcd
+7 - 8 bcd, cde
+8 - 10 bcd
+给 x [1, 2) 上，y在[2,5), z 在[1, 4), 让输出各个区间上的character，如[1,2) -> [x, z], [2, 4) -> [y, z), [4,5) -> [y]
+https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/people_work_summary.py
+
 
 follow up: 还是给一个schedule list 返回 所有interval的 oncall的 name list
 [Alex, 1, 9] [Ben, 2, 5], [Jeff, 15, 17]
@@ -1078,7 +1169,8 @@ follow up: 还是给一个schedule list 返回 所有interval的 oncall的 name 
 5 - 9 -> Alex
 15 - 17 -> Jeff
 
-135. 一堆人出去旅行，每个人都有付钱买东西，有人付的多，有人付的少给了两个class
+135. 一堆人出去旅行，每个人都有付钱买东西，有人付的多，有人付的少  
+给了两个class
 class Person{
 	int id
 	double payment
@@ -1093,20 +1185,18 @@ Eg: input [person1,10],[person2, 12] outPut[person 1, person 2, 1];
 https://github.com/jamesben6688/coding/blob/main/greedy/%E6%97%85%E6%B8%B8%E8%B4%B9%E7%94%A8%E5%B9%B3%E6%91%8A.py
 
 136. 给定一个长度为n的binary array， 求the number of subarrays containing all 1s.
- 给定一个n*n的binary matrix，求the number of submatrices containing all 1s.
+求数组连续1的个数, 设数组长度为n, 子数组的个数为(i+1)*(n-i)
+当arr[idx]==1, 以该idx为结尾的subarray的个数为cnt
+类似于统计0-1矩阵连续1的个数
+
+给定一个n*n的binary matrix，求the number of submatrices containing all 1s.
+全为1的子矩阵
+单调栈
+https://leetcode.cn/problems/count-submatrices-with-all-ones/description/
  
 137. 一片房子有三个社区，{{8, 2, 7}, {3, 1, 5}, {4, 8, 9}} 排序所有的社区 并且每个社区不能有同样的门牌号（每个数字代表一个门牌号）
 
-138. 排序以下table:
-name start end
-abc 3 8
-bcd 7 10
-cde 3 6
-output:
-3 - 6 abc, cde
-6 - 7 bcd
-7 - 8 bcd, cde
-8 - 10 bcd
+
 
 139. 给一个 log file[('John', 1), ('Mary' ,3), ('John', 8), ('joe' 7)]
 名字后面是每条消息的word count, 请找出word count最多的前N个user
@@ -1116,13 +1206,16 @@ follow up: 是把这个helper function写完。
 140. 给一个N面的骰子 一个小人 一段无限长的一维坐标 给一段范围[a,b] 小人从0点出发 根据骰子走x步 骰子可以掷无数次 
 小人走到[a, b]这个范围内包括a和b就算获胜
 求小人获胜的概率
+https://github.com/jamesben6688/coding/blob/main/dp/prob_a_b.py
 
 141. 给一个 string，返回第一个不重复的字母。 "abcrabc". --> 'r'
 
 141. in-order traverse tree:检查给定的一个数字序列是否是in-order traversal sequence的subsequence.
+子序列: two pointer
  follow-up 1:怎么修改这个tree可以让给定序列成为subsequence.
  follow-up 2:怎样最小化改动的步骤(overwrite existing node value or insert node都记为1).
- 
+最少编辑距离
+https://github.com/jamesben6688/coding/blob/main/dp/subseq_inorder.py
 142. 给N个会议室安排会议,每个会议有开始时间和时长,选取最早空闲的会议室安排,有同样早空闲的会议室选index最小的,
  会议可以延后(在所有房间都被占时)但时长不能变,求问最后哪间会议室安排了最多的会议.
  
@@ -1131,8 +1224,9 @@ follow up: 是把这个helper function写完。
  实现一个函数来校验密码和用户输入并返回5-letter结果.
  
 144. 给定一个二维点列表，如果任何两个点的距离（直线）<= k，则将它们组合在一起。例如。 
-[P1,P2,P3]，P1 到 P2 <=k，P2 到 p3<=k，p1 到 p3>k。他们仍然在同一组中。 （距离关系是可链接的）请问你能找到多少组？
-follow up讨论了一下优化
+[P1,P2,P3]，P1 到 P2 <=k，P2 到 p3<=k，p1 到 p3>k。他们仍然在同一组中。 （距离关系是可链接的）
+请问你能找到多少组？可以每一组用一个超节点,建立双向Map
+follow up讨论了一下优化: 并查集group数量
 
 145. get permutation based on range list.
 e.g: [[2, 3], [3, 5]]
@@ -1145,23 +1239,23 @@ Heap
 
 147. 给个m x n matrix， 0 可以走 1是wall, 要求robot从左上走到右下，问在最多可以打破一面墙前提下能否走到终点。
 
-148. 有三个array：source，destination，operations。ops array里面存的是 [['COPY', i, j], ['COPY', i, j], ['WRITE', x, i], ...] 这样子
+148. 有三个array：source，destination，operations。ops 
+array里面存的是 [['COPY', i, j], ['COPY', i, j], ['WRITE', x, i], ...] 这样子
 如果遇见COPY指令，就将 source[ i ] 复制到 destination[ j ] 里
 如果遇见WRITE，就将x这个数值复制到 destination[ i ] 里
 follow up是，假如source和destination是同一个数组该怎么办？[['COPY', 1, 2], ['COPY', 2, 1]] 
 需要达到的是同一个数组里俩数值swap的效果
-时间空间复杂度，然后继续优化
+时间空间复杂度，然后继续优化  
+需要用拖布排序先找出依赖。如果有互相依赖成环的, 需要用中间变量存结果
 
-149. 自己写一个class define一个Item，每个item带一个编号和一个重量，input是两个lists of this items，output输出一个list of this items，
+149. 自己写一个class define一个Item，每个item带一个编号和一个重量，input是两个lists of this items，
+output输出一个list of this items，
 要求按重量从小到大排，遇到编号一致的把重量相加合并成一个。
 
-150. 一个v shape的Int array，类似【4，4，4，3，2，1， 1，2，2，3】这种，数值先下坡再上坡，有重复数字可能，找出最小的值返回。
+150. 一个v shape的Int array，类似【4，4，4，3，2，1， 1，2，2，3】这种，数值先下坡再上坡，
+有重复数字可能，找出最小的值返回。
+https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/submissions/531991718/
 
-151. 给你个String Array，比如【“AC” “2B”, “3D”, “4F”...“10B”“11A”】，概念是扑克牌的感觉，判断他是否是个valid的卡组。
-条件首先至少要3张，然后要么是同数字的卡牌可以不用管后面字母，比如【“2C”,"2E","2G“】符合。或者是数字是consecutive的并且字母要一样
-比如【"10A","9A""11A"】（乱序也算consecutive）符合。
-follow up question是还是给你String Array，
-比如【"1A",“2C”,"2E","2G“,“3G","4G","5B"】返回所有可能组成valid卡牌的List，比如{【“2C”,"2E","2G“】，【"2G","3G""4G"】}。
 
 152. 写一个user（friends） class 这个class里面完成三个func。
 判断你跟另一个user是不是直接或者间接的朋友
@@ -1170,31 +1264,21 @@ follow up question是还是给你String Array，
 153. GOOGLE CEO 要给全体员工发邮件邀请 用什么data structure？- 
 TreeNode 然后让我自己define TreeNode - Narry Tree 怎么get total count？DFS/BFS - 
 写了 DFS 问了两种 search 区别 Big O
-
-154. 任意相同character都是group在一起的， 例如： “AAAABCCCCDEEEFFG” 非法的就是“ABBA”；
-同时定义一种对于character的label叫“contained”，问：given partition number let us say N. 
-那么分割一个grouped string into N parts. (没整除没关系， 最后分割的string可以是余数 “AABC” N：
-3， 那么就是 “A” “A” “BC” )求分割后的每个partition里的character是不是“contained”？ 
-（contained 定义 当前char有且只在本partition出现）拿“AABC” partition number=3 
-举例， 答案return false， 因为 char：A 出现在两个partition group
+N-nary tree. Tire
 
 155. Find the longest beginning substring of target without any characters in reject string.
 https://github.com/jamesben6688/coding/blob/main/str/%E4%B8%8D%E5%8C%85%E5%90%ABreject%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.py
 
 156. Create a function to return a function that can only function once, if called multiple times, 
 the latter times will only return the value of the first return.
+只call调用1次
+https://github.com/jamesben6688/coding/blob/main/call_func.py
 
-157. 员工salary tree，find all underpaid managers。 Underpaid manager的定义：薪资低于子树中所有节点的平均值。
-A[100]
--B[200]
--C[100]
--D[60]
--E[400]
-Follow up: Compensation to underpaid; median instead of mean.
 
-158. non-decreasing contiguous array那道题，
+158. non-decreasing contiguous array那道题，最长递增
 followup: 你可以改变其中一个数字 比如原本[1,0,0,0,0,3,4] 你可以改掉0变成1 
 然后找到最长contiguous non decreasing array
+https://github.com/jamesben6688/coding/non_decrease_subarr.py
 
 
 159. 有一个list，
@@ -1235,9 +1319,6 @@ time也可以当作是时间 -> [t1, t2, t3......]
 n<=m
 返回一个城市可以到别的城市的最短时间
 
-173. 两个input，一个list的地址作为字典（比如 “31, abc, Los Angeles, CA”，“32, abc, Los Angeles, CA”），
-一个list的地址作为原文件（比如 “31, abc, Los Angeles, CA”）。返回list是原文件存在字典中的地址（map解决）。
-followup就是如果null算个百搭
 
 174. 找一个string里第一个non-alphabetical order的char的index(遇见非字母的字符直接跳过，不分大小写)
 followup: 找一共有几个这样的char （讨论了两分钟，觉得题目意思不明确，move on to the next followup）
@@ -1256,6 +1337,7 @@ followup2: 求最少移除几个char后是字符串变为aplhabatical (最基础
 to get target gallon of water.assume you have infinity buckets of each size.
 for example , target is 11, buckets [7, 4],true (7 + 4)
 target 8, buckets[7, 5]. return true, 7-5 = 2 do 4 rounds. follow up, how to make the operate times minum.
+水桶倒水
 https://github.com/jamesben6688/coding/blob/main/bfs/%E6%B0%B4%E6%A1%B6%E5%80%92%E6%B0%B4.py
 
 179. if you have an array of submarine A,
@@ -1268,18 +1350,6 @@ P = [2, 1, 1, 0, 0]
 这样最少人占4个unit空气。
 https://github.com/jamesben6688/coding/blob/main/binary_search/%E6%BD%9C%E6%B0%B4%E8%89%87%E7%A9%BA%E6%B0%94%E5%88%86%E9%85%8D%E9%97%AE%E9%A2%98.py
 
-180. you have a organization tree, if a manager's salary is lower than the avarage of it's reports 
-( direct reports and indirect reports), then it's underpaid
-find out the count of underpaid manager
-
-follow up: if pay extra money to make all underpaid manager not underpaied, what's the minum money will spend.
-for example:
-A(100)
-- B(200)
-	- C(100)
-	- D(60)
-then A is underpaid : B + C + D / 3 = (200 + 100 + 60)/3 = 120 > 100
-B is not underpaied since no reports
 
 181. 1. ApkVersions是一个三元组的list，ApkVersions[i] = (ApkVer, minOSVersion, maxOSVersion)，
 描述了当前的Apk Version, 以及它支持的OS的最低和最高version
@@ -1287,72 +1357,7 @@ B is not underpaied since no reports
 输出是为每一个OSVersions中的元素OSVersions[j]，找到最新(最大)的ApkVer满足 minOSVerion <= OSVersion[i] <= maxOSversion.
 Solution是，先过一遍ApkVersions，合并可以合并的range，保持这个range中最大的ApkVer，然后按照range排序。
 接着为每一个OSversions[j], 用binary search找到满足条件的range，取出对应的ApkVer.
-https://github.com/jamesben6688/coding/blob/main/binary_search/%E6%B1%82%E6%94%AF%E6%8C%81%E7%9A%84%E6%9C%80%E5%A4%A7apk%E7%89%88%E6%9C%AC.py
-
-182. 给你一组括号，比如 "( ("，然后你可以add delete或者replace三种操作，然后用最少的操作得到一个平衡的括号string，输入是一个string，
-输出是一个list of string。前面这个例子显然是replace一次最优，输出 "( )"。
-再举个例子："( ( ) ( )"，这个输出是 "( ) ( ) ( )", "( ( ) ( ) )", "( ) ( )"。
-https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9C%80%E5%B0%91%E7%9A%84%E6%AC%A1%E6%95%B0%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7.py
-
-183. 给你一个function，call这个function会返回两个节点的 排序如 a -> b，b -> c。
-但是这个function不保证每次返回都是unique的，就是可能返复call 5次，返回的都是 a -> b。
-给你总共character的个数n，要求输出character之间的顺序。
-https://github.com/jamesben6688/coding/blob/main/topo_sort/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%A1%AE%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%A1%BA%E5%BA%8F.py
-
-184. 2034  write 99.99%, read只有0.01%的解法 和read 99.99%, write只有0.01%的解法
-
-185. 给 x [1, 2) 上，y在[2,5), z 在[1, 4), 让输出各个区间上的character，如[1,2) -> [x, z], [2, 4) -> [y, z), [4,5) -> [y]
-
-186. 题目是给一个 binary tree, 问最下边那个level的width。第一个1之前的null不算，最后一个1之后的null也不算。例如
-      1
-    1    1
-     1 1  1
-答案就是 3
-      1
-    1    1
-      1   1
-答案也是3
-
-188. 给你一棵树的root，问你这棵树的同一层有没有相同value的节点
-
-189. 两台用很慢的网络连接的电脑上面有两个文件，怎么样用最短的时间判断出这两个文件有哪些位不一样。
-最短的时间不是big o notation，而是要你自己估算disk的速度和网络的速度，然后算多少秒
-
-190.  给出一定规律 写出第N个5位数车牌号，follow up是 车牌有k位
-
-191. 一个奇怪的sorting算法 要挂就是这一轮 sorting需要交换swap数字 要求是数字不能向左移动超过2位，求最优的sorting结果 
-https://github.com/jamesben6688/coding/blob/main/sort/%E9%99%90%E5%88%B6%E4%BA%A4%E6%8D%A2%E6%AC%A1%E6%95%B0%E7%9A%84%E6%8E%92%E5%BA%8F.py
-
-192. 给一个list of cards with rank & suit, 找出最大的5张牌顺子（straight flush）
-
-193. 相似字符串。改成任意String 输入
-
-194. 给一个二维黑白图，0，1表示，用Array存储，要求写一个function对图像进行flip，就是左右对换。follow up如果是分布式系统该怎么改进
-
-195. 给一个二维黑白图，0，1表示，用四叉树存储，如何进行压缩？用树存储的话一定比二维数组更优么？
-什么情况下用树存储更优化？写一个function，给定树中的一个node，求该node以下黑色pixel的比例。
-follow up 写一个function随机返回图中一个黑色的pixel，既x，y，必须完全随机
-https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F.py
-
-196. 用一个Array表示一个树，已知子节点肯定比父节点的index大，每个节点的值是父节点的index，比如
-  0
-1 2
-表示方式是【-1， 0， 0】
-写一个function，给定target node，删除target node
-Follow up，写一个function删除给定节点的sub tree
-
-197. 你有n个server和m个task，每个task用startTime和endTime表示，每个server每次只能处理一个task，先到先得，
-如果没有availble server，就pending直到有一个server available，求哪个server 处理的任务最多
-
-198. 给一个2D matrix，每个元素都是int。可以从矩阵任何一个元素出发进行游走，游走规则：
-（1）可以去所在row中strictly比它大的元素
-（2）可以去所在col中strictly比它大的元素
-如果没有符合游走规则的选项，视为path终止；path中遍历到的所有元素的int的和，视为pathSum
-要求从所有path中选择pathSum最大的path，将其pathSum返回
-follow up： 不单单是返回pathSum，同时也要返回path是什么
-https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84.py
-
-199. 不同android apk 有最低支持SDK版本，最高支持SDK版本
+不同android apk 有最低支持SDK版本，最高支持SDK版本
    Min SDK version    Max SDK version
 APK 1:   4            -
 APK 2:   7            10
@@ -1367,7 +1372,70 @@ Clarification:
 [7, 11)  -> APK 1, 2, 3
 [11, 17) -> APK 1, 3
 [17, max) -> APK 1
+https://github.com/jamesben6688/coding/blob/main/binary_search/%E6%B1%82%E6%94%AF%E6%8C%81%E7%9A%84%E6%9C%80%E5%A4%A7apk%E7%89%88%E6%9C%AC.py
 
+182. 给你一组括号，比如 "( ("，然后你可以add delete或者replace三种操作，然后用最少的操作得到一个平衡的括号string，输入是一个string，
+输出是一个list of string。前面这个例子显然是replace一次最优，输出 "( )"。
+再举个例子："( ( ) ( )"，这个输出是 "( ) ( ) ( )", "( ( ) ( ) )", "( ) ( )"。
+https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9C%80%E5%B0%91%E7%9A%84%E6%AC%A1%E6%95%B0%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7.py
+
+183. 给你一个function，call这个function会返回两个节点的 排序如 a -> b，b -> c。
+但是这个function不保证每次返回都是unique的，就是可能返复call 5次，返回的都是 a -> b。
+给你总共character的个数n，要求输出character之间的顺序。
+函数调用确定字符顺序
+https://github.com/jamesben6688/coding/blob/main/topo_sort/%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%A1%AE%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%A1%BA%E5%BA%8F.py
+
+184. 2034  write 99.99%, read只有0.01%的解法 和read 99.99%, write只有0.01%的解法
+
+
+186. 题目是给一个 binary tree, 问最下边那个level的width。第一个1之前的null不算，最后一个1之后的null也不算。例如
+      1
+    1    1
+     1 1  1
+答案就是 3
+      1
+    1    1
+      1   1
+答案也是3
+树的宽度。bfs, 节点编号i, 2*i, 2*i+1. 每一层都是[0, 1, 2, 3, ...], 下一层也是这样
+
+188. 给你一棵树的root，问你这棵树的同一层有没有相同value的节点
+
+189. 两台用很慢的网络连接的电脑上面有两个文件，怎么样用最短的时间判断出这两个文件有哪些位不一样。
+最短的时间不是big o notation，而是要你自己估算disk的速度和网络的速度，然后算多少秒
+
+190.  给出一定规律 写出第N个5位数车牌号，follow up是 车牌有k位
+https://leetcode.com/problems/permutation-sequence/submissions/1256458910/
+
+191. 一个奇怪的sorting算法 要挂就是这一轮 sorting需要交换swap数字 要求是数字不能向左移动超过2位，求最优的sorting结果 
+https://github.com/jamesben6688/coding/blob/main/sort/%E9%99%90%E5%88%B6%E4%BA%A4%E6%8D%A2%E6%AC%A1%E6%95%B0%E7%9A%84%E6%8E%92%E5%BA%8F.py
+
+193. 相似字符串。改成任意String 输入
+
+194. 给一个二维黑白图，0，1表示，用Array存储，要求写一个function对图像进行flip，就是左右对换。follow up如果是分布式系统该怎么改进
+
+195. 给一个二维黑白图，0，1表示，用四叉树存储，如何进行压缩？用树存储的话一定比二维数组更优么？
+什么情况下用树存储更优化？写一个function，给定树中的一个node，求该node以下黑色pixel的比例。
+follow up 写一个function随机返回图中一个黑色的pixel，既x，y，必须完全随机
+https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F.py
+
+	 
+197. 你有n个server和m个task，每个task用startTime和endTime表示，每个server每次只能处理一个task，先到先得，
+如果没有availble server，就pending直到有一个server available，求哪个server 处理的任务最多  
+meeting room III  
+https://leetcode.com/problems/meeting-rooms-iii/description/  
+
+198. 给一个2D matrix，每个元素都是int。可以从矩阵任何一个元素出发进行游走，游走规则：
+（1）可以去所在row中strictly比它大的元素
+（2）可以去所在col中strictly比它大的元素
+如果没有符合游走规则的选项，视为path终止；path中遍历到的所有元素的int的和，视为pathSum
+要求从所有path中选择pathSum最大的path，将其pathSum返回
+follow up： 不单单是返回pathSum，同时也要返回path是什么
+记忆化深度优先搜索
+https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/description/
+https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84.py
+
+	 
 200. Given a alphabetic string, 判断它能否用元素周期表里的元素表示，如PrAcTiCe。Ignore cases。return true or false.
 由于元素符号只能是一位或两位字母，可以DP。递推式:
 DP(i) = (DP(i - 1) and word in chemElements) or (DP(i - 2) and word[i - 1: i + 1] in chemElements)
@@ -1376,9 +1444,13 @@ https://github.com/jamesben6688/coding/blob/main/dp/%E5%85%83%E7%B4%A0%E5%91%A8%
 201. 给一个矩阵，其中0代表空地，1代表墙。又给一个起点一个终点坐标，要把球踢从起点踢到终点，每一次踢球的方向可以是上下左右，
 踢一次以后球会一直运动到碰墙或者边界。球只要滚过终点就算结束。
 return shortest sequence of ball movement(like [right, down, right, up])
+bfs求解, 每次要一直走, 走到不能走的位置, 加入队列
+踢球
+https://leetcode.com/problems/the-maze/
 
 202. Given list of N nodes, node object has (id, value, label). return K largest node by value, which satisfy 
 that no more than M nodes having the same label.
+用两次quick_select, 第一次选出node, 弄成candidates, 然后对candidates 选出前K个
 https://github.com/jamesben6688/coding/blob/main/topk/%E6%89%BE%E7%AC%ACk%E5%A4%A7%E7%9A%84node.py
 
 203. 假设你去一个镇上做survey，需要收集一个街区的每户人家的名字。你有一个本子，里面写上一些instruction，
@@ -1387,13 +1459,11 @@ https://github.com/jamesben6688/coding/blob/main/topk/%E6%89%BE%E7%AC%ACk%E5%A4%
 
 204. 给一个data steam，和一个d，返回stream里面出现过的triplet，这个triplet里的每两个数的差值都小于d。
 比如[1, 2, 5, 10], d=4, 返回(1, 2, 5)
+用sortedlist存数据流
 
-205. 给你一堆大小比较表达式，判断是否合法。
-类似于 图里找环， DFS
-输入是类似 “a > b”“b > c” "c > a"， 输出false
-follow up是表达式里会加入数字，比如“a > b”“b > 2” "a < 2"
-
-206. 给一个无限的board，board上有一些点，输入是这些点的坐标，输出是离这些点最近的空格子的坐标。
+206. 给一个无限的board，board上有一些点，输入是这些点的坐标，输出是离这些点最近的空格子的坐标。  
+将所有边界点加入queue, 然后做bfs, 遇到occuipied就记录  
+给一个list of coordinates作为occupied，return每个coordinate最近的unoccupied的点，一样近的任选，order随意
 
 207. 输入是一些时间点和每个时间点的hit count，求哪30min的range count最高。
 比如 [0, 1][1, 2][30, 3][60, 70]
@@ -1409,10 +1479,7 @@ follow up:
 最后合并一下比如mapreduce一下。。
 如果只在乎1-1000的数字怎么办？能不能更快的处理getValue 答直接用int[1000] 然后在每个index++
 
-209. 输入： [2,3,5]target = 25
-你可以往数字里添加 + - × ÷（ ）
-输出：运算式
-比如上面 要求输出一个String (2+3) × 5
+
 
 210. 找下一个permutation的变体
 要加小数点
@@ -1421,6 +1488,7 @@ follow up:
 followup。。问我String x = "a"然后String x = x+x 是怎么work的。。。可能因为我code里写到了这些
 str不可变。每次会创建新的str, 所以id会变
 然后问了如果有相同数字，怎么break code 之类的
+https://github.com/jamesben6688/coding/blob/main/dfs/next_permutation.py
 
 211. 一个tree里，一个节点如果不是leaf node也不是有两个child的节点就算chain node，
 从上到下这样的节点串起来不中断就是一个chain，数最长的chain
@@ -1450,7 +1518,7 @@ what is minimum stpes to reduce to one.
 
 217. 62. 从左下角到右下角有几条路可以走到，只能左，左上，或者下左
 
-218. 关于python generator的问题。如何随机返回一个数字，概率一定要unformly distributed。
+218. 关于python generator的问题。如何随机返回一个数字，概率一定要uniformly distributed。
 暴力解法，把generator转list, 
 follow up: 如何优化
 
@@ -1769,12 +1837,7 @@ add: Spanish hola -> French Bon jour
 层去比较）
 https://github.com/jamesben6688/coding/blob/main/dfs/%E4%B8%A4%E4%B8%AA%E5%B5%8C%E5%A5%97dict%E6%89%BE%E7%9B%B8%E5%90%8C%E7%9A%84key.py
 
-
-280. 给了一个list的人，
-每个人
-都有一个相对应的开始和结束工作时间。要求写一个function，output结果是列出所
-有可能的时间interval，
-并且在每个interval里面写出这个时间段在工作的人。
+	
 
 281. 写一个class，里面要实现两个method去做以下的query set
 一个是接收一个tuple的input。该tuple是[startNumber, endNumber]
@@ -3083,7 +3146,7 @@ findSmallestIndex(number) -> 返回存放number最小的index，如果number不�
 
 548. 465
 
-549. 给一个list of coordinates作为occupied，return每个coordinate最近的unoccupied的点，一样近的任选，order随意
+
 
 550. 给一个list of Folder objects，return每个folder的absolute path。Folder object 有parent和name。
 
@@ -3491,8 +3554,6 @@ https://github.com/jamesben6688/coding/blob/main/dp/%E5%B9%B3%E5%9D%87%E5%88%86%
 excel sheet可以compute function的功能。比如说A1可以输入MAX(B1, B2, B3),然后B1可能是另一个func，
 比如 AVG(C1, C2) etc。设计这个，写model和这个function的impl。
 
-643. 比较简单，给一付牌，不是传统的牌，但是类似的是有suit和rank，输入是一个list的string，类似S1R3，意思是suit 1， rank 3，
-实现一个输出最大flush的func。
 
 644. 也比较简单，56 和 921
 
@@ -3599,8 +3660,6 @@ func ScheduleEvent(events []Event) []Coordinator {
 
 669. 逆波兰， 要求处理各种exception
 
-670. 给N 张扑克牌，不同的suit 和rank组成一个输入数组， 返回最大的一组同一suit中5张连续的牌， 
-follow up，如果suit更多怎么办。
 
 671. Tree （不是binary）， 树叶上有value， 树枝结点没有value， 但有所有子叶value 的range。
 叶的value是sorted所以不同path 的branch 
@@ -4052,9 +4111,6 @@ https://github.com/jamesben6688/coding/blob/main/dfs/%E5%87%BD%E6%95%B0%E5%B5%8C
 
 789：随机生成迷宫
 
-790. 每张卡片有rank和suit两种attribute。相同的rank，并且suit值连续递增的卡片才算是一个valid set。
-输入一个卡片数组，求问suit值最大的valid set。
-需要5张卡片才能算一个set
 
 791. 设计一个提示钓鱼网站的service，主要是判断某个 url 是否是钓鱼网站。着重讨论了更新数据的时候怎么办，用户抱怨这个service误报怎么办。
 
@@ -4433,8 +4489,6 @@ abc2 de3 输出 abcabcdeabcabcdeabcabcde
 
 https://github.com/jamesben6688/coding/blob/main/two_pointer/%E6%89%93%E5%8D%B0%E5%AD%97%E7%AC%A6%E4%B8%B2.py
 
-857. 判断不等式是否合法 a>b
-https://github.com/jamesben6688/coding/blob/main/union_find/%E7%AD%89%E5%BC%8F%E5%88%A4%E6%96%AD%E5%A4%A7%E5%B0%8F%E6%98%AF%E5%90%A6%E5%90%88%E6%B3%95.py
 
 858. 能穿过矩阵的最后一天
 https://github.com/jamesben6688/coding/blob/main/union_find/%E8%83%BD%E7%A9%BF%E8%BF%87%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9.py
@@ -4449,9 +4503,6 @@ https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/fib
 862. jessca 保险 serve 服务 服务器 task
 https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/jessca%E4%BF%9D%E9%99%A9.py
 https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/n%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8m%E4%B8%AAtask.py
-
-863. 工作时间summary
-https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/people_work_summary.py
 
 864. utf8 utf-8
 https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/utf8.py

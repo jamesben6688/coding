@@ -46,3 +46,12 @@ def min_operations_to_target(target, buckets):
                 queue.append((new_water, steps + 1))
 
     return -1  # 如果没有找到路径
+
+"""
+理论上最多状态是 O(target)，因为我们限制了水量范围。
+
+每个状态最多扩展 2 * len(buckets) 个子状态。
+
+所以总复杂度近似为：O(target × len(buckets))
+"""
+print(min_operations_to_target(9, [3, 6]))

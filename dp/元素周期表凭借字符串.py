@@ -35,3 +35,5 @@ def can_be_formed_by_elements_dp(s):
             dp[i] = True
 
     return dp[n]
+
+print(can_be_formed_by_elements_dp('PrAcTiCe'))

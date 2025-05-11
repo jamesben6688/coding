@@ -14,4 +14,4 @@ def find_duplicate_binary_search(nums):
     return low
 
 
-print(find_duplicate_binary_search([3,4,2,1,2]))
+print(find_duplicate_binary_search([3,4,2,1,3]))

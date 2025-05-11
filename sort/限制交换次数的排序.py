@@ -46,3 +46,38 @@ def constrained_sort(arr):
             arr[min_idx], arr[min_idx - 1] = arr[min_idx - 1], arr[min_idx]
             min_idx -= 1
     return arr
+
+"""
+    冒泡排序
+"""
+
+def constrained_sort_arbitrary(arr):
+    n = len(arr)
+    sorted_arr = sorted(arr)
+    pos_map = {val: idx for idx, val in enumerate(sorted_arr)}  # value → target index
+
+    swaps = 0
+
+    for i in range(n):
+        val = arr[i]
+        correct_idx = pos_map[val]
+        if i - correct_idx > 2:
+            print("Too chaotic")
+            return
+
+    # Bubble Sort with constraint
+    arr = arr[:]  # copy to preserve original
+    for i in range(n):
+        for j in range(n - 1):
+            if pos_map[arr[j]] > pos_map[arr[j + 1]]:
+                # Check if arr[j+1] is moving left more than 2 positions
+                if j - pos_map[arr[j + 1]] > 2:
+                    print("Too chaotic")
+                    return
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swaps += 1
+
+    print(f"Sorted: {arr}, Swaps: {swaps}")
+
+
+print(constrained_sort([1, 2, 5, 3, 4]))

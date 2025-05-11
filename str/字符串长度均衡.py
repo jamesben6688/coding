@@ -1,81 +1,41 @@
-"""
 from typing import List
 
-def balanced_prefixes(strings: List[str], N: int) -> List[str]:
-    m = len(strings)
-    maxlens = [len(s) for s in strings]
+def balanced_substrings(strings, N):
+    """
+        贪心分配 O(N)
 
-    best = None  # (max-min, -total_used, [lengths])
+    :param strings:
+    :param N:
+    :return:
+    """
+    n = len(strings)
+    lengths = [0] * n
+    target = N // n
 
-    # total_chars: 从 N 递减找最优方案
-    for total in range(N, -1, -1):
-        base = total // m
-        remainder = total % m
+    # 初始分配
+    for i in range(n):
+        lengths[i] = min(len(strings[i]), target)
 
-        # 初步分配：所有人 base
-        lens = [min(base, maxlens[i]) for i in range(m)]
+    used = sum(lengths)
+    remaining = N - used
 
-        # 计算目前已分配
-        used = sum(lens)
+    # 贪心式地平均加1，直到用完预算
+    while remaining > 0:
+        updated = False
+        for i in range(n):
+            if lengths[i] < len(strings[i]):
+                lengths[i] += 1
+                remaining -= 1
+                updated = True
+                if remaining == 0:
+                    break
+        if not updated:
+            break  # 已无法增加
 
-        # 尝试再给一些人 +1，按谁还有空间排
-        candidates = sorted(range(m), key=lambda i: (-(maxlens[i] - lens[i]), -maxlens[i]))
-        idx = 0
-        while used < total and idx < m:
-            i = candidates[idx]
-            if lens[i] < maxlens[i]:
-                lens[i] += 1
-                used += 1
-            idx += 1
+    # 生成子串
+    result = [s[:l] for s, l in zip(strings, lengths)]
+    return result
 
-        if used == total:
-            diff = max(lens) - min(lens)
-            key = (diff, -total, lens)
-            if best is None or key < best:
-                best = key
-
-    final_lens = best[2]
-    return [strings[i][:final_lens[i]] for i in range(m)]
-
-"""
-
-from typing import List
-
-def balanced_prefixes(strings: List[str], N: int) -> List[str]:
-    m = len(strings)
-    maxlens = [len(s) for s in strings]
-
-    best = None  # (max-min, -total_used, [lengths])
-
-    # total_chars: 从 N 递减找最优方案
-    for total in range(N, -1, -1):
-        base = total // m
-        remainder = total % m
-
-        # 初步分配：所有人 base
-        lens = [min(base, maxlens[i]) for i in range(m)]
-
-        # 计算目前已分配
-        used = sum(lens)
-
-        # 尝试再给一些人 +1，按谁还有空间排
-        candidates = sorted(range(m), key=lambda i: (-(maxlens[i] - lens[i]), -maxlens[i]))
-        idx = 0
-        while used < total and idx < m:
-            i = candidates[idx]
-            if lens[i] < maxlens[i]:
-                lens[i] += 1
-                used += 1
-            idx += 1
-
-        if used == total:
-            diff = max(lens) - min(lens)
-            key = (diff, -total, lens)
-            if best is None or key < best:
-                best = key
-
-    final_lens = best[2]
-    return [strings[i][:final_lens[i]] for i in range(m)]
 strings = ["Embarcadero", "Ember", "SFO", "Montgomery"]
 N = 7
-print(balanced_prefixes(strings, N))  # ➜ ["Em", "Em", "SF", "M"]
+print(balanced_substrings(strings, N))  # ➜ ["Em", "Em", "SF", "M"]
