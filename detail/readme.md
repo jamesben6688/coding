@@ -165,7 +165,7 @@ they want to start serving the customers and they can refuse any number of custo
 have to serve till the time its impossible to serve the customers. Maximize the total customers bank can serve.
 Example :
 Bank has 1 unit of money intially.
-Customer transactions : [1, -3, 5, -2, 1]  # find the longest subarray, such that the sum of the subarray+init>=0
+Customer transactions : [1, -3, 5, -2, 1]  \# find the longest subarray, such that the sum of the subarray+init>=0
 answer = 3
 Bank starts with customer with deposit of 5
 1+ 5 = 6
@@ -417,7 +417,7 @@ https://github.com/jamesben6688/coding/blob/main/union_find/group_number.py
 Example:
 T1 [[0, 0], [1,2], [8, 10], [15, 0] ]     
 T2 [[0, 0], [3,5], [10,4], [12, 0]]    
-# at time 0, series value becomes 0; at time 1 series value become 2; at time 8 serie value 10 etc…  
+\# at time 0, series value becomes 0; at time 1 series value become 2; at time 8 serie value 10 etc…  
 Output: [[0,0] [1, 2] [3, 7] [8, 15] [10, 14], [12, 10], [15, 0]]    
 扫描线+map  
 https://github.com/jamesben6688/coding/blob/main/swipe_line/time_summation.py
@@ -532,7 +532,7 @@ Part2:
 // 3. Mark down all items that are telephones and wireless devices.
 // 4. Mark down all non-smartphone telephones.
 // 5. Mark down all communication devices unless they're non-smartphone telephones.
-// 6. Mark down items that are part of Sale #1, but not Sale #3.
+// 6. Mark down items that are part of Sale \#1, but not Sale #3.
 // 6. Mark down items that are (electronic devices), but not (telephones and wireless devices).
 // 8. Mark down items that are (electronic devices), but not (telephones but not communication devices unless they're non-smartphone telephones).
 Design a data structure to represent an arbitrary filter.
@@ -756,7 +756,7 @@ Note: the current high water mark H is the highest number requestId, where H -1,
 class Solution:
 def __init__(self, initialHighWaterMark):
 pass
-def processRequest(self, requestId: int): # request Id can have duplicates
+def processRequest(self, requestId: int): \# request Id can have duplicates
 pass
 def getCurrentHighWaterMark(self):
 pass
@@ -782,13 +782,13 @@ N = 2, 11, 2
 N = 3, 111, 12, 21
 
 79. give an maze, how to find path from a to A
-for example, "." is a cell that can be passed. "#" is barrier
+for example, "." is a cell that can be passed. "\#" is barrier
 . . A
-. # .
-. a #
+. \# .
+. a \#
 follow up:
 how to move a to A and b to B
-# # . #
+\# \# . \#
 a B b B
 用bfs做两个位置的移动, 注意不要冲突就行。  
 
@@ -903,8 +903,8 @@ A winning hand is when the 14 tiles can be grouped into 4 valid triples and 1 pa
 11223344555999 -> 123|123|555 |999|44
 •11122345678999 -> 111|345|678|999|22
 22455666777889 -> 456|567|678|789|22
-# The task is to print out all such winning tiles.
-# Example:
+\# The task is to print out all such winning tiles.
+\# Example:
 Input: "1116667788899"
 •Output: [7, 8, 9]
 Explanation:
