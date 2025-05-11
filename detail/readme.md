@@ -334,6 +334,10 @@ Sol:sweep line+queue
 42. 1825可以TreeMap和Heap两个方法解决，都是要维护两组数据。更新的时候顺便算出sum。
 use a deque and sortedlist, do two bisect, add num, pop num
 https://leetcode.cn/problems/finding-mk-average/solutions/1454952/by-981377660lmt-5hhm/
+给一个integer stream(latency)，让你只记录前N个integer，然后去除里面最大的K个，算剩下(N - K)个数字的平均值
+sample：5，2，3，3，5，1，5，7 ....
+如果 N = 5， K = 2,当7进来时，call getAverage(int latency) 返回 3 -> （3 + 5 + 1）/ 3
+MKaverage
 
 43. dfs 二分图， 给了两个pos 和 一个grid， grid 的给的数字代表是 elevation, 找到能流淌去两个position 的 最大值的 position
 follow up：如果pos 有多个的话 全部找出来
@@ -359,8 +363,11 @@ sub_arry的所有子数组和: arr[i]的贡献为, 左边界0~i, 右边界i~n-1 
 48. maximum weight matching for biparite graph。转化成maximum flow然后用ford fulkerson求解。
 
 49. 一个公司有mangers，每个manager可能会direct管理一些人；然后这些人又可能管理其他一些员工，形成一个树状管理结构。问题：1）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的平均工资（underpaid managers)？2）计算最小需要的budget给underpaid managers提高工资，使得没有公司任何underpaid员工？3）算出来有多少manager的工资是低于他direct or indirect管理的所有员工的median salary？
-https://github.com/jamesben6688/coding/blob/main/trees/manager_salary.py  
+107. 一个n-array tree，node如果有children就视为manager。
+问整个tree中收入低于下属收入平均值的manager个数。Follow up是问的是低于下属中位数应该怎么做。  
+50. https://github.com/jamesben6688/coding/blob/main/trees/manager_salary.py  
 Sol: bfs+merge sort  
+
 
 53. Check whether 2 integers have common digits=> num_a = 9919, num_b = 2212=> Return True due to 1 in both numbers
 Follow-up: given an array of n integers, check whether there is a path from integer a to integer b
@@ -564,7 +571,8 @@ followup: time complexity和memory complexity 还问了如果数字太长 一个
 for i in range(10000):
     if int(pi[i-len(str(i)):i]) == i:
  		return i
-https://github.com/jamesben6688/coding/blob/main/pi_str.py
+https://github.com/jamesben6688/coding/blob/main/%E6%A8%A1%E6%8B%9F%E9%A2%98/pi_str.py  
+
 67. 有一堆stack和，每个stack上都有blocks。 给出一个状态和结束状态，每一次只能移动一个block，可以移到其它stack上，或桌面上。
 问用最少steps将initial state 移到final state. 输出每一个steps的状态。
 [goal-stack-planning-for-blocks-world-problem](https://apoorvdixit619.medium.com/goal-stack-planning-for-blocks-world-problem-41779d090f29)
@@ -588,6 +596,7 @@ final state
 
 68. 一维空间下，有颜色分别是红蓝两种点的集合，然后有个query的点，只需要在这两个集合里找离这个点最近的点，然后赋予他相应的颜色
 Follow up： 二维, 高维怎么写
+KD树
 
 69. 有一个由（N-1）条连接的N个城市网络，类似于一棵树。在两个直接相连的城市（Ci，Cj）之间旅行需要固定的小时数Tij。
 对于从源城市S到每个其他城市Ck的最短路径，有多少个城市会在H小时内访问。
@@ -608,13 +617,15 @@ S:0
 2 15
 3 10
 
-70. 假设有 N 堆卡片 每堆卡片都有很多张 现在对每堆卡片进行一些清理 确保在一定程度上每堆卡片都有其独特之处 想要确保在每堆卡片的前 K 张卡片中 没有与前面几堆卡片的前 K 张卡片重复的
+70. 假设有 N 堆卡片 每堆卡片都有很多张 现在对每堆卡片进行一些清理 确保在一定程度上每堆卡片都有其独特之处 想要确保在每堆卡片的前 K 张卡片中   
+没有与前面几堆卡片的前 K 张卡片重复的
 参数解释：
 N 是卡片堆的数量。
 K 是每次比较的卡片数量，ex: 每次只看每堆的前 10 张卡片。
 D 是想要回顾的前几堆卡片的数量 比如只想比较最近的 3 堆卡片 以确保没有重复
 例子: 按照这个规则 第一堆卡片不需要做任何改变 因为它是第一堆 但从第二堆开始 检查每堆卡片的前 K 张卡片 如果发现有重复的，就把重复的卡片拿掉
 通过这种套路确保每堆卡片在一定程度上有其独特性至少在每堆的前 K 张卡片中不会有重复 .
+原地交换, 确保不重复。
 
 71. 给你个N（他给的是650），然后问这中间（0 - N-1）哪些数字是可能会up side down 被看错的，例如169 就可能会被调个头看成691。但是1被看错了还是1，69被看错了还是69。return所有可能被看错的数字。
 
@@ -659,9 +670,18 @@ Valid sets at least have 3 cards.
 Note: the input cards are all valid card from the standard 52 card deck.
 def isValidSet(cards: list):
 
+check if the given 20 cards can be divided into 4 hands (Texas Holdem)  德州扑克
+which are either royal flush or 4 of a kind. Follow up to check if it will work by 
+followup: replacing only one card
+非常慢: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%90%8C%E8%8A%B1%E9%A1%BA%E6%88%96%E8%80%85%E7%82%B8_%E9%9D%9E%E5%B8%B8%E6%85%A2.py
+
+快速版: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%BF%AB%E9%80%9F%E7%89%88.py
+正常版本: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%AD%A3%E5%B8%B8%E7%89%88%E6%9C%AC.py
+替换一张: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%9B%BF%E6%8D%A2%E4%B8%80%E5%BC%A0.py
+
 76. A server is processing the request, write a solution to get the current high water mark request id.
 for example: initial high water mark is 0, the request is processed in the following order [1,2, 5, 3, 4], highWatermark = [1, 2, 2, 3, 5]
-Note: the current high water mark H is the highest number requestId, where H -1, H-2, H-3 ....  H-initial is processed by the server.
+Note: the current high water mark H is the highest number requestId, where H -1, H-2, H-3 ....H-initial is processed by the server.
 class Solution:
 def __init__(self, initialHighWaterMark):
 pass
@@ -670,6 +690,8 @@ pass
 def getCurrentHighWaterMark(self):
 pass
 需要自己define 数据结构， 要求 processRequest 和 getCurrentHighWaterMark， Time complexity为 O（1）
+
+https://github.com/jamesben6688/coding/blob/main/others/water_mark.py
 
 77. 生成 unique id，
 要求：
@@ -697,6 +719,7 @@ follow up:
 how to move a to A and b to B
 # # . #
 a B b B
+用bfs做两个位置的移动, 注意不要冲突就行。  
 
 81. 构建霍夫曼树
 
@@ -709,13 +732,23 @@ a B b B
 {'b': 2, 'e': 1, 'z': 2}
 
 82. 按权重随机选择, followup:如果删除选中的元素，重复上述过程 直到list为空，
+https://leetcode.cn/problems/random-pick-with-weight/
+followup: 删掉即可
 
 83. 给一些sentenses作为training data, 写一个predict method - 给一个word，return出现在这个word之后频率最高的词。
 例如：sentenses: [“today is sunny.” “this problem is hard.” “california is sunny.”] predict(“is”) -> “sunny”.
 followup: fuzzyPredict(word) -> return word based on propability.
+Given some bigrams, and with an input word, try to predict the best next word (criteria: frequency)
+[[“I”, “am”, “Sam”]
+[“Sam”, “am”]
+[“I”, “am”, “a”, “Sam”, “am”, “I”, “like”]]
+预测下一个单词
+follow up： 如果给的是权重，怎么办？
+https://github.com/jamesben6688/coding/blob/main/hash/%E9%A2%84%E6%B5%8B%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D.py
 
-84. You are given a list of boxes with 2 dimensions, width and height. Return the maximum number of boxes you can stack on each other. You can rotate the box so basically if you have a box with dimensions [3,2] you can turn it into [2,3]. You can only put the box on the top of the pile if the width is less than the width of the current box on the pile.
-
+84. You are given a list of boxes with 2 dimensions, width and height. Return the maximum number of boxes you    
+can stack on each other. You can rotate the box so basically if you have a box with dimensions [3,2] you can turn it into [2,3]. You can only put the box on the top of the pile if the width is less than the width of the current box on the pile.
+https://leetcode.cn/problems/russian-doll-envelopes/description/
 Ex:
 input is [width,height]
 [2,2],[3,2],[3,4],[4,3]: result=3, start with either of the boxes that have a 4, then take the [3,2] width 3, then take the [2,2] on top. Cannot use both the [3,4] and [4,3] regardless of rotation.
@@ -740,7 +773,7 @@ return res
 85. 假设有string "AABBCCDDEE"， 注意所有的char如果出现的话一定是连续出现的，假设有一个数k是他们的partition num，如果k = 3, 刚刚string的partition效果是 AAB BCC DDE E, 我们称一个char为valid char如果他仅存在于他的partition里面，并且在partition里面是连续存在的。
 那么刚刚这个例子，返回的valid char应该是A, C, D。现在告诉你input不是整个string直接给你，而是以stream的形式一个char一个char的让你读，请你设计你的数据结构能够有 void getNextChar(char c) 和 int getNumberOfValidChars() 这两个函数。
 基础的 O(n) 的space 复杂度，有比O(n)更好的不需要set的方法
-
+https://github.com/jamesben6688/coding/blob/main/str/partition_char.py
 86. string replacement
 比如说
 string: "%X%_%Y%"
@@ -760,12 +793,14 @@ output = "I am admin My home is /admin/home"
 https://github.com/jamesben6688/coding/blob/main/dfs/%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2.py
 
 87. 给一个forest，node只有parent idx，怎么delete 一个tree node
+https://github.com/jamesben6688/coding/blob/main/tree/delete_tree_parent.py  
 
 88. 一个word list，怎么build efficient prefix trie search。large scale 怎么distributed index和query
 
 89. 找graph里有几个组，可以用dfs也可以union find
 
 90. 矩阵里有陆地有水，找路径，区别是有个猫，返回离猫最远的路，你可以看成耗子着离猫最远的路逃跑
+先从猫出发, 形成一个矩阵, 数字代表距离。然后找路径最小值最大。
 
 91. 给一个服务器的聊天消息日志文件，格式如下：
 [YYYY-MM-DD HH-mm-ss] <user_name> message_text
@@ -778,7 +813,7 @@ Follow-up quetion：
 92. There's a game you play with tiles which each can + be represented by a number within the (1, 9) - range.*
 You are given a list of 13 tiles. Now you try to pick another tile to make it a winning hand.*
 * We call this tile a winning tile.
-A winning hand is when the 14 tiles can be grouped + into 4 valid triples and 1 pair, where a valid triple
+A winning hand is when the 14 tiles can be grouped into 4 valid triples and 1 pair, where a valid triple
 * is either 3 of a kind, or 3 consecutive numbers.
 * Some examples of winning states:
 11223344555999 -> 123|123|555 |999|44
@@ -792,33 +827,55 @@ Explanation:
 1116667788899 + 7--> 11166677788899 -> 111|666|777|888|99
 1116667788899 + 8 -> 11166677888899 - 111|666|789|789|88
 1116667788899 + 9 -> 11166677888999 -> 111|666|888|999|77
+ 用川麻的规则，给14张麻将牌，让设计一个算法，判断这手14张麻将牌胡了没有
+比如 1 1 1 2 3 4 6 6 7 7 8 8 9 9 胡了
+  1 1 1 1 2 3 4 5 6 7 8 8 9 9 没胡
+   1 1 2 2 3 3 4 4 5 5 6 6 7 7 七小对 胡了
+这题必须回溯
+https://github.com/jamesben6688/coding/blob/main/dfs/group_card.py
+
+115. Given a set of cards to play, input as a collection of cards with rank and suit to play
+The play of the card is valid when meeting the following 2 options
+1. 3 or more consectuive rank regardless of the suit, to be noted rotated rank doesn't count 
+e.g."QC", "KD", "AC" is not consectuive
+2.3 or more same ranks with the same suit
+Any play less than 2 cars is invalid
+Example
+"2D","4H", "6S", "3C" --> valid
+"3D", "3C","3H", "6S" --> invalid
+"3D", "4D", "7S", "6C", "10D", "9S" --> invalid
+"3D", "3D", "4S", "9D","9D" --> Invalid
+"3D", "3D", "9D", "4S", "9D","9D" --> valid
 
 93. 一共有N个房间，给每个会议的起始和终止时间，求所有会议都安排完后被预定次数最多的房间号。
-
-94. 给一个integer stream(latency)，让你只记录前N个integer，然后去除里面最大的K个，算剩下(N - K)个数字的平均值
-sample：5，2，3，3，5，1，5，7 ....
-如果 N = 5， K = 2,当7进来时，call getAverage(int latency) 返回 3 -> （3 + 5 + 1）/ 3
+用heap
 
 95. unidirected graph查环
 followup： min spanning tree，用kruskal(edge排序再union find)来解
 
 96. 矩阵里面有很多 1 -1 0 然后把所有的1(可能有多个 more than 2) 连接起来 连的路线只能经过0 不能经过-1
 然后输出所有经过的点的坐标in a list
+bfs即可
 
 97. 实现一个class，支持两个API
 一个是add一个range
 另一个是query输入的int是否在这个class的某个range里，返回true/false即可，不要求找到具体的range
 
 98. 给一些长方形，找出来有多少是交叉的。
+扫面线, X和Y各走一遍。取交集
 
 99. data stream 每次给定start, end, odd/even, 判断是否valid
 代表 一个未知数组nums中 nums[start] + nums[start+1] + nums[start+2] .... + nums[end] 为奇数或偶数
 3, 5, odd 返回true
 6, 8, even 返回true
 3, 8, even 返回false
-input有可能overlap, 可以先不考虑负数
+input有可能overlap, 可以先不考虑负数  
+带权并查集  
+https://github.com/jamesben6688/coding/blob/main/union_find/odd_even_uf.py  
 
-100. Given a list of elements, each element with an Id and 3 (guaranteed 3, valid input) string properties. If any of the 2 elements have an overlap of the properties, they are considered duplicates, group the duplicated element ids together and show in the output. If no duplicates for a particular element, output its own id.
+100. Given a list of elements, each element with an Id and 3 (guaranteed 3, valid input) string properties.  
+If any of the 2 elements have an overlap of the properties, they are considered duplicates, group the duplicated 
+element ids together and show in the output. If no duplicates for a particular element, output its own id.
 Example:
 Input:
 Element1, id1, properties: P1, P2, P3
@@ -833,9 +890,11 @@ Expected output: { {id1, id2}, {id3} }
 102. 写KMeans
 
 103. 有一个mergedword 是两个单词通过merge sort的方式 得到的。 给你一个dictionary（word list）, 把这两个单词找出来。 举个例子：
-wordDictionary: [alpha, apple, aalph, alaph, beta, banana], merged word: abelphata, 结果是alpha, beta. 因为你merge了alpha, beta， 结果是abelphata。
+wordDictionary: [alpha, apple, aalph, alaph, beta, banana], merged word: abelphata, 结果是alpha, beta. 因为你merge了alpha, beta， 
+结果是abelphata。
 用的trie做
 follow up 是： 如果这个dictionary 非常大， 怎么办？ 如果是由n个word 得到的， 怎么做。
+https://github.com/jamesben6688/coding/blob/tire/word_merge.py  
 
 104. 写一个找出最小index的api，需要implement addOrReplace(index, number)和find(number)，要求o(1)
 
@@ -852,8 +911,7 @@ follow up 是： 如果这个dictionary 非常大， 怎么办？ 如果是由n�
 "This"
 之后给你这个tree的root，和一段字符串，比如 very funny，让你返回是哪几个node包含这个字符串
 
-107. 一个n-array tree，node如果有children就视为manager。
-问整个tree中收入低于下属收入平均值的manager个数。Follow up是问的是低于下属中位数应该怎么做。
+
 
 108. 给定一个字符串要求把字符串扩展开，例如：
 input: "a3"
@@ -861,6 +919,12 @@ output: "aaa"
 复制代码
 input: "(abc)2"
 output: "abcabc"
+116. 实现字符串转换，例子如下：
+A3B2 -> (A,3), (B,2)
+(A3B2)2 -> (A,6), (B,4)
+A2(A3B2)2 -> (A,8), (B,4)
+解码字符串
+https://github.com/jamesben6688/coding/blob/main/str/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2.py
 
 109. 给两个XML文件，判断两个文件是否是相同内容。XML文件内容是否相同跟节点的先后顺序无关。
 Follow-up: 有多个XML文件，把内容相同的归在同一类。
@@ -871,6 +935,7 @@ Follow-up: 现在A4上有一个1行2列的表格，列宽可自由调整。给�
 
 111. 给定两个字符串source和target，你可以无限复制source。请问target是否可以成为复制的source的子序列（注意：不是子字符串）？
 Follow-up: 如果上一个问题是肯定的，求最小的复制次数。
+https://github.com/jamesben6688/coding/blob/main/str/copy_str.py
 
 112. 假设已经有一个API可以给你调用。这个API的作用是读取一个文件中第i个区块（假设一个区块是5Mb）的内容，返回值是实际读取了多少字节。
 API示例： int read(string fileName, int chunkNo, int[] buffer)
@@ -889,24 +954,7 @@ Follow up: 如果现在文件特别大，要怎样做才可以加快文件的读
 给定N，输出any good draw 2）给定N，一共多少种good draw
 https://github.com/jamesben6688/coding/blob/main/recursive/good_draw.py
 
-115. Given a set of cards to play, input as a collection of cards with rank and suit to play
-The play of the card is valid when meeting the following 2 options
-1. 3 or more consectuive rank regardless of the suit, to be noted rotated rank doesn't count 
-e.g."QC", "KD", "AC" is not consectuive
-2.3 or more same ranks with the same suit
-Any play less than 2 cars is invalid
-Example
-"2D","4H", "6S", "3C" --> valid
-"3D", "3C","3H", "6S" --> invalid
-"3D", "4D", "7S", "6C", "10D", "9S" --> invalid
-"3D", "3D", "4S", "9D","9D" --> Invalid
-"3D", "3D", "9D", "4S", "9D","9D" --> valid
-
-116. 实现字符串转换，例子如下：
-A3B2 -> (A,3), (B,2)
-(A3B2)2 -> (A,6), (B,4)
-A2(A3B2)2 -> (A,8), (B,4)
-
+	 
 117. 写一个删除文件或directory的功能，如果是删除directory，下面的文件和directory都要一个个删除，
 也有可能会有很多删除的request，所以可能有大量的删除工作，怎么最大化利用电脑的资源（thread），并且不会block other work。
 
@@ -1654,14 +1702,6 @@ Follow up：不用dfs或者bfs
 270. 返回数组中non-decreasing subarrays的数量，time and space compleixty
 Follow up：返回non-decreasing subsequence的数量。
 
-271. check if the given 20 cards can be divided into 4 hands (Texas Holdem) 
-which are either royal flush or 4 of a kind. Follow up to check if it will work by 
-followup: replacing only one card
-非常慢: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%90%8C%E8%8A%B1%E9%A1%BA%E6%88%96%E8%80%85%E7%82%B8_%E9%9D%9E%E5%B8%B8%E6%85%A2.py
-
-快速版: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E5%BF%AB%E9%80%9F%E7%89%88.py
-正常版本: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%AD%A3%E5%B8%B8%E7%89%88%E6%9C%AC.py
-替换一张: https://github.com/jamesben6688/coding/blob/main/dfs/%E5%BE%B7%E5%B7%9E%E6%89%91%E5%85%8B%E6%9B%BF%E6%8D%A2%E4%B8%80%E5%BC%A0.py
 
 272. given a dictionary of file tree, find entire size of the given file or
  directory(sum of the files in it). Follow up to implement a directory-delete function.
@@ -2027,13 +2067,6 @@ x代表钉子
 
 335. employee 到 manager的扫描 一颗树 从某个manager 到 employee的路径
 
-336. Given some bigrams, and with an input word, try to predict the best next word (criteria: frequency)
-[[“I”, “am”, “Sam”]
-[“Sam”, “am”]
-[“I”, “am”, “a”, “Sam”, “am”, “I”, “like”]]
-预测下一个单词
-follow up： 如果给的是权重，怎么办？
-https://github.com/jamesben6688/coding/blob/main/hash/%E9%A2%84%E6%B5%8B%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8D%95%E8%AF%8D.py
 
 337. 给一个binary tree，输出vertical order
 
@@ -2254,10 +2287,7 @@ i.e. arr[0] <= arr[1] <= ... <= arr[i-2] <= arr[i-1] <= arr[i+1] <= arr[i+2] <= 
 376. 给一个list of integers，我们改变这个list，只保证留下想要的，删掉不想要的（比如只留下偶数，不要奇数之类的）
  但是我们希望尝试以最小化移动次数（data movement）来改变这个list，保证只留下我们想要的，删掉我们不想要的
 
-377. 用川麻的规则，给14张麻将牌，让设计一个算法，判断这手14张麻将牌胡了没有
-比如 1 1 1 2 3 4 6 6 7 7 8 8 9 9 胡了
-  1 1 1 1 2 3 4 5 6 7 8 8 9 9 没胡
-   1 1 2 2 3 3 4 4 5 5 6 6 7 7 七小对 胡了
+
 
 378. follow up加入花色以及翻倍   
 
@@ -4267,9 +4297,6 @@ https://github.com/jamesben6688/coding/blob/main/sortedlist/%E8%BF%94%E5%9B%9E%E
 
 838. 函数独占时间
 https://github.com/jamesben6688/coding/blob/main/stack/%E5%87%BD%E6%95%B0%E7%8B%AC%E5%8D%A0%E6%97%B6%E9%97%B4.py
-
-839. 解码字符串
-https://github.com/jamesben6688/coding/blob/main/str/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2.py
 
 840. 改变字符是否存在
 https://github.com/jamesben6688/coding/blob/main/str/%E6%94%B9%E5%8F%98%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8.py
