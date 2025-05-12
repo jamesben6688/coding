@@ -4727,3 +4727,4 @@ start = "_L__R__R_", target = "L______RR"
 880. 二叉搜索树变平衡 https://leetcode.com/problems/balance-a-binary-search-tree/ 
 881. 806. 写字符串需要的行数
 https://leetcode.cn/problems/number-of-lines-to-write-string/description/
+882. 砖墙 https://leetcode.cn/problems/brick-wall/description/
