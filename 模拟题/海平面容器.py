@@ -5,7 +5,7 @@
 返回一个表示每个独特水体体积的整数容器。
 input:
 int[] arr = {1, 5, 1, 3, 4, 3, 1, 2, 7, 5, 6};
-[3, 0, 3, 0, 1, 3, 2, 0, 0, 0]
+            [3, 0, 3, 0, 1, 3, 2, 0, 0, 0]
 int seaLevel = 4;
 output: [3, 4,6]
 如果有高于海平面的跳过，output 是 4-1 =3
@@ -31,3 +31,5 @@ def water(heights: List[int], sea_level: int) -> List[int]:
             vol = 0
 
     return res
+
+print(water([3, 0, 3, 0, 1, 3, 2, 0, 0, 0], 4))

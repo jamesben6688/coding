@@ -2,13 +2,9 @@ class Solution:
     def get_min_floor(self, nums):
         """
             空间可以优化。不用前缀和。
-
             用一个数记录<i左边的和。
-
             然后每次sum-nums[i]就是右边的总和
-
             空间O(lgN)
-
         :param nums:
         :return:
         """

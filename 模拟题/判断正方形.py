@@ -55,82 +55,60 @@ class Solution:
             isclose(d[4], 2 * side, abs_tol=self.epsilon) and
             isclose(d[5], 2 * side, abs_tol=self.epsilon)  # diagonal: 2 * side^2
         )
-    def validSquare_1(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -> bool:
-        # if
-        def get_center(p1, p2, p3, p4):
-            # print(p1[0])
-            return [(p1[0]+p2[0]+p3[0]+p4[0])/4, (p1[1]+p2[1]+p3[1]+p4[1])/4]
 
-        center = get_center(p1, p2, p3, p4)
+class ValidSquares:
+    def __init__(self):
+        # 存储所有点的集合
+        self.points_set = set()
+        # 存储找到的所有正方形的集合 (为了避免重复)
+        self.squares = set()
 
-        def l2_dis(p1, p2):
-            return (p1[0]-p2[0]) **2 + (p1[1]-p2[1]) ** 2
+    def add_point(self, x, y):
+        """
+        向集合中添加一个新的点，检查是否能形成正方形。
+        """
+        self.points_set.add((x, y))
+        self._find_squares(x, y)
 
-        dis = l2_dis(center, p1)
-        if dis != l2_dis(center, p2) or dis != l2_dis(center, p3) or dis != l2_dis(center, p3):
-            return False
+    # 不停加点, 当前点+另外一点构成对角线O(N)
+    def _find_squares(self, x, y):
+        """
+        查找所有有效的正方形。
+        通过新加入的点 (x, y)，检查它与其他点的组合是否能形成正方形。
+        """
+        for (px, py) in list(self.points_set):
+            if (px, py) == (x, y):  # 不用跟自己匹配
+                continue
 
-        pts = [p1, p2, p3, p4]
-        for i in range(4):
-            for j in range(i+1, 4):
-                pp1 = pts[i]
-                pp2 = pts[j]
+            # 计算与 (px, py) 形成对角线的其他两点
+            dx, dy = x - px, y - py
+            # 找到两个其他的点的位置：向上右转和向下左转
+            point1 = (x + dy, y - dx)
+            point2 = (px + dy, py - dx)
 
-                if pp1 == pp2: return False
+            # 如果这两个点都在集合中，说明构成了一个正方形
+            if point1 in self.points_set and point2 in self.points_set:
+                # 将这个正方形添加到集合中，保证不会重复
+                sorted_square = tuple(sorted([(x, y), (px, py), point1, point2]))
+                self.squares.add(sorted_square)
 
-                vec1 = [pp1[0]-center[0], pp1[1]-center[1]]
-                vec2 = [pp2[0]-center[0], pp2[1]-center[1]]
+    def get_squares(self):
+        """
+        返回所有找到的正方形。
+        """
+        return list(self.squares)
 
-                if vec1[0] * vec2[0] + vec1[1]*vec2[1] == 0:
-                    pass
-                elif vec1[0]+vec2[0] == 0 and vec1[1]+vec2[1] ==0:
-                    pass
-                else:
-                    return False
-            return True
+# 示例使用
+valid_squares = ValidSquares()
+valid_squares.add_point(1, 1)
+valid_squares.add_point(1, 2)
+valid_squares.add_point(2, 1)
+valid_squares.add_point(2, 2)
 
+# 输出所有找到的正方形
+squares = valid_squares.get_squares()
+print("Valid squares:", squares)
 
-class Solution_1:
-    def validSquare(self, p1: List[int], p2: List[int], p3: List[int], p4: List[int]) -> bool:
-        def get_center(p1, p2, p3, p4):
-            print(p1[0])
-            return [(p1[0]+p2[0]+p3[0]+p4[0])/4, (p1[1]+p2[1]+p3[1]+p4[1])/4]
-
-        center = get_center(p1, p2, p3, p4)
-
-        def l2_dis(p1, p2):
-            return (p1[0]-p2[0]) ** 2 + (p1[1]-p2[1])**2
-
-        dis = l2_dis(center, p1)
-        if dis != l2_dis(center, p2) or dis != l2_dis(center, p3) or dis != l2_dis(center, p3):
-            return False
-
-        pts = [p1, p2, p3, p4]
-
-        plt.scatter(*p1, label='pt1')
-        plt.scatter(*p2, label='pt2')
-        plt.scatter(*p3, label='pt3')
-        plt.scatter(*p4, label='pt4')
-        plt.scatter(*center, label='center')
-
-        plt.legend()
-        plt.show()
-
-        for i in range(4):
-            for j in range(i+1, 4):
-                pp1 = pts[i]
-                pp2 = pts[j]
-
-                vec1 = [pp1[0]-center[0], pp1[1]-center[1]]
-                vec2 = [pp2[0]-center[0], pp2[1]-center[1]]
-
-                if vec1[0] * vec2[0] + vec1[1]*vec2[1] == 0:
-                    pass
-                elif vec1[0]+vec2[0] == 0 and vec1[1]+vec2[1] ==0:
-                    pass
-                else:
-                    return False
-            return True
 
 
 print(Solution().validSquare(
