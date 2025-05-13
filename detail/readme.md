@@ -416,6 +416,7 @@ Example:
 l1 = [1,2,3,4,5,6], l2 = [3,1,1,2,4,1], k = 2
 Output [3,4,1]
 Followup是如果给一堆list，l1, l2, ..., ln, k 和 m, m是指当前list，li的k-window不能包含它之前的m个list的k-window中的元素，
+39. https://github.com/jamesben6688/coding/blob/main/hash/remove_k_no_duplicates.py
 https://github.com/jamesben6688/coding/blob/main/hash/%E5%A4%9A%E4%B8%AA%E6%95%B0%E7%BB%84%E5%89%8DK%E4%B8%AA%E6%95%B0%E4%B8%8D%E9%87%8D%E5%A4%8D.py  
 
 39. 有个停车场，门禁记录每辆车的进出时间，时间为整数。给定时间t，返回从0到t每一时刻停车场有多少车。
