@@ -816,7 +816,8 @@ eric: yes
 有两种人 一种是想合住 一种是不想合住
 有不同房间数量的房子
 怎么安排住宿？
-https://github.com/jamesben6688/coding/blob/main/dfs/%E5%AE%89%E6%8E%92%E5%85%AC%E5%AF%93%E9%97%AE%E9%A2%98.py
+https://github.com/jamesben6688/coding/blob/main/dfs/apartments.py
+https://github.com/jamesben6688/coding/blob/main/dfs/apt.py
 
 75. Suit: C as Clubs, H as Hearts, S as Spades, D as Diamonds
 Rank: A, 1,2 ... 10, J, Q, K
@@ -2582,7 +2583,8 @@ follow up问了如果人和问题变成stream怎么scale。
 标记这个人和问题已被使用。
 匈牙利算法
 匈牙利算法: https://leetcode.cn/problems/maximum-number-of-accepted-invitations/  https://github.com/jamesben6688/coding/blob/main/dfs/Hungary_algo.py  
-
+带权重的匈牙利算法KM算法: 
+https://github.com/jamesben6688/coding/blob/main/dfs/Hungary_km.py  
 
 362. 给一个聊天记录文件，每一行的格式是
 something（人名@）word1...word2 word3
