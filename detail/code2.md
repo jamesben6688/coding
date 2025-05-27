@@ -189,7 +189,7 @@ if __name__ == "__main__":
 
 3.
 公交车站(bus
-station) [CN](https: // leetcode.cn / problems / bus - routes / submissions / 596334262 /)
+station) https://leetcode.cn/problems/bus-routes/
 ```python
 """
             dijstra 算法
@@ -543,26 +543,13 @@ class Solution:
 
 print(Solution().simplify("a-b-(a-(c-a))"))
 ```
-9.
-Top
-K
-Frequent
-Elements[EN](https: // leetcode.com / problems / top - k - frequent - elements / description /), [CN](
-    https: // leetcode.cn / problems / top - k - frequent - elements / description /)
-10.
+9.Top K Frequent Elements https://leetcode.cn/problems/top-k-frequent-elements/description/ https://leetcode.com/problems/top-k-frequent-elements/description/
 无向图中连通分量的数目
 DFS / BFS / 并查集
-[Number of Connected Components in an Undirected Graph](
-    https: // leetcode.com / problems / number - of - connected - components - in -an - undirected - graph /)
-11.
-计算器1[EN](https: // leetcode.com / problems / basic - calculator / description /)
+Number of Connected Components in an Undirected Graph https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+11. 计算器1[EN](https: // leetcode.com / problems / basic - calculator / description /)
 12.
-有个传送带，传送带上来的货物是
-1
-2
-7
-9
-22
+有个传送带，传送带上来的货物是 1 2 7 9 22
 这种的整数。你有无穷大的等候区
 需要把来的货先卸货
 然后k个一组打包带走
@@ -609,8 +596,6 @@ def process_goods(d, k):
 键盘matrix由字符组成，问能不能在给定的某个步数内组成一个单词。
 DFS解决
 ```python
-
-
 class Solution:
     def jump(self, keyboard, word, dis):
         dirs = [(1, 0), (-1, 0), (0, 1), (0, -1)]
@@ -653,10 +638,7 @@ print(Solution().jump(
 Follow
 up问如果按键有重复的怎么做: 加入一个visited数组
 
-14.
-3
-sum问题[EN](https: // leetcode.com / problems / 3
-sum / description /)
+14. 3 sum问题 https://leetcode.com/problems/3sum/description/
 ```python
 
 
@@ -695,41 +677,9 @@ class Solution:
 print(Solution().threeSum([0, 1, 1]))
 ```
 
-16.
-餐厅等座系统，可以新添某个
-size
-的
-party， 可以删除某个
-party， 给一个
-size
-可以
-match
-最早来的
-party 。
-方法是每个
-group
-size
-都对应一个
-double
-linked
-list
-follow - up: 支持“某个
-size
-为
-5
-的桌子空出来之后，先
-match
-5
-人的
-party，没有的话
-match
-4
-人，三人，以此类推.
-方法: 直接
+16. 餐厅等座系统
 for loop 用原来的函数即可
     ```python
-
-
 class ListNode:
     def __init__(self, value):
         self.value = value
@@ -817,33 +767,19 @@ wl.add(tom)
 wl.serve(10)  # served Tom
 
 ```
-17.
-给了一些排序的不重复的区间。给你一个新区间，要求合并，并计算总长度。
-18.
-课程表的变体: 先修课程对[0, 1]
-表示：想要学习课程
-0 ，你需要先完成课程
+17. 给了一些排序的不重复的区间。给你一个新区间，要求合并，并计算总长度。
+18. 课程表的变体: 先修课程对[0, 1] 表示：想要学习课程 0 ，你需要先完成课程
 1 。
 请你判断是否可能完成所有课程的学习？
-19.
-1778.[EN](https: // leetcode.com / problems / shortest - path - in -a - hidden - grid / description /), [CN](
-    https: // leetcode.cn / problems / shortest - path - in -a - hidden - grid / description /)位置网格的机器人。让机器人从起点走到终点。这个网格的大小是
-m
-x
-n，网格中的每个位置只会是可通行和不可通行两种状态。题目保证机器人的起点和终点不同，且都是可通行的。
+19.未知网格最短路径 https://leetcode.com/problems/shortest-path-in-a-hidden-grid/description/
+网格中的每个位置只会是可通行和不可通行两种状态。题目保证机器人的起点和终点不同，且都是可通行的。
 
 你需要找到起点到终点的最短路径，然而你不知道网格的大小、起点和终点。你只能向
 GridMaster
 对象查询。
 
-dfs
-重建网格。然后用bfs求最短路径
-
-17.[coins
-II零钱兑换](https: // leetcode.cn/problems/coin-change/submissions/ 532352681 /)
+17.[coins II零钱兑换](https://leetcode.cn/problems/coin-change/submissions/532352681)
 ```python
-
-
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         """
@@ -860,143 +796,22 @@ class Solution:
 
 
 ```
-19.
-number
-of
-islands
-II.
-305.[CN](https: // leetcode.cn / problems / number - of - islands - ii / description /), [EN](
-    https: // leetcode.com / problems / number - of - islands - ii / description /)
-用并查集解决
-20.
-给出一堆东西和一个东西，找出和这个东西最相近的东西。这个东西是三维，比如色彩的。
-可以使用kd树解决。
-21.
-小于N的数字中, 1
-的数目。[CN](https: // leetcode.cn / problems / number - of - digit - one / description /), [EN](
-    https: // leetcode.com / problems / number - of - digit - one / description /)
-22.
-给你一个会议时间安排的数组
-intervals ，每个会议时间都会包括开始和结束的时间
-intervals[i] = [starti, endi] ，返回
-所需会议室的最小数量 。
+19. number of islands II.
+20. 给出一堆东西和一个东西，找出和这个东西最相近的东西。这个东西是三维，比如色彩的。 可以使用kd树解决。
+21. 小于N的数字中, 1 的数目
+22. 给你一个会议时间安排的数组 intervals ，每个会议时间都会包括开始和结束的时间 intervals[i] = [starti, endi] ，返回
+所需会议室的最小数量 。 meeting - rooms - ii
 解决方案: 1.
 扫描线;
-2.
-堆
-[CN](https: // leetcode.cn / problems / meeting - rooms - ii / description /), [EN](
-    https: // leetcode.com / problems / meeting - rooms - ii / description /)
-23.
-找相似视频中rating最高的movie.
+2. 堆
+23. 找相似视频中rating最高的movie.
 解决方案: dfs + heap
 
-This
-question is about
-writing
-a
-simplified
-movie
-recommendation
-system.Each
-movie
-has
-a
-title and a
-rating, and we
-have
-a
-separate
-process
-that
-has
-marked
-some
-movies as similar
-to
-other
-movies.
-For
-our
-purpose, we
-want
-to
-assume
-that
-similarity is a
-transitive
-property:
-if the process has marked movie A as similar to movie B, and movie B similar to movie C,
-we
-will
-also
-consider
-movie
-A as similar
-to
-movie
-C
-even if the
-process
-didn
-'t mark it explicitly.
-Given
-a
-movie
-from the list,
+This question is about writing a simplified movie recommendation system.Each movie has a title and a rating, and we have a separate process that has marked some movies as similar to other movies. For our purpose, we want to assume that similarity is a transitive property: if the process has marked movie A as similar to movie B, and movie B similar to movie C, we will also consider movie A as similar to movie C even if the process didn \'t mark it explicitly. Given a movie from the list,  return its N similar movies with highest rating. For example, if we have the following four movies:     "Movie A"     with rating 6 "Movie B" with rating 7 "Movie C" with rating 8 "Movie D" with rating 9 and the process has determined the following similarities: "Movie A" is similar to "Movie B" "Movie B" is similar to "Movie C" and we request 1 recommendation based on "Movie A", then the answer will be "Movie C" which is the one movie with highest rating among those similar to "Movie A".
 
-return its
-N
-similar
-movies
-with highest rating.
-For
-example,
-if we have the following four movies:
-    "Movie A"
-    with rating 6
-"Movie B"
-with rating 7
-"Movie C"
-with rating 8
-"Movie D"
-with rating 9
-and the
-process
-has
-determined
-the
-following
-similarities:
-"Movie A" is similar
-to
-"Movie B"
-"Movie B" is similar
-to
-"Movie C"
-and we
-request
-1
-recommendation
-based
-on
-"Movie A", then
-the
-answer
-will
-be
-"Movie C"
-which is the
-one
-movie
-with highest rating among those similar to "Movie A".
-
-23.
-实现YouTube
-Music的Top100推荐。
-这个Top100
-Music
-List排序是用户最近收听的frequency。用户手动加入List的Music需要排在List最上面。
-我的做法：LFU套壳
+23.实现YouTubeMusic的Top100推荐。这个Top100  
+MusicList排序是用户最近收听的frequency。用户手动加入List的Music需要排在List最上面。  
+我的做法：LFU套壳  
 LFU: [CN](
     https: // leetcode.cn / problems / lfu - cache / solutions / 2457716 / tu - jie - yi - zhang - tu - miao - dong - lfupythonja - f56h /)
 ```python
@@ -1086,11 +901,7 @@ class LFUCache:
 
 ```
 
-24.
-给一个数组
-nums，要求找到最短的连续子数组，包含至少
-k
-个不同的整数。如果不存在这样的子数组，返回 - 1。
+24.给一个数组nums，要求找到最短的连续子数组，包含至少k个不同的整数。如果不存在这样的子数组，返回 - 1。
 输入: nums = [4, 3, 5, 3, 3, 1, 2, 3], k = 3
 输出: 4 // 可能的解是[5, 3, 3, 1]
 或[3, 5, 3, 1]
@@ -1129,22 +940,13 @@ class Solution:
 print(Solution().shortest(nums=[4, 3, 5, 3, 3, 1, 2, 3], k=3))
 
 ```
-25.
-977.
-有序数组的平方[CN](https: // leetcode.cn / problems / squares - of - a - sorted - array / description /)
-给你一个按
-非递减顺序
-排序的整数数组
-nums，返回
-每个数字的平方
-组成的新数组，要求也按
-非递减顺序
-排序。
-26.
-56.
-合并区间[CN](https: // leetcode.cn / problems / merge - intervals / description /)
-27.
-有一堆任务，每个任务需要固定时间在单个CPU上跑，而且每个任务有自己的开始时间。给你一定数量的CPU，让你找出所有任务完成的最小时间。
+
+25. 977.有序数组的平方[CN](https: // leetcode.cn / problems / squares - of - a - sorted - array / description /)
+给你一个按非递减顺序排序的整数数组nums，返回每个数字的平方组成的新数组，要求也按非递减顺序排序。
+
+56. 合并区间[CN](https: // leetcode.cn / problems / merge - intervals / description /)
+
+27. 有一堆任务，每个任务需要固定时间在单个CPU上跑，而且每个任务有自己的开始时间。给你一定数量的CPU，让你找出所有任务完成的最小时间。
 ```python
 from copy import deepcopy
 
@@ -1265,15 +1067,12 @@ time = 12
 print(Solution().min_cpus(tasks, time))
 ```
 
-29.
-给你一个Matrix, 让你写back - propagation。
+29. 给你一个Matrix, 让你写back - propagation。
 Follow - up: 做多线程优化。
 
 30.
 一堆正方形蛋糕，每个蛋糕有自己的位置和大小。让你找一个垂直切割线的位置，把所有的蛋糕切成两半，而且两边蛋糕的量要一模一样。
 ```python
-
-
 class Cake:
     def __init__(self, x, y, width, height):
         self.x = x  # 蛋糕的x坐标
@@ -1354,10 +1153,8 @@ plt.show()
 
 ```
 
-32.[jump
-game2](https: // leetcode.cn/problems/jump-game-ii/)，
+32.[jump game2](https: // leetcode.cn/problems/jump-game-ii/)，
 ```python
-
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
@@ -1394,23 +1191,15 @@ class Solution:
                 step += 1
 
         return step + 1
-
-
 ```
 
-follow
-up
-1
+follow up 1
 是如何用dp做 （我是用的greedy），
 `dp[i + nums[i]] = min(dp[j], 1 + dp[i])
 `
-follow
-up
-2
+follow up 2
 是如果只能每次偶数次跳的格数只能是偶数，奇数只能奇数，要怎么做？
 ```python
-
-
 class Solution:
     def jump(self, nums):
         n = len(nums)
@@ -1431,10 +1220,7 @@ class Solution:
 print(Solution().jump([2, 3, 1, 1, 4]))
 ```
 
-34.
-992.
-K
-个不同整数的最短子数组[CN](https: // leetcode.cn / problems / subarrays -
+34. 992. K 个不同整数的最短子数组[CN](https: // leetcode.cn / problems / subarrays -
 with-k - different - integers / description /)
 ```python
 from collections import Counter
@@ -1470,19 +1256,8 @@ class Solution:
 
 print(Solution().shortest(nums=[4, 3, 5, 3, 3, 1, 2, 3], k=3))
 ```
-36.
-set
-of
-linear
-sets，linear
-sets的意思是[L, R]
-包含了L到R之间的所有数字。比如[1, 3] = 1， 2， 3.
-我们有
-{[], [], ...[]}
-一个set的lienar
-sets，要求a
-set
-with minimum number of elements to have the intersections with all elements in the set of linear sets.
+36. set of linear sets，linear sets的意思是[L, R]包含了L到R之间的所有数字。比如[1, 3] = 1， 2， 3.
+我们有{[], [], ...[]}一个set的lienar sets，要求a set with minimum number of elements to have the intersections with all elements in the set of linear sets.
 ```python
 """
 问题描述
@@ -1504,8 +1279,6 @@ with minimum number of elements to have the intersections with all elements in t
 终止条件： 当我们遍历完所有区间后，得到的点集合就是最小的点集合，能够与所有区间产生交集。
 
 """
-
-
 def min_intersection_points(sets):
     # Step 1: Sort the intervals by their right endpoint (R)
     sets.sort(key=lambda x: x[1])
@@ -1532,67 +1305,7 @@ result = min_intersection_points(sets)
 print(result)  # Output the points of the minimum intersection set
 ```
 
-38.
-N个棋手下棋。There is a
-chess
-contest
-between
-N
-players.Each
-chess
-player
-has
-a
-distinct
-rank(positive
-integer
-number
-from
-
-1
-to
-N).
-We
-assume
-that in a
-chess
-game
-between
-two
-players, the
-player
-ranked
-higher
-always
-wins.The
-ranks
-remain
-constant
-during
-the
-contest.
-Unfortunately, we
-don
-'t know the player ranks. But we know the outcome of M games in the following format:
-Player  # 1 won #2
-Player  # 2 won #4
-...
-Given
-the
-results
-of
-M
-games
-above, are
-there
-any
-players
-whose
-rank
-can
-be
-precisely
-determined?
+38. N个棋手下棋。There is a chess contest between N players.Each chess player has a distinct rank(positive integer number from  1 to N). We assume that in a chess game between two players, the player ranked higher always wins.The ranks remain constant during the contest. Unfortunately, we don 't know the player ranks. But we know the outcome of M games in the following format: Player  # 1 won #2 Player  # 2 won #4 ... Given the results of M games above, are there any players whose rank can be precisely determined?"
 使用拓补排序 + BFS解决
 ```python
 from collections import defaultdict, deque
@@ -1638,8 +1351,7 @@ class Solution:
 
 print(Solution().rank([[0, 1], [2, 0]], n=3))
 ```
-35.
-棋盘路径问题，从左下角出发，到右下角终点，每次只能往右，右上，或右下，求路径总数。
+35. 棋盘路径问题，从左下角出发，到右下角终点，每次只能往右，右上，或右下，求路径总数。
 被问了DFS和DP两种做法。
 ```python
 
@@ -1686,13 +1398,7 @@ print(Solution().uniquePaths_1(3, 3))
 
 ```
 
-38.
-most
-talkative
-person
-base
-on
-history
+38. most talkative person base on history
 heap做
 ```python
 from collections import Counter
@@ -1749,44 +1455,15 @@ chat_history = [
 most_talkative, count = most_talkative_person(chat_history)
 print(f"The most talkative person is {most_talkative} with {count} messages.")
 ```
-39.
-写一个4096 * 4096
-image的convolution，256
-个channel，28
-个batch，3 * 3
-的kernel，output
-channel是128
-channels。
+
+39. 写一个4096 * 4096 image的convolution，256 个channel，28 个batch，3 * 3 的kernel，output channel是128 channels。
 follow - up: 怎么并行，给出多种并行方案
-[conv](https: // blog.csdn.net / u012897374 / article / details / 140221735?spm = 1011.2415
-.3001
-.5331)
-40.
-实时检测数据流里面的
-party
-事件
-有一个不断到来的
-数据流(user_id, timestamp, place_id)，表示某个用户在某时间出现在某地点。
-规则如下：
-• 如果用户去往新
-place_id，就离开旧
-place_id。
-• party
-事件：某
-place_id
-在过去
-60
-分钟内
-一直有同样的至少
-100
-个人。
-• 需要在第一时间检测
-party，而不能仅在
-数据流的report(user_id, timestamp, place_id)
-API
-调用时判断（否则会漏掉一些
-party
-事件）。
+[conv](https://blog.csdn.net/u012897374/article/details/140221735?spm=1011.2415.3001.5331)
+   
+40.实时检测数据流里面的party事件有一个不断到来的数据流(user_id, timestamp, place_id)，表示某个用户在某时间出现在某地点。 规则如下：
+
+• 如果用户去往新 place_id，就离开旧 place_id。 party事件：某place_id在过去60分钟内一直有同样的至少100个人。• 需要在第一时间检测party，而不能仅在数据流的report(user_id, timestamp, place_id)API 调用时判断（否则会漏掉一些 party 事件）。
+
 ```python
 from collections import defaultdict
 from collections import deque
@@ -1818,6 +1495,7 @@ party 事件：如果在某个 place_id 上有至少 100 个不同的用户在�
 然后移除 60 分钟之前的用户记录，这样我们总是能够保持每个 place_id 最近 60 分钟的访问记录。
 
 最后检查该 place_id 上在 60 分钟内的独立用户数，如果至少有 100 个不同的用户，则触发 "party" 事件。
+
 """
 from collections import defaultdict
 
@@ -1944,22 +1622,13 @@ if __name__ == "__main__":
     print(f"最终余额: {balance_book.get_balance()}")
 
 ```
-43.
-计算器I, 计算器III
-44.
-最长重复子串
-[longest - repeating - substring](
-    https: // leetcode.com / problems / longest - repeating - substring / description /?envType = problem - list - v2 & envId = rolling - hash)
-[1316. Distinct Echo Substrings](
-    https: // leetcode.com / problems / distinct - echo - substrings / description /?envType = problem - list - v2 & envId = rolling - hash)
-46.
+43. 计算器I, 计算器III
+44. 最长重复子串 1062
+[1316. 不同的循环子字符串 https://leetcode.cn/problems/distinct-echo-substrings/description/?envType=problem-list-v2&envId=KRLwHNJi
 DP, s1, s2是否存在公共子串
-47.
 rabin - karp算法 + 二分
 字符串哈希
 ```python
-
-
 class Solution:
     def longestRepeatingSubstring(self, s: str) -> int:
         """
@@ -2022,16 +1691,9 @@ class Solution:
 
 ```
 
-46.
-一个data
-center
-有集群，大概就是需要快速分发文件到所有的机器里。
-所有集群星行连接同一个switch ，每个wire
-bandwidth
-一致，求最快分发方式。
+46. 一个data center 有集群，大概就是需要快速分发文件到所有的机器里。 所有集群星行连接同一个switch ，每个wire bandwidth 一致，求最快分发方式。
 
-要考虑多并发和fault
-tolerance
+要考虑多并发和fault tolerance
 ```python
 """
 https://www.1point3acres.com/bbs/thread-1113415-1-1.html Google ng VO 奇怪面经
@@ -2078,12 +1740,7 @@ distribution.distribute_file(file_data)
 print(distribution.get_file('machine1'))
 ```
 
-45.
-coding1
-.1:
-给定一个包含多个人的
-24
-小时工作安排表，每个人都有姓名、班次开始时间和结束时间.
+45. coding1.1: 给定一个包含多个人的 24 小时工作安排表，每个人都有姓名、班次开始时间和结束时间.
 编写一个函数，输入该工作安排表和一个时间，然后返回在该时间工作的员工人数。
 ```python
 from typing import List, Tuple
@@ -2177,63 +1834,11 @@ interval
 49.
 第二道是能不能把一个数组group成每五个连续的数
 50.
-You
-are
-given
-a
-m
-x
-n
-grid
-where
-each
-cell
-contains
-an
-integer.Given
-a
-start
-cell(r1, c1) and a
-target
-value
-t, determine if there
-exists
-a
-path
-from
+You are given a m x n grid where each cell contains an integer.Given a start cell(r1, c1) and a target value t, determine if there exists a path from  (r1, c1) to any cell that contains t.The path must only move through cells that have value k(excluding the start and end cells).
 
-(r1, c1)
-to
-any
-cell
-that
-contains
-t.The
-path
-must
-only
-move
-through
-cells
-that
-have
-value
-k(excluding
-the
-start and end
-cells).
-followup: 如果grid不規整（每個row有不同column
-size)怎麼辦
-refactor
-solution
-so
-the
-grid
-can
-be
-abstractized
-to
-interface
+followup: 如果grid不規整（每個row有不同column size)怎麼辦
+refactor solution so the grid can be abstractized to interface
+
 ```python
 from typing import List
 
@@ -2290,8 +1895,8 @@ k = 7
 result = is_path_to_target(grid, start_row, start_col, target, k)
 print(result)  # Output: True or False
 ```
-51.
-迭代压缩字符串[CN](https: // leetcode.cn / problems / design - compressed - string - iterator / description /)
+
+51.迭代压缩字符串[CN](https: // leetcode.cn / problems / design - compressed - string - iterator / description /)
 
 输入：
 ["StringIterator", "next", "next", "next", "next", "next", "next", "hasNext", "next", "hasNext"]
@@ -2330,20 +1935,14 @@ s = StringIterator('L1e2t1C1o1d1e1')
 print(s.next())
 ```
 
-51.
-232.
-用栈实现队列[CN](https: // leetcode.cn / problems / implement - queue - using - stacks / description /)
-52.
-random
-pick
-index[EN](https: // leetcode.com / problems / random - pick - index / description /)
-53.
-number
-of
-islands[CN](https: // leetcode.cn / problems / number - of - islands / description /), [EN](
+51. 232. 用栈实现队列[CN](https: // leetcode.cn / problems / implement - queue - using - stacks / description /)
+
+52. random pick index[EN](https: // leetcode.com / problems / random - pick - index / description /)
+
+53. number of islands[CN](https: // leetcode.cn / problems / number - of - islands / description /), [EN](
     https: // leetcode.com / problems / number - of - islands / description /)
-54.
-有向图，每个node的value是A, B, C的一种，返回图里是否存在A -> B(可以有一个或者多个) -> C的sequence。从所有A
+
+54. 有向图，每个node的value是A, B, C的一种，返回图里是否存在A -> B(可以有一个或者多个) -> C的sequence。从所有A
 node开始做dfs，对于A
 node的neighbor只加B
 node，对于B
@@ -2452,122 +2051,25 @@ class Solution:
 print(Solution().replace(nums=[1, 2, 2, 2, 3, 3, 5]))
 ```
 
-56.
-一个游戏有四种颜色共12个牌，让两个玩家每次实现一个move, 一个valid的move是把剩下的牌堆在同一个颜色上或者同一高度上。 实现move（） function。
-57.
-最短路径
-给出一个九宫格, 里面分别是数字1 - 9, 然后给出两个数字a, b, a != b
-且a, b在1 - 9
-之间, 找出所有路径
-```python
+56. 一个游戏有四种颜色共12个牌，让两个玩家每次实现一个move, 一个valid的move是把剩下的牌堆在同一个颜色上或者同一高度上。 实现move（） function。
 
-```
-follow
-up:
-如果只要最短路径
-如果对角线也是合法路径怎么处理
-58.
-Let
-us
-call
-some
-numbers
-super
-prime
-cut(SPC)
-using
-the
-following
-definition.
+57.最短路径 给出一个九宫格, 里面分别是数字1 - 9, 然后给出两个数字a, b, a != b 且a, b在1 - 9 之间, 找出所有路径
 
-If
-a
-number is less
-than
-10, then
-being
-a
-prime is equivalent
-to
-being
-SPC.If
-a
-number is greater
-than
-10, then
-the
-number is SPC if it is both
-prime, and, the
-number
-with the last digit cut off is also SPC.
+followup:如果只要最短路径如果对角线也是合法路径怎么处理
+
+58. Let us call some numbers super prime cut(SPC) using the following definition.  If a number is less than 10, then being a prime is equivalent to being SPC.If a number is greater than 10, then the number is SPC if it is both prime, and, the number with the last digit cut off is also SPC.
 
 n < 10: n is SPC <= > n is prime
 n > 10: (n is prime and n with the last digit cut off is SPC) <= > n is SPC
 
-For
-example, 2 is a
-super
-prime
-cut
-number, because
-2 is less
-than
-10 and 2 is a
-prime
-number.
+For example, 2 is a super prime cut number, because 2 is less than 10 and 2 is a prime number.
 
-As
-another
-example, 23 is also
-a
-super
-prime
-cut
-number:
+As another example, 23 is also a super prime cut number:  23 is greater than 10. 23 is prime. If you remove the last digit of 23, you get 2, which is super prime cut. Implement a function that returns true if a number is a super prime cut number, and false otherwise.
 
-23 is greater
-than
-10.
-23 is prime.
-If
-you
-remove
-the
-last
-digit
-of
-23, you
-get
-2, which is super
-prime
-cut.
-Implement
-a
-function
-that
-returns
-true if a
-number is a
-super
-prime
-cut
-number, and false
-otherwise.
+1st followup - generate all super prime it for 1 between n.n - 2 ^ 32 
+2nd followup - what if n is 2 ^ 63 - 1
 
-1
-st
-followup - generate
-all
-super
-prime
-it
-for 1 between n.n - 2 ^ 32
-2
-nd
-followup - what if n is 2 ^ 63 - 1
-
-59.
-给定一个每个人工作的时间表，有开始结束时间和名字，要求输出一个工作表，在每一个时间段有哪些人在工作
+59.给定一个每个人工作的时间表，有开始结束时间和名字，要求输出一个工作表，在每一个时间段有哪些人在工作
 比如 （人，开始，结束） (A, 10, 30)(B, 20, 40)(C, 30, 40)
 输出
 {(10 - 20, A), (20 - 30, A & B), (30 - 40, B & C)
@@ -2588,58 +2090,17 @@ getAd()
 word是什么.这里应该是统计每个单词的下一个单词出现的频率, 然后返回当前单词最高频率的next
 word.
 
-65.
-最长公共前缀[CN](https: // leetcode.cn / problems / longest - common - prefix / description /)
-66.
-88.
-合并两个有序数组[CN](https: // leetcode.cn / problems / merge - sorted - array / description /)
-给你两个按
-非递减顺序
-排列的整数数组
-nums1
-和
-nums2，另有两个整数
-m
-和
-n ，分别表示
-nums1
-和
-nums2
-中的元素数目。
+65. 最长公共前缀
+66.合并两个有序数组
+给你两个按 非递减顺序 排列的整数数组nums1和nums2，另有两个整数m和n ，分别表示nums1和nums2中的元素数目。请你合并nums2到nums1中，使合并后的数组同样按非递减顺序排列。
 
-请你
-合并
-nums2
-到
-nums1
-中，使合并后的数组同样按
-非递减顺序
-排列。
+注意：最终，合并后数组不应由函数返回，而是存储在数组nums1中。为了应对这种情况，nums1的初始长度为m + n，其中前m个元素表示应合并的元素，后n个元素为0 ，应忽略。nums2 的长度为n 。
 
-注意：最终，合并后数组不应由函数返回，而是存储在数组
-nums1
-中。为了应对这种情况，nums1
-的初始长度为
-m + n，其中前
-m
-个元素表示应合并的元素，后
-n
-个元素为
-0 ，应忽略。nums2
-的长度为
-n 。
-
-67.
-295.
-数据流的中位数[CN](https: // leetcode.cn / problems / find - median -
-from
-
--data - stream / submissions / 532270393 /)
+67. 295. 数据流的中位数
 
 69.
 给定多个矩形蛋糕的信息, 一个包含多个蛋糕的列表，每个蛋糕定义为一个对象，找到一个水平切割线, 将所有蛋糕分成两部分，使得：上方部分蛋糕的总面积等于下方部分蛋糕的总面积。
 ```python
-
 
 class Cake:
     def __init__(self, x, y, width, height):
@@ -2721,8 +2182,8 @@ plt.axhline(y=cutting_line, color='g', linestyle='--', linewidth=2)
 plt.show()
 
 ```
-70.
-给一堆坐标（x, y），问能不能找到三个坐标在同一个线上
+
+70. 给一堆坐标（x, y），问能不能找到三个坐标在同一个线上
 ```python
 两层for循环。
 step1: 选择points[i]
@@ -2730,15 +2191,12 @@ step1: 选择points[i]
 step2: 计算points[i]
 与其他所有点的斜率, 如果同斜率 >= 2, 则表明有3点共线
 ```
-71.
-满足条件的最长路径（返回长度，follow
-up是返回最长路径）用的dfs + backtracking
-72.
+71.满足条件的最长路径（返回长度，follow up是返回最长路径）用的dfs + backtracking
+
+73.
 微波炉
 microwave: [设置时间的最少代价](https: // leetcode.cn / problems / minimum - cost - to - set - cooking - time /)
 ```python
-
-
 class Solution:
     def minCostSetTime(self, startAt: int, moveCost: int, pushCost: int, sec: int) -> int:
         def calc(s: str) -> int:
@@ -2766,34 +2224,10 @@ class Solution:
 print(Solution().minCostSetTime(startAt=1, moveCost=2, pushCost=1, sec=600))
 
 ```
-74.
-Maximum
-Frequency
-of
-Number
-Given
-a
-sorted
-array, find
-the
-maximum
-frequency
-of
-a
-number.
-Example:
-[1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 6]
-Answer: 4(3 is repeated
-4
-times).
-The
-time
-complexity
-should
-be
-better
-than
-O(n).
+74. Maximum Frequency of Number Given a sorted array,   
+Example:  
+[1, 2, 2, 3, 3, 3, 3, 4, 4, 5, 6]  
+Answer: 4(3 is repeated 4 times). The time complexity should be better than O(n).  
 二分法
 ```python
 from bisect import bisect_left, bisect_right
@@ -2816,10 +2250,8 @@ def findMaxFrequency(nums):
 
 
 ```
-75.
-前k个高频(top
-k
-frequency)
+
+75. 前k个高频(top k frequency)
 ```python
 
 
@@ -2866,18 +2298,10 @@ class Solution:
                 break
 
         return [cnt[i][0] for i in range(k)]
-
-
 ```
-76.
-a
-set
-of
-messages消息, 每一个message都带着timestamp，要求把message
-print出来，但是如果在10个timestamp内message出现了重复，后面出现的那个message就不print。
-```python
 
-```
+76. a set of messages消息, 每一个message都带着timestamp，要求把message  
+print出来，但是如果在10个timestamp内message出现了重复，后面出现的那个message就不print。  
 follow
 up是如果出现重复，第一次和第二次的message都不能被print。
 ```python
@@ -2920,20 +2344,15 @@ for msg, ts in messages:
 
 print(handler.messages)
 ```
-76.
-两个
-file，第二个包含banned
-words，要检查第一个file的内容，如果有banned
-words，就要把那个词换成‘XXX’。 followup问如果第一个file
-size很大怎么办。
-77.
-2162.
-设置时间的最少代价[CN](https: // leetcode.cn / problems / minimum - cost - to - set - cooking - time / submissions /)
+
+76. 两个 file，第二个包含banned words，要检查第一个file的内容，如果有banned words，就要把那个词换成‘XXX’。 followup问如果第一个file size很大怎么办。
+
+78. 2162. 设置时间的最少代价[CN](https: // leetcode.cn / problems / minimum - cost - to - set - cooking - time / submissions /)
 常见的微波炉可以设置加热时间，且加热时间满足以下条件：
-78.
-外星人字典
-79.
-给定一个有多个句子的list，每个句子也是一个包含多个词语的list。根据每个词的bigram
+
+78. 外星人字典
+
+79. next word prediction 给定一个有多个句子的list，每个句子也是一个包含多个词语的list。根据每个词的bigram
 freq.写一个词语预测。follow
 up问了时间空间复杂度，怎么优化空间复杂度这些
 bigram
@@ -2986,8 +2405,9 @@ word = "I"
 predicted_word = predict_next_word(word, bigram_freq)
 print(f"The next word after '{word}' is: {predicted_word}")
 ```
-79.
-KD树
+
+79.   KD树
+    
 ```python
 import math
 
@@ -3079,8 +2499,7 @@ nearest = kd_tree.nearest_neighbor(target)
 print(f"Nearest neighbor to {target} is {nearest}")
 ```
 
-80.
-无向图联通分量数目
+80. 无向图联通分量数目
 方法1: dfs
 ```python
 
@@ -3166,8 +2585,7 @@ class Solution:
 
 ```
 
-81.
-上个月面的一题类似227
+81. 上个月面的一题类似227
 计算器，但是要判断输入是否合法
 input: +(2, 5)
 output: 7
@@ -3251,151 +2669,58 @@ def cal(s):
 
 
 ```
-82.
-一个Array，代表第i天航行的距离是arr[
-    i]；能量有限可以选择航行or休息；初始能量k（上限也是k），当天航行能量 - 1，休息 + 1；问最多能航行多远。
+
+82. 一个Array，代表第i天航行的距离是arr[i]；能量有限可以选择航行or休息；初始能量k（上限也是k），当天航行能量 - 1，休息 + 1；问最多能航行多远。
 ```python
+class Solution:
+    def max_distance(self, arr, k):
+        """
+            dp[i][j] = max(dp[i-1][j+1]+arr[i], dp[i-1][j-1])
+
+        :param arr:
+        :param k:
+        :return:
+        """
+        if k == 0: return 0
+
+        n = len(arr)
+        dp = [[0] * (k+1) for _ in range(n+1)]
+
+        for i in range(n):
+            for j in range(k):
+                # print(i, j)
+                # if i==3 and j==0:
+                #     print("")
+                if j == 0:
+                    dp[i+1][j] = dp[i][j+1]+arr[i]
+                elif j == k:
+                    dp[i+1][j] = dp[i][k]
+                else:
+
+                    dp[i+1][j] = max(dp[i][j+1]+arr[i], dp[i][j-1])
+
+        return max(dp[-1])
+
+print(Solution().max_distance(arr = [5, 2, 4, 1, 3], k=3))
+print(Solution().max_distance(arr = [6, 7, 8, 5, 4, 3], k = 2))
+print(Solution().max_distance(arr = [0, 0, 0, 0], k = 2))
+print(Solution().max_distance(arr = [1, 1, 1, 1, 1], k = 5))
+print(Solution().max_distance(arr = [10, 1, 1, 10, 1],k = 2))
+
 dp[i][j] = max(dp[i - 1][j + 1] + arr[i], dp[i - 1][j - 1])
 n > i - 1 >= 0, 0 <= j - 1 <= k, 0 <= j + 1 <= k
 dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j + 1] + arr[i])(注意边界情况)
 return max(dp[-1])  # the ith day with j energy, the longest distance
-```
-83.
-汇总区间
-LC[228](https: // leetcode.cn / problems / summary - ranges / submissions / 542756333 /)
-84.
-given
-two
-arrays, implement
-next()
-func
-to
-iterate
-through
-two
-arrays,
-array
-b is array
-a
-'s subarray.
-iterate
-array
-b
-first, then
-array
-a.No
-duplicate
-(bug free required)
-follow
-up:
-array
-b's elements are in order as array a. iterate them
-follow
-up:
-the
-side
-effect
-of
-the
-recursive
-function
-call
-85.
-Our
-goal is to
-truncate
-a
-list
-of
-messages
-down
-to
-size
-max_log_messages.For
-the
-sake
-of
-this
-problem, our
-"fair"
-truncation
-algorithm is as follows: Let
-X
-be
-the
-max
-log
-messages
-maintained
-per
-client.For
-each
-client: If
-the
-client
-has
-emitted > X
-messages, truncate
-the
-log
-messages
-for that client to X messages.If the client has emitted <= X messages, do not truncate the log messages for that client.
-The
-goal
-of
-this
-problem is to
-figure
-out
-the
-maximum
-value
-of
-x
-which
-causes
-the
-total
-number
-of
-messages
-retained
-across
-all
-clients
-to
-be <= max_log_messages.
-Write
-Findx, which
-takes
-the
-input
-list and max_log_messages and returns
-X.
-Example: Suppose
-there
-are
-5
-log
-clients, and their
-number
-of
-messages is: (A, 50), (B, 20), (C, 1000), (D, 50).(E, 400).Suppose
-we
-want
-to
-have
-no
-more
-than
-300
-total
-messages
-after
-truncation.
-解法: 二分法
 
-86.
+```
+83.汇总区间LC[228](https: // leetcode.cn / problems / summary - ranges / submissions / 542756333 /)
+
+85.
+given two arrays, implement next() func to iterate through two arrays, array b is array a 's subarray. iterate array b first, then array a.No duplicate (bug free required) follow up: array b's elements are in order as array a. iterate them follow up: the side effect of the recursive function call  
+86. Trucate message messages is: (A, 50), (B, 20), (C, 1000), (D, 50).(E, 400).Suppose  
+解法: 二分法  
+
+87.
 给你一个bookshelf
 里面有
 不同的书
@@ -3507,8 +2832,7 @@ up，返回平均数的时候，忽略最大的k个数
     https: // leetcode.cn / problems / maximum - population - year / solutions / 766081 / ren - kou - zui - duo - de - nian - fen - by - leetcode - 5
 m7r4 /)
 
-101
-数据流的平均值(滑动窗口平均值)
+101 数据流的平均值(滑动窗口平均值)
 ```python
 
 
@@ -3529,10 +2853,7 @@ class MovingAverage:
 
 
 ```
-102.
-MK平均值[CN](https: // leetcode.cn / problems / finding - mk - average / solutions / 1454952 / by - 981377660l
-mt - 5
-hhm /)
+102. MK平均值
 deque + sortedList
 ```python
 from collections import deque
@@ -3604,16 +2925,11 @@ class MKAverage:
 
 ```
 
-103.
-输入3个array，一个int
-D
-找出how
-many
-tuples(i, j, k)
-满足以下所有条件
-| A[i] - B[j] | <= D
-| A[i] - C[k] | <= D
-| B[j] - C[k] | <= D
+103. 输入3个array，一个int D 找出how many tuples(i, j, k)  
+满足以下所有条件  
+| A[i] - B[j] | <= D  
+| A[i] - C[k] | <= D  
+| B[j] - C[k] | <= D  
 新题，从没见过
 先排序, 然后使用二分来做
 ```python
@@ -3651,7 +2967,6 @@ class Solution:
 
         return ans
 
-
 # import numpy as np
 # a = np.random.randint(0, 10, (10,))
 # b = np.random.randint(0, 10, (10,))
@@ -3668,14 +2983,7 @@ print(Solution().num_triplets_1(a, b, c, d=4))
 # print(",".join(str(c).split(" ")))
 ```
 
-104.
-湖泊数量
-number
-of
-lakes
-在这里插入图片描述
-![在这里插入图片描述](https: // i - blog.csdnimg.cn / direct / 54
-cff52058e6423eae86fae0324b758b.png)
+104. 湖泊数量 number of lakes
 ```cpp
 {{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
  {'x', 'x', 'x', '.', '.', 'x', 'x', 'x', '.'},
@@ -3875,33 +3183,20 @@ lakes = count_lakes_in_subgrid(subgrid, land_cells)
 print(f"湖泊数量：{lakes}")
 ```
 
-105.[806.
-写字符串需要的行数](https: // leetcode.cn/problems/number-of-lines-to-write-string/description/)
+105.[806.写字符串需要的行数](https://leetcode.cn/problems/number-of-lines-to-write-string/description/)
+
+
 106.[二叉树中的最大路径和](https: // leetcode.cn / problems / binary - tree - maximum - path - sum / description /)
-107.
-最大连续1的个数[485](https: // leetcode.cn / problems / max - consecutive - ones / submissions / 540864042 /), [1004](
-    https: // leetcode.cn / problems / max - consecutive - ones - iii / submissions / 541017406 /)
-108.
-To
-determine if the
-paths
-of
-two
-robots in a
-2 - dimensional
-space
-intersect
-based
-on
-the
-given
-instructions(F for forward, L for turn left, R
-for turn right), and then check whether their paths overlap at any point.
+
+
+107. 最大连续1的个数 485
+
+     
+109. To determine if the paths of two robots in a 2 - dimensional space intersect based on the given instructions(F for forward, L for turn left, R for turn right), and then check whether their paths overlap at any point.
 判断2个机器人的路径是否相交
 将第一个机器人的路径描绘出来。然后看第二个机器人走的每一步是否在第一个机器人中出现过。
 空间复杂度改为O(1), 链表是否相交:
 ```python
-
 
 class Robot:
     def __init__(self, start_x, start_y):
@@ -3992,95 +3287,24 @@ robot2 = "RFFLFF"
 """
 
 ```
-109.
-搭积木问
-bfs
-110.
-找多维空间距离最近的点
-KD树
-111.
-中心对称数
-112.
-会议室2
-113.
-出的题是：find
-the
-most
-frequent
-repeating
-substring
-that
-appears
-at
-least
-3
-times.
+109. 搭积木问 bfs
+110. 找多维空间距离最近的点 KD树
+111.中心对称数
+112. 会议室2
+113. 出的题是：the most frequent repeating substring that appears at least 3 times.
 例子： aaaaabc > aaa
 aaabc > a
 直接数单个字母最长的数目n, 答案n - 2
-114.
-最长递增子数组
-Given
-an
-array
-of
-size
-N, find
-the
-maximum
-length
-of
-non - decreasing
-subarray:
+114. 最长递增子数组 Given an array of size N, find the maximum length of non - decreasing subarray:
 [0 7 3 10 2 4 6 8 0 9 - 20 4]
 ans = 4, [2 4 6 8]
 
-Follow
-up:
-You
-can
-choose
-any
-one
-index and change
-its
-value
-to
-any
-number
-that
-you
-like.What
-will
-be
-the
-longest
-non
-decreasing
-subarray
-now:
-
-In
-the
-same
-example as before, the
-answer
-would
-now
-be:
-ans = 6, [2 4 6 8 0 9], by
-changing
-0 -> 8
-so
-the
-subarray
-becomes
-non - decreasing.
+Follow up: You can choose any one index and change its value to any number that you like.What will be the longest non decreasing subarray now:  In the same example as before, the answer would now be:
+ans = 6, [2 4 6 8 0 9], by changing 0 -> 8 so the subarray becomes non - decreasing.
 ```python
 """
 最长递增子数组
 """
-
 
 def max_increasing_subarr(arr):
     i = 0
@@ -4094,14 +3318,10 @@ def max_increasing_subarr(arr):
         ans = max(ans, cur)
         i += 1
     return ans
-
-
 ```
 
 followup: 可以修改其中某一个值
 ```python
-
-
 def maxIncreasingSubWithChange(arr):
     n = len(arr)
     if n <= 1:
@@ -4146,27 +3366,10 @@ def maxIncreasingSubWithChange(arr):
 
 
 ```
-115.
-断开所有叶子节点的连接
-cut
-leaf
-from root
+115.断开所有叶子节点的连接 cut leaf from root given a binary tree, with each edge having a cost associated.we want to cut the edges in such a way that all the leaf nodes get disconnected.find the min cost. given a binary tree, with each edge having a cost associated.we want to cut the edges in such a way that all the leaf nodes get disconnected from root which is 6. find the min cost.
+如果是断开所有leaf node叶子节点与root之间的连接
 
-given
-a
-binary
-tree,
-with each edge having a cost associated.we want to cut the edges in such a way that all the leaf nodes get disconnected.find the min cost.
-given
-a
-binary
-tree,
-with each edge having a cost associated.we want to cut the edges in such a way that all the leaf nodes get disconnected from root which is 6. find the min cost.
-如果是断开所有leaf
-node叶子节点与root之间的连接
 ```python
-
-
 class TreeNode:
     def __init__(self, val, edge_cost, left=None, right=None):
         self.val = val
@@ -4208,20 +3411,13 @@ root.left.left = TreeNode(1, 10)
 print(Solution().min_cost(root))
 ```
 
-116.
-Find
-string in an
-HTML
-DOM
+116. Find string in an HTML DOM
 ![在这里插入图片描述](https: // i - blog.csdnimg.cn / direct / 7
 f50855ad5a44819932973b9f21295ed.png)
 
 方法:
-1
-将所有的leaf
-node放到1个list里面
-2
-使用dfs暴力搜索
+1 将所有的leaf node放到1个list里面
+2 使用dfs暴力搜索
 
 如果要返回能否拼接, True / False, 则可以使用DP
 dp[i][j] = dp[i][j] or (dp[i][k] and dp[k][j])
@@ -4864,18 +4060,10 @@ int[]
 }
 }
 ```
-Follow
-up是问的是低于下属中位数应该怎么做。
+Follow up是问的是低于下属中位数应该怎么做。
 解法: 数据流的中位数
 
-127.
-Given
-a
-list
-of
-elements, each
-element
-with an Id and 3 (guaranteed 3, valid input) string properties.If any of the 2 elements have an overlap of the properties, they are considered duplicates, group the duplicated element ids together and show in the output.If no duplicates for a particular element, output its own id.
+127. Given a list of elements, each element with an Id and 3 (guaranteed 3, valid input) string properties.If any of the 2 elements have an overlap of the properties, they are considered duplicates, group the duplicated element ids together and show in the output.If no duplicates for a particular element, output its own id.
 Example:
     Input:
     Element1, id1, properties: P1, P2, P3
@@ -5071,6 +4259,7 @@ return s;
 ```
 
 131.[课程表](https: // leetcode.cn / problems / course - schedule /)
+
 132.
 假设有string
 "AABBCCDDEE"， 注意所有的char如果出现的话一定是连续出现的，假设有一个数k是他们的partition
@@ -5115,70 +4304,12 @@ to
 0
 }
 ```
-133.
-truncate
-a
-list
-of
-messages
-down
-to
-size
-max_log_messages.For
-the
-sake
-of
-this
-problem, our
-"fair"
-truncation
-algorithm is as follows: Let
-X
-be
-the
-max
-log
-messages
-maintained
-per
-client.For
-each
-client: If
-the
-client
-has
-emitted > X
-messages, truncate
-the
-log
-messages
-for that client to X messages.If the client has emitted <= X messages, do not truncate the log messages for that client.
-The goal of this problem is to figure out the maximum value of x which causes the total number of messages retained across all clients to be <= max_log_messages.
-Write Findx, which takes the input list and max_log_messages and returns X.
-Example: Suppose
-there
-are
-5
-log
-clients, and their
-number
-of
-messages is: (A, 50), (B, 20), (C, 1000), (D, 50).(E, 400).Suppose
-we
-want
-to
-have
-no
-more
-than
-300
-total
-messages
-after
-truncation.
+
+133.truncate a list of messages down to size max_log_messages.For the sake of this problem, our "fair" truncation algorithm is as follows: Let X be the max log messages maintained per client.For each client: If the client has emitted > X messages, truncate the log messages for that client to X messages.If the client has emitted <= X messages, do not truncate the log messages for that client. The goal of this problem is to figure out the maximum value of x which causes the total number of messages retained across all clients to be <= max_log_messages. Write Findx, which takes the input list and max_log_messages and returns X. Example: Suppose there are 5 log clients, and their number of
+messages is: (A, 50), (B, 20), (C, 1000), (D, 50).(E, 400).Suppose we want to have no more than 300 total messages after truncation.
 使用二分法猜答案O(nlgn)
-134.
-单元测试unittest
+
+135. 单元测试unittest
 ```python
 import unittest
 from Google.my_classes.class_1 import Demo
@@ -5199,11 +4330,8 @@ class TestClassDemo(unittest.TestCase):
 
 ```
 
-135.[K
-个不同整数的子数组](https: // leetcode.cn/problems/subarrays-with-k-different-integers/description/)
+135.[K个不同整数的子数组](https: // leetcode.cn/problems/subarrays-with-k-different-integers/description/)
 ```python
-
-
 class Solution:
     def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
         def at_most(k):
@@ -5236,7 +4364,6 @@ class Solution:
 .5
 ```python
 
-
 def f(x):
     """递归排序函数"""
     # 基本情况：单个元素的序列是已经排好序的
@@ -5262,25 +4389,9 @@ sorted_sequence = f(input_sequence)
 print("Sorted sequence:", sorted_sequence)
 ```
 
-137.
-Ｇiven
-an
-array， return the
-largest
-sum
-from a
-
-[i] + a[i + 1]....a[j]
-while a[i] == a[j]。
-这题用prefix
-sum。 Follow
-up
-就用hashmap
-优化。
+137. Ｇiven an array， return the largest sum from a [i] + a[i + 1]....a[j] while a[i] == a[j]。 这题用prefix sum。 Follow up 就用hashmap 优化。
 ```python
 from collections import defaultdict
-
-
 class Solution:
     def get_maxsum(self, nums):
         prefix_sum = [0]
@@ -5305,12 +4416,10 @@ class Solution:
 print(Solution().get_maxsum([1, 2, 1, 3, 1, 2, 1]))
 ```
 时间O(N)
-138.
-找所有重复元素: [442](https: // leetcode.cn / problems / find - all - duplicates - in -an - array / description /) [
+138. 找所有重复元素: [442](https: // leetcode.cn / problems / find - all - duplicates - in -an - array / description /) [
     287](https: // leetcode.cn / problems / find - the - duplicate - number / submissions / 543130502 /)
+    
 ```python
-
-
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
         for i in range(len(nums)):
@@ -5320,24 +4429,14 @@ class Solution:
 
 
 ```
-139.
-Alien
-Dict
-140.
-找一个ARRAY里是否存在一个subarray, 其中subarray的sum
-mod
-k == n[Subarray
-Sums
-Divisible
-by
-K](https: // leetcode.com/problems/subarray-sums-divisible-by-k/description/)
+139. Alien Dict
+140. 找一个ARRAY里是否存在一个subarray, 其中subarray的sum modk == n
+     https://leetcode.com/problems/subarray-sums-divisible-by-k/description/
 整除
 解法:
 step1: 使用perfix_sum存和
 step2: 遍历prefix_sum数组, 并用哈希表保存
 ```python
-
-
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
         prefix = [0 for _ in range(len(nums) + 1)]
@@ -5356,8 +4455,7 @@ class Solution:
 
 
 ```
-141
-订票系统，卖家输入票子信息，用户买票子，follow - up允许卖家撤回票子，要求实时输出最便宜的票子，额外讨论了OOD设计
+141 订票系统，卖家输入票子信息，用户买票子，follow - up允许卖家撤回票子，要求实时输出最便宜的票子，额外讨论了OOD设计
 ```python
 构建一个订票系统，其中包括以下几个关键功能：
 
@@ -5470,11 +4568,7 @@ remove_ticket(ticket_id)：卖家撤回票务，移除票务信息，并重建�
 
 get_cheapest_ticket()：获取当前最便宜的票务，实时检查堆中的票务是否有效（是否已被撤回）。
 
-3.
-User
-类
-python
-Copy
+3. User
 
 
 class User:
@@ -5494,11 +4588,7 @@ class User:
 
 buy_ticket(ticket, quantity)：用户购买票务，检查票数是否足够，成功购买后更新票务数量。
 
-4.
-TicketSystem
-类
-python
-Copy
+4. TicketSystem 类
 
 
 class TicketSystem:
@@ -5562,38 +4652,16 @@ ticket_system.seller_remove_ticket(2)
 cheapest_ticket = ticket_system.get_cheapest_ticket()
 print(f"撤回票务后，最便宜的票务是: {cheapest_ticket}")
 ```
-142.
-coding
-1: design
-a
+142. coding 1: design a class that supports insertRange and queryPoint, which returns true if the given point is covered by the given ranges
 
+一些followup包括optimize queryPoint to be O(1), 
+points can be negatives, ranges can be continuous instead of discrete
+解法: 空间换时间 arr[i] 记录是否在range内部 bitmap
 
-class that supports insertRange and queryPoint, which returns true if the given point is covered by the given ranges
+143.[绝对差不超过限制的最长连续子数组] 1438 单调队列
 
-
-一些followup包括optimize
-queryPoint
-to
-be
-O(1), points
-can
-be
-negatives, ranges
-can
-be
-continuous
-instead
-of
-discrete
-
-解法: 空间换时间
-arr[i]
-记录是否在range内部
-143.[绝对差不超过限制的最长连续子数组](https: // leetcode.cn / problems / longest - continuous - subarray -
-with-absolute - diff - less - than - or -equal - to - limit / description /)
-144.
+144. https://leetcode.com/problems/permutation-sequence
 生成一个车牌号。00000 -> 00001 -> 00002 -> ... -> 99999 -> A0000 -> A0001 -> ... -> A9999 -> ... -> Z9999 -> AA000 -> ... -> ZZ999 -> ... -> AAA00 -> ... -> ZZZ99 -> ... -> AAAA0 -> ... -> ZZZZ9 -> ... -> AAAAA -> ... -> ZZZZZ。输入是一个数字，表示要生成第几个车牌号，输出是一个字符串，对应该数字对应的车牌号。
-解法: [排列序列](https: // leetcode.com / problems / permutation - sequence / submissions / 1256458910 /)
 ```python
 
 
@@ -5634,12 +4702,8 @@ class Solution:
 
 
 ```
-145.[大西洋
-太平洋
-洋流问题](https: // leetcode.com/problems/pacific-atlantic-water-flow/description/)
+145.[大西洋 太平洋 洋流问题]()
 ```python
-
-
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         """
@@ -5689,8 +4753,8 @@ class Solution:
 
 ```
 
-146.
-leaderboard: 实现lgn求topk的和: MKAverage
+146. leaderboard: 实现lgn求topk的和: MKAverage
+
 147.[花期内花的数目](https: // leetcode.cn / problems / number - of - flowers - in -full - bloom / description /)
 ```python
 
@@ -5743,16 +4807,10 @@ class Solution:
 
 
 ```
-148.
-given
-a
-datastream and a
-distance，每次来一个新value，判断一下能否和已经存下来的组成triplet，triplet之间两两abs小于distance。lz用了sortedlist
-149.
-number
-of
-islands
-Tree.树上的岛屿数量
+148. given a datastream and a distance，每次来一个新value，判断一下能否和已经存下来的组成triplet，triplet之间两两abs小于distance。lz用了sortedlist
+
+     
+150. number of islands Tree.树上的岛屿数量
 ```python
 """
          1
@@ -5815,6 +4873,8 @@ root.right.right = TreeNode(1)
 print(find_islands(root))
 ```
 还可以使用并查集, 但是需要做两遍遍历
+
+
 150.[树的直径](https: // leetcode.com / problems / diameter - of - binary - tree /)
 ```python
 
@@ -6252,39 +5312,11 @@ print(ip_finder.find_city("1.0.1.35"))  # 返回 "SF"
 print(ip_finder.find_city("1.0.1.50"))  # 返回 "Not found"
 
 ```
-10.
-Two
-cars
-can
-move(up, down, left, right or not move) and
-return whether
-they
-can
-reach
-their
-destination
-.is road
-# is wall
-a is starting
-point
-of
-car
-a
-b is starting
-point
-of
-car
-b
-A is car
-a’s
-destination
-B is car
-b’s
-destination
+10. 两辆车Two cars can move(up, down, left, right or not move) and return whether they can reach their destination .is road # is wall a is starting point of car a b is starting point of car b A is car a’s destination B is car b’s destination
 例如
 aBAb: false
-因为a或者b总会挡住对方的出路
-面试官的思路是遍历判断是否能达到最终状态即a和b都到各自的终点。我的做法是遍历时把grid转换成string来代表当前状态，遍历的时候就可以判断当前状态是否被访问过。
+因为a或者b总会挡住对方的出路 面试官的思路是遍历判断是否能达到最终状态即a和b都到各自的终点。我的做法是遍历时把grid转换成string来代表当前状态，遍历的时候就可以判断当前状态是否被访问过。
+
 ```python
 from collections import deque
 
@@ -6384,20 +5416,10 @@ result = can_reach_destinations(grid)
 print("Can both cars reach their destinations?", result)
 
 ```
-11.[
-    有效的括号字符串]（https: // leetcode.cn / problems / valid - parenthesis - string / solutions / 992347 / you - xiao - de - gua - hao - zi - fu - chuan - by - leetc - osi3 /）
-12.[判断一个括号字符串是否有效](
-    https: // leetcode.cn / problems / check - if -a - parentheses - string - can - be - valid / solutions / 1178043 / zheng - fan - liang - ci - bian - li - by - endlessche - z8ac /)
-13.
-tree
-path
-sum
-leaf
-to
-leaf
+11.有效的括号字符串 'https://leetcode.cn/problems/valid-parenthesis-string/solutions/992347/you-xiao-de-gua-hao-zi-fu-chuan-by-leetc-osi3
+    
+13. tree path sum leaf to leaf
 ```python
-
-
 class Solution:
     def path_sum_leaf2leaf(self, root):
         def dfs(node):
@@ -6412,14 +5434,8 @@ class Solution:
 
 
 ```
-
-non
-leaf
-to
-leaf
+non leaf to leaf
 ```python
-
-
 class Solution:
     def path_sum(self, root):
         ans = -float('inf')
