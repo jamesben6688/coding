@@ -3349,12 +3349,13 @@ def maxIncreasingSubWithChange(arr):
 
             max_res = max(max_res, left[pos - 1] + right[pos + 1] + 1)
 
-        """
-        防止这种[1, 2, 3, 4, 0, 3], 只能改1个0
-        """
-        for pos in range(n - 1):
-            if arr[pos + 1] < arr[pos]:
-                max_res = max(res, left[pos] + 1)
+    """
+    防止这种[1, 2, 3, 4, 0, 3], 只能改1个0
+    """
+    for pos in range(n - 1):
+        if arr[pos + 1] < arr[pos]:
+            max_res = max(res, left[pos] + 1)
+
     # Consider changing the first element
     # 修改数组第一个值
     max_res = max(max_res, right[1] + 1)
