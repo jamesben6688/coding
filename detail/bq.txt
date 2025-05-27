@@ -1,0 +1,174 @@
+1. tight deadline
+STAR
+高压、时间受限的环境下如何组织任务、保持专注、协作与交付结果。
+I still remember the first project I received after working at TikTok. The department leader would like to quickly verify whether large multimodal can help
+improve tiktok's recommendation system. So I got this task. In the beginning, I talked to my managers and mentors. What type of resouced is needed, and other
+helps are required from other teams....
+
+2. too many work,
+高负荷情况下是否能保持条理、有策略地管理任务，并且不会牺牲质量。
+强调你会 主动沟通，而不是默默扛着不说话
+不要只说“我加班”或“我撑下来了”，重点是你如何系统地应对
+
+In last week, I was in charge of two tasks about multi-modal. My leader gives me a task to implement a project incorporting mm feature into the current recommendation
+model because I have some kind of computer vision background. At the same time, my team leader asked to read a lot of the latest work in this area, and try to use some
+useful ideas to improve the project. So I have to develop a system and read a lot of recent conference papers and implement the core ideas.
+
+I first evaluate the project, check what type of resouces are needed, any other cooperations are needed....
+
+
+3. a failure,
+有自我反思能力, 提炼经验，快速调整策略, 坦诚，而不是回避或归咎他人
+During my phd study. My collaborator got a task to detect the fiberathoroma in Coronary iamges. When I got this task, I thought is was like a common project like I did
+before. So I talked to my advisor, that it will not take too much time. Then I start writing the network, do training and testing. I found the training accuracy is pretty
+good but the accuracy on testing dataset is pertty terrible. This got me stuck for many days. I carefully checked my model and cannot find any errors. I over estimate the
+ability of the deep neural networks and ignored the importance of the data quality. ... talked to my collaborator to help me check the dataset and found the annotation is not
+very good. Then I tried other methods like semi-supervised and remove the noisy data. And invited help from then, to help me re-annotated some data. This lead  to the dealy of
+the project. Even thought we finally finished the project, but the project was delayed. This teach me to schedule more time, leave some time for exceptions. And rely more on the
+data instead of the models.
+
+4. work with colleagues who usually work from home,
+远程协作（remote collaboration） 场景下的沟通能力、主动性和跨时区/虚拟团队协作能力
+我最近的工作就是多个团队协同配合。
+My recent project is the collaboration of multiple teams, our algorithm team, AML team and arch team. Some of the team members are in other countries like austrilia, china. So in the
+beginning, I talked to my leader that I will need what types of resources. I applied a internal online sync page. Instead of meeting everyday because of the timezone...
+
+5. if you work fine when your project priority changes often,
+Yes. I will be fine with this. Recently I experienced this scenario. We plan to build a multi-modal from scratch, that is, we would like to train a multi-modal .
+But because of the data policy, we are unable to get some specific data from the pre-training. We already did some work on this. But I quickly relaized this drawback and
+talked to my leader about this. So we have to come up with an alternative solution for this.  ..., finally we ...
+
+6. good characteristics of a manager,
+7. initiate a project/feature,
+8. a change to your initial proposal
+9. weakness
+自我认知、成长能力、和处理挑战的成熟度。
+I am not good at say no to my teammates, because I am afraid it may make our realationship being bad. But being this sometimes makes me very exhaused and very tired. Now I started  to
+say no to my teammate if I cannot do it or it may take too much time. I will measure the workload and my currect schedule. When I cannot make it, I will explain to my teammates and apologized
+....
+
+10. Tell me about a time when you had a conflict with a co-worker.
+I recently had a conflict with my co-worker. We are working on a generative model on multi-modality. He suggests using MSE loss while I suggest using CrossEntropy Loss.  Because the data policy
+some data cannot be easily acquired. So MSE is more convient. I explained to him why this is not appropriate, because non-convex, performance bad.  And I did a simple demo to him, ...
+and then we communicated with each other how we can acquire the data.....
+
+
+11. had a conflict and needed to influence somebody else.
+
+12. most challenging aspect of your current project
+The model is too big, and GPU memory is not sufficient. So I have to modify the foundation training framework, making it traing with FP16 or even FP8...
+Lots of works to do. But also exciting. Because you got the change to know the details of the framework, others don't know.
+
+13. How do you tackle challenges? Name a difficult challenge you faced while working on a project, how you overcame it, and what you learned.
+Model training.... Nan... other don't know.
+
+14.What are you excited about?
+
+advocate myself的经历，deal with 不配合的同事，怎么让团队保持innovative，怎么说服别人同意你的意见，答的正常吧，有些现想的可能不
+太make sense，但小哥回复还是蛮积极的
+
+1. when some one take all the credits of a project, what you will do, what aspects you will talk with him
+情绪化、公开对抗，而是私下解决, 1-on-1 谈话，关注事实和改善,  联合展示、明确 credit 分工
+In one meeting, he is in charge of the data preprocessing and I am in charge of model deployment. I found he reported both but failed to mention me...
+I didn't react in the meeting but instead talked to him 1-on-1 and .... He told me he didn't reliazed that and will ....
+The situation improved, and our working relationship became stronger because we’d built trust through open communication.
+I also learned the importance of being proactive about visibility, but doing it in a collaborative, non-confrontational way.
+
+2. ambugious project
+My current project was ambugious because the department leader just want to use multi-modal info. then I talked to my leader, made a schedule...
+what type of resource are needed, what type of data are required, what type of metrics can be used. baseline models, how to ....
+
+3. fail deadline 但是上层让你deliver 你会怎么办
+During my phd study, I am supposed to submit a paper to a conference. It was about med image classification. Because of the training resources,  another experiemtns are not being able to be done.
+I feel not prepared, but my advisor still want me to submit. Then I measured the schedule, I asked my labmate for help, to do one extra experiations. I will focus more the writing.  We finally submitted the
+project, ...
+
+4. 你是manager 你会怎么做 关于fail 的deadline
+
+5. different opinion with your colleague
+
+
+6. hard time and conflicts in covid
+
+
+7. how you deal with a tight deadline
+
+
+Most interesting project, challenging part; how to persuade not-willing-to-work colleagues to finish project.
+
+accessibility方面有没有过什么贡献
+
+怎么handle new challenge/如何own a project/如果你是mentor，怎么更好地帮助自己的intern/如果在团队里你的选择有小部分人不接受怎么办
+
+most successful project, manager want to deliver unfinished product, move into new team/project,
+prefer people from same background or different, do something out of duty
+
+有没有遇到过 道德/伦理影响你做技术决定的时候。。。
+
+what if your team member takes all your credits, tell me a time when your manager gives you unreasonable tasks, 其他不记得了应该有一个ownership相关的
+
+很专业的深挖如何priority事情和处理不同意见
+
+1. 组内成员都非常友好，而且多年合作非常默契，但是缺乏创新，怎么办？
+I presented a new tech. And suggested our leader to organize weekly paper reading and sharing...
+
+2. 如果遇到时间紧并且任务重的项目怎么办？
+Current project. split the task, build small model first, prove the ..., then iterative...
+
+3. 如果在项目提交给客户前发现有问题怎么办？
+迅速补救, 延期时间非常短。然后结果很好。
+
+challenger things , how to resolve conflict, boss call your somthing not working....
+
+disagreement, conflicts, a happy experience, high goal
+
+问了问怎么学新的技术啊，有没有需要go against Google Leadership principle的时候啊，一个challenge solve不了怎么办啊之类的
+
+1. a time beyond or above your responsibility, what did you do, what benefit does the user get
+phd, we found data noisy. data annotation is not my task, and difficut to annotate. To facilate the progress, I talked to
+collaborate I am willing to learning the specific domain knowledge and how we can correct the annotation....
+
+2. a time you didn't work well with coworkers
+commutation not enough. Because the requirement and ... We do 1-on-1 meeting, and get all the work done....
+
+3. a time you got an unrealistic demand from the manager or team
+
+
+4. you propose a new idea and the team disagree with it
+Recent project. Model GPU. I prefer to traing on FP16 or FP8, but complext...
+
+5. a time you help the coworker
+My colleage is struggling with his paper. haven't sleep for 24 hours. Not familar with MR data. I told him I deal with MR
+before. and may offer some help. Help him finished the experiement on MR data. accepted.
+
+
+6. biggest challenge you met, what did you do not to have it again
+Data processing.... Coronary
+
+7. tell me a time to use your strength in your work
+Recently experiemtn model too large. need to run with FP16 FP8....
+
+8. how do you accommodate different work styles
+
+Describe the most rewarded project/most challenging part of that project。
+Share an experience when you work with someone with a different working style.
+What do you learn from a previous internship experience?
+What do you do if your team has a bad culture, e.g. your coworkers do not work hard?
+
+BQ: tell me a time when you try to work with a person who has a different work style as you.
+I prefer prototying first, write the framework then add detail and modify.
+My co-worker would like to get the details done.... We decided to.., hybrid, we worked pretty well.
+This collaboration worked well — we combined speed with stability. The project was accepted to the conference,
+and we both appreciated each other’s working style more
+
+tell me a time when you got a really unreasonable task from your manger or your colleauge.
+I still remember the task that I was assigned when I doing intern as an AI lab at zhejiang university.
+The professor want me to implement an algorithm given limited
+resources. After evaluating this task, I found this is not reasonable to be implemented in 2 weeks. I explained to him why, ...
+The I tried to use the distill model and use min max to implement a go algorithm, and the project turned to be pretty good....
+
+tell me a time when the thing not going as your inital plan.
+I was planed to train a model for coronary detection in three months ML model. But then I found the data provided is very noisy, and unbalanced..
+Then I talked to my advisor what is wrong. And I proposed to firstly try on small model and small dataset, later on, we can apply iterative
+strategy... And the model turned out to be pretty good.
+

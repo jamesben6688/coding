@@ -234,7 +234,7 @@ Follow up:
 比如上面 要求输出一个String (2+3) × 5
 https://github.com/jamesben6688/coding/blob/main/dfs/add_operators.py
 https://github.com/jamesben6688/coding/blob/main/dfs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B7%BB%E5%8A%A0%E7%AC%A6%E5%8F%B7%E7%94%9F%E6%88%90%E7%AD%89%E5%BC%8F.py
-
+https://leetcode.cn/problems/expression-add-operators/description/
 16. tree，找到所有满足条件的node
 树的节点遍历BDS/DFS 过程中加“符合条件”的判断
 
@@ -310,6 +310,9 @@ int fibonacci(int n) {
 NOTE: DO NOT USE RECURSION
 USE CONSTANT O(1) STORAGE
 矩阵快速幂: https://github.com/jamesben6688/coding/blob/main/dfs/fib.py
+
+25. 数据流随机抽样: 水库抽样  
+https://github.com/jamesben6688/coding/blob/main/others/stream_rand_pick.py  
 
 25. Given the following implementation of a stack:
 class Stack {
@@ -1684,7 +1687,7 @@ https://github.com/jamesben6688/coding/blob/main/range/P710.py
 followup。。问我String x = "a"然后String x = x+x 是怎么work的。。。可能因为我code里写到了这些
 str不可变。每次会创建新的str, 所以id会变
 然后问了如果有相同数字，怎么break code 之类的
-
+下一个排列
 https://github.com/jamesben6688/coding/blob/main/dfs/next_permutation.py
 
 
@@ -1728,7 +1731,12 @@ https://github.com/jamesben6688/coding/blob/main/hash/%E6%95%B0%E7%BB%84pair%E5%
 一个小tricky是迷宫中有一些障碍
 
 221. 值更新, 给一个数, 返回最小的idx 比如[idx, num]
-[1, 10],[2, 10], [1, 20]
+[1, 10],[2, 10], [1, 20], [3, 10]
+
+[X, 20, 10, X]
+{10: {1, 2}, 20: 1}
+
+{idx: val}
 现在问num = 10, 返回2, 因为idx 1 被20用掉了,
 {idx: val}
 {val: set(idx1, idx2)
@@ -1750,8 +1758,9 @@ Follow up感觉答得比较差，也确实比较难。问的是除了Union 加�
 撤销好友关系，那么最早时间所有人都成为朋友会如何变。
 https://github.com/jamesben6688/coding/blob/main/union_find/%E5%8F%AF%E6%92%A4%E9%94%80%E7%9A%84%E5%B9%B6%E6%9F%A5%E9%9B%86.py
 
-223. 怎么判断回文Valid. 找到数列第K大的数，quick select写了五分钟写完了。然后他又说能不能写个iterative的方法，我只要找到第二大的数。
-
+223. 怎么判断回文Valid. 找到数列大的数，quick select写了五分钟写完了。然后他又说能不能写个iterative的方法，我只要找到第二大的数。
+https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 224. 568. 要求print 每周去哪个城市的itinary list，而不是最长假期日
 https://leetcode.cn/problems/maximum-vacation-days/
 https://github.com/jamesben6688/coding/blob/main/dp/%E5%91%98%E5%B7%A5%E4%BC%91%E5%81%87.py
@@ -1873,7 +1882,8 @@ followup: 从朋友出发做bfs
 https://github.com/jamesben6688/coding/blob/main/bfs/%E6%9C%8B%E5%8F%8B%E5%88%B0%E5%92%96%E5%95%A1%E5%8E%85%E6%9C%80%E7%9F%AD%E8%B7%9D%E7%A6%BB.py
 
 249. 求list中第二大的数，不要用heap。 follow-up: 求第k大的数
-
+https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 250. 57. 看能不能预定到房间。改成设计题。
 例如：
 add(10, 20) 返回对
@@ -3252,6 +3262,8 @@ https://leetcode.cn/problems/move-zeroes/submissions/532267916/
 503. 968. Binary Tree Cameras监控摄像头
 https://leetcode.com/problems/binary-tree-cameras/description/
 504. 实现两个方法一个add()一个query()，add往结构里加数,query取第k个最小值
+https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
+https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 
 505. 2128一个二维数组 灯泡 有1有0 ，问能不能都turn off，就是都变成0
 一个矩阵里面只有两种值，'是'和'否'，有的'是'有的'否'，你控制一个开关，这个开关可以翻转任一行或者任一列，
@@ -3769,7 +3781,7 @@ follow up是数据很长很长，query范围的次数也很多次。
 
 637. 国人小哥 人不错 问题是 给一个string 比如 a-(b+c+b) 输出 a-2b-c。聊了半天给了口述了两个解法。
 用for loop走recursion和用stack。小哥内心的标准答案是stack。但是我用了for loop。sample run后表示可以，
-化简数学表达式
+数学表达式
 https://github.com/jamesben6688/coding/blob/main/stack/simplify_math.py
 
 638. 有四个工作，分配个两个worker，每个workēr对应每个task的cost记录在数组中.求将工作平均分配，最小的cost是多少。
